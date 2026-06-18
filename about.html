@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — GRANTED LLC</title>
+<meta name="description" content="GRANTED was founded after the 2011 Joplin tornado recovery. Big-4 discipline, grassroots execution, $100M+ secured.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.origin-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.origin-body{font-size:10.5pt;color:var(--ink-2);line-height:1.8}
+.origin-body p+p{margin-top:14px}
+.origin-body strong{color:var(--navy);font-weight:800}
+.origin-aside{background:var(--navy);padding:32px 28px;position:relative;overflow:hidden}
+.origin-aside::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.origin-aside-title{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);letter-spacing:2px;margin-bottom:20px;position:relative;z-index:2}
+.origin-stat{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:baseline;gap:12px;position:relative;z-index:2}
+.origin-stat:last-child{border-bottom:none}
+.origin-stat-num{font-family:'Bebas Neue',sans-serif;font-size:26pt;color:var(--orange);line-height:1;flex-shrink:0}
+.origin-stat-lbl{font-size:8.5pt;color:rgba(255,255,255,.45);text-align:right;line-height:1.5}
+.founder-band{background:var(--navy);position:relative;overflow:hidden}
+.founder-band::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.founder-band::after{content:'';position:absolute;left:-50px;bottom:-50px;width:220px;height:220px;border-radius:50%;border:40px solid rgba(244,123,32,.06);pointer-events:none}
+.founder-inner{max-width:1140px;margin:0 auto;padding:60px 36px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start}
+.founder-meta{font-size:7.5pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);padding-bottom:5px;border-bottom:1.5px solid var(--orange);display:inline-block;margin-bottom:10px}
+.founder-name{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);letter-spacing:2px;margin-bottom:4px}
+.founder-title{font-size:8.5pt;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:20px}
+.founder-bio{font-size:10.5pt;color:rgba(255,255,255,.68);line-height:1.8}
+.founder-bio p+p{margin-top:14px}
+.founder-bio strong{color:var(--white);font-weight:800}
+.founder-spotlight{background:rgba(255,255,255,.04);border:1px solid rgba(244,123,32,.22);padding:20px 22px;margin-top:24px}
+.founder-spotlight-eye{font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.founder-spotlight a{font-size:9.5pt;color:var(--white);font-weight:700}
+.founder-spotlight a:hover{color:var(--orange)}
+.founder-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:24px}
+.founder-card-title{font-size:7.5pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:12px}
+.founder-card-line{font-size:9.5pt;color:rgba(255,255,255,.55);line-height:1.9}
+.founder-card-line a{color:var(--orange)}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.value-card{border-left:3px solid var(--orange);padding:22px 22px 22px 24px;background:var(--gray-card)}
+.value-title{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--navy);letter-spacing:1.5px;margin-bottom:8px}
+.value-body{font-size:9.5pt;color:var(--ink-2);line-height:1.72}
+.portfolio-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.ptag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:5px 13px;font-size:8pt;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.07em;text-transform:uppercase}
+.ptag-private{background:rgba(244,123,32,.1);border-color:rgba(244,123,32,.2);color:var(--orange-light)}
+.port-lbl{font-size:8pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin:20px 0 6px}
+@media(max-width:900px){.origin-grid{grid-template-columns:1fr}.founder-inner{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.values-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="site-nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="g-mark" src="assets/g-mark.png" alt="GRANTED"><span class="nav-wordmark">GRANTED<sup>LLC</sup></span></a><button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html" class="nav-cta">Get Started</a></li></ul></div></nav>
+<div class="stripe"></div>
+<div class="page-hero"><div class="page-hero-inner"><div class="page-eyebrow">Our Story</div><h1 class="page-title">About GRANTED</h1><p class="page-subtitle">Big-4 discipline. Grassroots execution. Built to close the gap between vision and funded outcomes.</p></div></div>
+
+<div class="section">
+  <div class="origin-grid">
+    <div>
+      <div class="sec-label">Our Origin</div>
+      <div class="sec-title" style="margin-bottom:20px">Built from the Ground Up</div>
+      <div class="origin-body">
+        <p>In 2011, an EF-5 tornado devastated Joplin, Missouri — the hometown of our founder, <strong>Shannon Anastosopolos</strong>. In the recovery that followed, Shannon joined Deloitte, later PwC, helping administer Joplin's grant-funded recovery — rebuilding housing, infrastructure, and public services through some of the most complex federal grant programs in the country.</p>
+        <p>That work exposed a persistent gap: communities often have the will and the projects, but lack the bandwidth and expertise to navigate complex funding systems. <strong>GRANTED was built to close that gap.</strong></p>
+        <p>Based in Northwest Arkansas, GRANTED is a full-spectrum grant solutions firm and thought partner to cities, counties, nonprofits, and innovators nationwide. We pair Big-4 discipline with grassroots execution — moving from idea to funded outcome by scouting opportunities, drafting competitive proposals, and managing compliance end-to-end.</p>
+      </div>
+    </div>
+    <div class="origin-aside">
+      <div class="origin-aside-title">Our Track Record</div>
+      <div class="origin-stat"><div class="origin-stat-num">$100M+</div><div class="origin-stat-lbl">Competitive awards secured</div></div>
+      <div class="origin-stat"><div class="origin-stat-num">$100B+</div><div class="origin-stat-lbl">Federally funded programs managed</div></div>
+      <div class="origin-stat"><div class="origin-stat-num">100x</div><div class="origin-stat-lbl">Target ROI per engagement</div></div>
+      <div class="origin-stat"><div class="origin-stat-num">10+</div><div class="origin-stat-lbl">Federal agencies in our portfolio</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="founder-band">
+  <div class="founder-inner">
+    <div>
+      <div class="founder-meta">Founder &amp; CEO</div>
+      <div class="founder-name">Shannon Anastosopolos</div>
+      <div class="founder-title">Founder &amp; Chief Executive Officer</div>
+      <div class="founder-bio">
+        <p>Shannon is a strategic leader in grant consulting known for building high-impact partnerships across the public and private sectors. He has helped raise <strong>over $100 million in funding</strong> and has overseen the management of more than <strong>$100 billion in federal grants</strong>.</p>
+        <p>With deep expertise in grant strategy, nonprofit consulting, and capital acquisition, Shannon guides clients through complex funding landscapes. His approach strengthens communities, accelerates innovation, and improves the success rate of transformational initiatives.</p>
+        <p>Shannon's background spans Deloitte, PwC, and years of hands-on advisory work across local governments, tribal nations, and mission-driven organizations throughout the United States.</p>
+      </div>
+      <div class="founder-spotlight">
+        <div class="founder-spotlight-eye">Public Recognition</div>
+        <a href="https://aymag.com/2025-men-of-distinction-shannon-anastosopolos/" target="_blank" rel="noopener">2025 Men of Distinction — AY Magazine →</a>
+      </div>
+    </div>
+    <div>
+      <div class="founder-card">
+        <div class="founder-card-title">Get in Touch</div>
+        <div class="founder-card-line"><a href="mailto:shannon@grantedco.com">shannon@grantedco.com</a><br><a href="tel:4174343186">417-434-3186</a><br>The Ledger, Downtown Bentonville</div>
+        <a href="contact.html" class="btn btn-orange" style="display:block;text-align:center;margin-top:20px">Start a Conversation</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">How We Work</div>
+  <div class="sec-title">Our Approach</div>
+  <div class="values-grid">
+    <div class="value-card"><div class="value-title">Strategic First</div><p class="value-body">Every engagement starts with understanding your mission, your capacity, and what a realistic win looks like — then we build backward from there.</p></div>
+    <div class="value-card"><div class="value-title">Honest Fit Assessment</div><p class="value-body">We tell you when a grant isn't right for you. A weak application wastes time and erodes funder relationships. We only pursue what we believe you can win.</p></div>
+    <div class="value-card"><div class="value-title">End-to-End Execution</div><p class="value-body">From opportunity identification through post-award compliance, we stay with you. Our work doesn't stop at submission — it stops when the project closes out cleanly.</p></div>
+  </div>
+</div>
+
+<div class="dark-band">
+  <div class="dark-band-inner">
+    <div class="sec-label" style="color:var(--orange);border-color:var(--orange)">Past Performance</div>
+    <div class="sec-title" style="color:var(--white);margin-bottom:20px">Grant Portfolio</div>
+    <div class="port-lbl">Federal &amp; State</div>
+    <div class="portfolio-tags"><span class="ptag">HUD CDBG</span><span class="ptag">HUD CDBG-DR</span><span class="ptag">HUD CDBG-CV</span><span class="ptag">HUD ESG</span><span class="ptag">FEMA PA</span><span class="ptag">FEMA BRIC</span><span class="ptag">HRSA RHCSO</span><span class="ptag">ARPA / CARES / SLFRF</span><span class="ptag">EPA SWIFR</span><span class="ptag">FTA APP</span><span class="ptag">DOT TAP</span><span class="ptag">DOT STBG</span><span class="ptag">DOT RCP</span><span class="ptag">DOT RAISE</span><span class="ptag">EDA EAAP</span><span class="ptag">USDA RBGP</span><span class="ptag">USDA OM</span><span class="ptag">DOJ CFI</span></div>
+    <div class="port-lbl" style="margin-top:24px">Private &amp; Foundation</div>
+    <div class="portfolio-tags"><span class="ptag ptag-private">Walton Family Foundation</span><span class="ptag ptag-private">Blue and You Foundation</span><span class="ptag ptag-private">Pat &amp; Willard Walker Foundation</span><span class="ptag ptag-private">Tyson Foundation</span><span class="ptag ptag-private">Hearst Foundation</span></div>
+  </div>
+</div>
+
+<div class="section" style="text-align:center;padding-top:72px;padding-bottom:72px">
+  <div class="sec-label" style="display:block;text-align:center;border-bottom:none;padding-bottom:0;margin-bottom:14px">Ready to Work Together?</div>
+  <div class="sec-title" style="text-align:center;margin-bottom:14px">Start with Navigate</div>
+  <p class="sec-body" style="margin:0 auto 28px;text-align:center">A flat-fee funding assessment that delivers a clear strategy in three steps. No retainer required.</p>
+  <a href="contact.html" class="btn btn-orange">Get Started — $2,500</a>
+</div>
+
+<footer class="site-footer"><div class="stripe"></div><div class="footer-inner"><div class="footer-brand"><div class="footer-logo-row"><img class="g-mark-sm" src="assets/g-mark.png" alt="GRANTED"><div class="footer-wordmark">GRANTED<sup>LLC</sup></div></div><div class="footer-tagline">More Grants. Less Grind.</div><div class="footer-sub">Find Funding &nbsp;·&nbsp; Win Awards &nbsp;·&nbsp; Manage Impact</div></div><div><div class="footer-col-title">Navigation</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><a href="https://grantedco.com">grantedco.com</a><br><a href="mailto:shannon@grantedco.com">shannon@grantedco.com</a><br><a href="tel:4174343186">417-434-3186</a><br>The Ledger · Bentonville, AR</div></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2025 GRANTED LLC. All rights reserved.</div><ul class="footer-sub-links"><li><a href="contact.html">Contact</a></li><li><a href="careers.html">Careers</a></li></ul></div></footer>
+<script src="js/nav.js"></script>
+</body></html>

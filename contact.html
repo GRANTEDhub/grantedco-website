@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — GRANTED LLC</title>
+<meta name="description" content="Start your GRANTED engagement. Complete our intake form and we'll schedule your Navigate discovery call.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.contact-layout{display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:start}
+.form-shell{background:var(--white);border:1px solid var(--border);overflow:hidden}
+.form-head{background:var(--navy);padding:22px 28px;border-bottom:3px solid var(--orange);position:relative;overflow:hidden}
+.form-head::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.form-head-eye{font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:4px;position:relative;z-index:2}
+.form-head-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:2px;position:relative;z-index:2}
+.form-embed{width:100%;min-height:800px;border:none;display:block}
+.sidebar{display:flex;flex-direction:column;gap:16px}
+.sb-block{background:var(--gray-card);border:1px solid var(--border);padding:22px 20px}
+.sb-title{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--navy);letter-spacing:1.5px;margin-bottom:12px}
+.sb-body{font-size:9.5pt;color:var(--ink-2);line-height:1.75}
+.sb-body a{color:var(--orange)}
+.price-block{background:var(--navy);padding:26px 20px;text-align:center;position:relative;overflow:hidden}
+.price-block::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.pb-eye{font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:4px;position:relative;z-index:2}
+.pb-amt{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--white);line-height:1;letter-spacing:1px;position:relative;z-index:2}
+.pb-term{font-size:7.5pt;color:rgba(255,255,255,.35);letter-spacing:.08em;margin-top:5px;position:relative;z-index:2}
+.next-steps{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.ns{display:flex;gap:10px;align-items:flex-start}
+.ns-num{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--orange);line-height:1;flex-shrink:0;margin-top:1px}
+.ns-text{font-size:9pt;color:var(--ink-2);line-height:1.6}
+.ns-text strong{color:var(--navy);font-weight:800}
+.contact-dl{display:flex;flex-direction:column;gap:10px}
+.cdl-label{font-size:7.5pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1px}
+.cdl-val{font-size:9.5pt;color:var(--ink-2)}
+.cdl-val a{color:var(--orange)}
+@media(max-width:900px){.contact-layout{grid-template-columns:1fr}.sidebar{order:-1}}
+</style>
+</head>
+<body>
+<nav class="site-nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="g-mark" src="assets/g-mark.png" alt="GRANTED"><span class="nav-wordmark">GRANTED<sup>LLC</sup></span></a><button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html" class="nav-cta">Get Started</a></li></ul></div></nav>
+<div class="stripe"></div>
+<div class="page-hero"><div class="page-hero-inner"><div class="page-eyebrow">Get Started</div><h1 class="page-title">Let's Talk</h1><p class="page-subtitle">Complete the intake form and we'll follow up to schedule your Navigate discovery call. The process starts from there.</p></div></div>
+
+<div class="section">
+  <div class="contact-layout">
+    <div class="form-shell">
+      <div class="form-head"><div class="form-head-eye">Client Intake</div><div class="form-head-title">Tell Us About Your Organization</div></div>
+      <iframe class="form-embed" src="https://gohGranted.replit.app/intake" title="GRANTED Client Intake Form" loading="lazy"></iframe>
+    </div>
+    <div class="sidebar">
+      <div class="price-block">
+        <div class="pb-eye">Navigate — Flat Fee</div>
+        <div class="pb-amt">$2,500</div>
+        <div class="pb-term">One-Time · All-Inclusive · No Retainer Required</div>
+      </div>
+      <div class="sb-block">
+        <div class="sb-title">What Happens Next</div>
+        <div class="next-steps">
+          <div class="ns"><div class="ns-num">01</div><div class="ns-text"><strong>We review your intake</strong> and reach out within one business day to schedule your discovery call.</div></div>
+          <div class="ns"><div class="ns-num">02</div><div class="ns-text"><strong>Discovery call</strong> — a working session to understand your mission, priorities, and projects.</div></div>
+          <div class="ns"><div class="ns-num">03</div><div class="ns-text"><strong>Grant report delivered</strong> — your prioritized GRANTED Roadmap, built around your eligibility and priorities.</div></div>
+          <div class="ns"><div class="ns-num">04</div><div class="ns-text"><strong>Strategy session</strong> — a 1-hour debrief to walk through the roadmap and map your next steps.</div></div>
+        </div>
+      </div>
+      <div class="sb-block">
+        <div class="sb-title">Direct Contact</div>
+        <div class="contact-dl">
+          <div><div class="cdl-label">Email</div><div class="cdl-val"><a href="mailto:shannon@grantedco.com">shannon@grantedco.com</a></div></div>
+          <div><div class="cdl-label">Phone</div><div class="cdl-val"><a href="tel:4174343186">417-434-3186</a></div></div>
+          <div><div class="cdl-label">Office</div><div class="cdl-val">The Ledger, Downtown Bentonville<br>Northwest Arkansas</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="stripe"></div><div class="footer-inner"><div class="footer-brand"><div class="footer-logo-row"><img class="g-mark-sm" src="assets/g-mark.png" alt="GRANTED"><div class="footer-wordmark">GRANTED<sup>LLC</sup></div></div><div class="footer-tagline">More Grants. Less Grind.</div><div class="footer-sub">Find Funding &nbsp;·&nbsp; Win Awards &nbsp;·&nbsp; Manage Impact</div></div><div><div class="footer-col-title">Navigation</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><a href="https://grantedco.com">grantedco.com</a><br><a href="mailto:shannon@grantedco.com">shannon@grantedco.com</a><br><a href="tel:4174343186">417-434-3186</a><br>The Ledger · Bentonville, AR</div></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2025 GRANTED LLC. All rights reserved.</div><ul class="footer-sub-links"><li><a href="contact.html">Contact</a></li><li><a href="careers.html">Careers</a></li></ul></div></footer>
+<script src="js/nav.js"></script>
+</body></html>

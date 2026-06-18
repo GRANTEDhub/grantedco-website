@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works — GRANTED LLC</title>
+<meta name="description" content="Navigate: $2,500 flat-fee funding assessment. Ongoing advisory and grant writing available from there.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.nav-hero-block{background:var(--white);border:1px solid var(--border);display:grid;grid-template-columns:240px 1fr;overflow:hidden;margin-top:32px}
+.nav-price-col{background:var(--navy);padding:44px 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.nav-price-col::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.nav-price-col::after{content:'';position:absolute;right:-20px;bottom:-20px;width:90px;height:90px;border-radius:50%;border:20px solid rgba(244,123,32,.12);pointer-events:none}
+.npc-eye{font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:6px;position:relative;z-index:2}
+.npc-name{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--white);letter-spacing:3px;margin-bottom:6px;position:relative;z-index:2}
+.npc-amt{font-family:'Bebas Neue',sans-serif;font-size:50px;color:var(--orange);line-height:1;letter-spacing:1px;position:relative;z-index:2}
+.npc-term{font-size:7.5pt;color:rgba(255,255,255,.35);letter-spacing:.1em;margin-top:7px;position:relative;z-index:2}
+.nav-content-col{padding:36px 40px}
+.ncc-label{font-size:7.5pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);padding-bottom:5px;border-bottom:1.5px solid var(--orange);display:inline-block;margin-bottom:10px}
+.ncc-title{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--navy);letter-spacing:2px;margin-bottom:12px}
+.ncc-desc{font-size:10.5pt;color:var(--ink-2);line-height:1.75;margin-bottom:24px}
+.ncc-desc strong{color:var(--navy);font-weight:800}
+.steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:28px}
+.step-block{background:var(--cream);padding:28px 24px;transition:background .2s}
+.step-block:hover{background:var(--gray-card)}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--orange);letter-spacing:1px;line-height:1;margin-bottom:8px}
+.step-name{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--navy);letter-spacing:1.5px;margin-bottom:8px}
+.step-desc{font-size:9.5pt;color:var(--ink-2);line-height:1.7}
+.step-desc strong{color:var(--navy);font-weight:800}
+.beyond-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.beyond-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:28px 24px;position:relative;overflow:hidden}
+.beyond-card::after{content:'';position:absolute;right:-20px;bottom:-20px;width:80px;height:80px;border-radius:50%;border:18px solid rgba(244,123,32,.1);pointer-events:none}
+.bc-label{font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:6px}
+.bc-price{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orange);letter-spacing:1px;line-height:1;margin-bottom:10px}
+.bc-price span{font-family:'Cabinet Grotesk',sans-serif;font-size:11pt;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:0}
+.bc-desc{font-size:9.5pt;color:rgba(255,255,255,.7);line-height:1.7}
+.bc-desc strong{color:#fff;font-weight:700}
+.faq-list{display:flex;flex-direction:column;border:1px solid var(--border);margin-top:28px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-btn{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-btn:hover{background:var(--gray-card)}
+.faq-q{font-size:10.5pt;font-weight:800;color:var(--navy);text-align:left;line-height:1.4}
+.faq-chev{width:16px;height:16px;flex-shrink:0;color:var(--orange);transition:transform .2s}
+.faq-item.open .faq-chev{transform:rotate(180deg)}
+.faq-ans{display:none;padding:0 28px 22px;font-size:9.5pt;color:var(--ink-2);line-height:1.8}
+.faq-ans a{color:var(--orange)}
+.faq-item.open .faq-ans{display:block}
+@media(max-width:768px){.nav-hero-block{grid-template-columns:1fr}.steps-row{grid-template-columns:1fr}.beyond-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="site-nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="g-mark" src="assets/g-mark.png" alt="GRANTED"><span class="nav-wordmark">GRANTED<sup>LLC</sup></span></a><button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html" class="nav-cta">Get Started</a></li></ul></div></nav>
+<div class="stripe"></div>
+<div class="page-hero"><div class="page-hero-inner"><div class="page-eyebrow">Pricing &amp; Process</div><h1 class="page-title">How It Works</h1><p class="page-subtitle">Every GRANTED engagement begins with Navigate — a flat-fee assessment that delivers a clear strategy before you commit to anything else.</p></div></div>
+
+<div class="section">
+  <div class="sec-label">Step One</div>
+  <div class="sec-title">The Navigate Engagement</div>
+  <div class="nav-hero-block">
+    <div class="nav-price-col">
+      <div class="npc-eye">Flat Fee</div>
+      <div class="npc-name">Navigate</div>
+      <div class="npc-amt">$2,500</div>
+      <div class="npc-term">One-Time · All-Inclusive</div>
+    </div>
+    <div class="nav-content-col">
+      <div class="ncc-label">The Starting Point</div>
+      <div class="ncc-title">A Clear Funding Strategy in Three Steps</div>
+      <p class="ncc-desc">For a single flat fee, we learn your organization, research the funding landscape, and deliver a prioritized roadmap of the grants you're best positioned to win — capped off with a live strategy session. <strong>No retainer, no commitment required to start.</strong></p>
+      <a href="contact.html" class="btn btn-orange">Get Started</a>
+    </div>
+  </div>
+  <div class="steps-row">
+    <div class="step-block"><div class="step-num">01</div><div class="step-name">Discovery Call</div><p class="step-desc">A working session to understand your <strong>mission, priorities, projects, and capacity</strong> — the foundation for everything we research.</p></div>
+    <div class="step-block"><div class="step-num">02</div><div class="step-name">The Grant Report</div><p class="step-desc">A custom <strong>GRANTED Roadmap</strong> — a prioritized list of active and forecasted grants you're eligible for, with funder, deadline, award range, and fit.</p></div>
+    <div class="step-block"><div class="step-num">03</div><div class="step-name">Debrief &amp; Strategy</div><p class="step-desc">A <strong>1-hour strategy session</strong> to walk through the roadmap, answer questions, and map out your next moves and priorities.</p></div>
+  </div>
+</div>
+
+<div class="dark-band">
+  <div class="dark-band-inner">
+    <div class="sec-label" style="color:var(--orange);border-color:var(--orange)">If You'd Like to Keep Going</div>
+    <div class="sec-title" style="color:var(--white);margin-bottom:14px">Ongoing Engagement Options</div>
+    <p style="font-size:10.5pt;color:rgba(255,255,255,.6);max-width:580px;line-height:1.75;margin-bottom:8px">Navigate stands on its own — but most clients want a partner to help execute. If you choose to <strong style="color:#fff">engage beyond the roadmap</strong>, we keep it simple and transparent:</p>
+    <div class="beyond-grid">
+      <div class="beyond-card"><div class="bc-label">Ongoing Advisory &amp; Support</div><div class="bc-price">$1,000 <span>/ retainer</span></div><p class="bc-desc">A working retainer billed against our hourly rate of <strong>$150/hr</strong> — applied toward strategy, research, application support, compliance, and reporting as you need it.</p></div>
+      <div class="beyond-card"><div class="bc-label">Grant Writing</div><div class="bc-price">Quoted <span>per grant</span></div><p class="bc-desc">Full proposal development is <strong>scoped and quoted separately</strong> for each opportunity, based on the complexity and requirements of the specific grant.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Common Questions</div>
+  <div class="sec-title">Frequently Asked</div>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-btn"><span class="faq-q">What types of organizations does GRANTED work with?</span><svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-ans">We work with nonprofits, local governments, community colleges, regional health systems, and small businesses. If your organization is pursuing grant funding and needs a strategic partner, we're built for that.</div></div>
+    <div class="faq-item"><button class="faq-btn"><span class="faq-q">Do I need to commit to a retainer to get started?</span><svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-ans">No. Navigate is a one-time, flat-fee engagement. You get the discovery call, the grant report, and the strategy session for $2,500 — with no obligation to continue. Most clients do choose to continue, but that decision is yours after you see the roadmap.</div></div>
+    <div class="faq-item"><button class="faq-btn"><span class="faq-q">How long does Navigate take?</span><svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-ans">Typically two to three weeks from the discovery call to the strategy session, depending on your organization's complexity and responsiveness during research.</div></div>
+    <div class="faq-item"><button class="faq-btn"><span class="faq-q">How is grant writing priced?</span><svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-ans">Grant writing is quoted per opportunity based on the scope and complexity of the specific grant. After Navigate, we'll quote any grants from your roadmap that you want to pursue.</div></div>
+    <div class="faq-item"><button class="faq-btn"><span class="faq-q">How do I get started?</span><svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-ans">Complete our <a href="contact.html">intake form</a> and we'll follow up within one business day to schedule your discovery call.</div></div>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="stripe"></div><div class="footer-inner"><div class="footer-brand"><div class="footer-logo-row"><img class="g-mark-sm" src="assets/g-mark.png" alt="GRANTED"><div class="footer-wordmark">GRANTED<sup>LLC</sup></div></div><div class="footer-tagline">More Grants. Less Grind.</div><div class="footer-sub">Find Funding &nbsp;·&nbsp; Win Awards &nbsp;·&nbsp; Manage Impact</div></div><div><div class="footer-col-title">Navigation</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><a href="https://grantedco.com">grantedco.com</a><br><a href="mailto:shannon@grantedco.com">shannon@grantedco.com</a><br><a href="tel:4174343186">417-434-3186</a><br>The Ledger · Bentonville, AR</div></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2025 GRANTED LLC. All rights reserved.</div><ul class="footer-sub-links"><li><a href="contact.html">Contact</a></li><li><a href="careers.html">Careers</a></li></ul></div></footer>
+<script src="js/nav.js"></script>
+<script>document.querySelectorAll('.faq-btn').forEach(function(b){b.addEventListener('click',function(){var i=b.closest('.faq-item'),w=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(x){x.classList.remove('open')});if(!w)i.classList.add('open')})});</script>
+</body></html>

@@ -1,0 +1,10 @@
+Initial commit: grantedco.com static website
+
+7-page static site (home, about, services, how-it-works, resources,
+careers, contact) with shared CSS, mobile nav JS, and G-mark logo.
+Vercel config includes clean URLs and static asset caching.
+
+Deploy: new Vercel project → root directory = / → Framework: Other
+
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_014RHvDLDozvxxb7mNrTPkEY
