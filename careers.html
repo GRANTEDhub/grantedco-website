@@ -10,19 +10,19 @@
 .job-shell{background:var(--white);border:1px solid var(--border);overflow:hidden}
 .job-head{background:var(--navy);padding:28px 32px;border-bottom:3px solid var(--orange);position:relative;overflow:hidden}
 .job-head::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.job-head::after{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;border:32px solid rgba(244,123,32,.06);pointer-events:none}
 .job-head-eye{font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:6px;position:relative;z-index:2}
-.job-head-title{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--white);letter-spacing:2px;margin-bottom:4px;position:relative;z-index:2}
+.job-head-title{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);letter-spacing:2px;margin-bottom:4px;position:relative;z-index:2}
 .job-head-meta{font-size:8.5pt;color:rgba(255,255,255,.38);letter-spacing:.06em;position:relative;z-index:2}
-.job-body{padding:32px}
-.job-sec{margin-bottom:28px}
-.job-sec:last-child{margin-bottom:0}
-.job-sec-title{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--navy);letter-spacing:1.5px;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
-.job-text{font-size:10pt;color:var(--ink-2);line-height:1.8}
+.job-body{padding:36px 32px;display:flex;flex-direction:column;gap:32px}
+.job-sec{}
+.job-sec-title{font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--navy);letter-spacing:1.5px;margin-bottom:12px;padding-bottom:7px;border-bottom:1px solid var(--border)}
+.job-text{font-size:10pt;color:var(--ink-2);line-height:1.82}
 .job-text p+p{margin-top:12px}
 .job-text strong{color:var(--navy);font-weight:800}
-.req-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:8px}
-.req-list li{font-size:10pt;color:var(--ink-2);padding-left:16px;position:relative;line-height:1.6}
-.req-list li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;background:var(--orange)}
+.req-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.req-list li{font-size:10pt;color:var(--ink-2);padding-left:18px;position:relative;line-height:1.6}
+.req-list li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--orange)}
 .req-list li strong{color:var(--navy);font-weight:800}
 .sidebar{display:flex;flex-direction:column;gap:16px}
 .apply-block{background:var(--navy);padding:28px 22px;text-align:center;position:relative;overflow:hidden}
@@ -36,57 +36,126 @@
 .comp-row:last-child{border-bottom:none}
 .comp-lbl{font-size:8.5pt;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
 .comp-val{font-size:9.5pt;font-weight:700;color:var(--navy)}
+.aspiration-band{background:var(--navy);border-radius:0;position:relative;overflow:hidden;margin-bottom:32px}
+.aspiration-band::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:20px 20px;pointer-events:none}
+.aspiration-inner{padding:32px;position:relative;z-index:2}
+.aspiration-body{font-size:10.5pt;color:rgba(255,255,255,.68);line-height:1.82}
+.aspiration-body p+p{margin-top:12px}
+.aspiration-body strong{color:var(--white);font-weight:800}
 @media(max-width:900px){.careers-layout{grid-template-columns:1fr}.sidebar{order:-1}}
 </style>
 </head>
 <body>
-<nav class="site-nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="g-mark" src="g-mark.png" alt="GRANTED"><span class="nav-wordmark">GRANTED<sup>LLC</sup></span></a><button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html" class="nav-cta">Get Started</a></li></ul></div></nav>
+<nav class="site-nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="g-mark" src="g-mark.png" alt="GRANTED"><span class="nav-wordmark">GRANTED<sup>LLC</sup></span></a><button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button><ul class="nav-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html" class="nav-cta">Get Started</a></li></ul></div></nav>
 <div class="stripe"></div>
-<div class="page-hero"><div class="page-hero-inner"><div class="page-eyebrow">Join the Team</div><h1 class="page-title">Careers at GRANTED</h1><p class="page-subtitle">We're a small, founder-led team at a pivotal stage of growth. The right person will feel the momentum the moment they walk in.</p></div></div>
+<div class="page-hero"><div class="page-hero-inner"><div class="page-eyebrow anim-1">Join the Team</div><h1 class="page-title anim-2">Careers at GRANTED</h1><p class="page-subtitle anim-3">We're a small, founder-led team at a pivotal stage of growth. The right person will feel the momentum the moment they walk in.</p></div></div>
 
 <div class="section">
   <div class="careers-layout">
-    <div class="job-shell">
-      <div class="job-head">
-        <div class="job-head-eye">Open Position · Bentonville, AR</div>
-        <div class="job-head-title">Founder's Associate</div>
-        <div class="job-head-meta">Full-Time · In-Office · The Ledger, Downtown Bentonville</div>
+
+    <div>
+      <!-- ASPIRATION BAND -->
+      <div class="aspiration-band reveal">
+        <div class="aspiration-inner">
+          <div style="font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:8px">A Small Team with Big Aspirations</div>
+          <div class="aspiration-body">
+            <p>GRANTED is a tech-enabled grant advisory firm based in Bentonville, Arkansas. We help nonprofits, local governments, higher education, and small businesses find, win, and manage grant funding — with <strong>over $100 million in non-dilutive funding secured</strong> for our clients.</p>
+            <p>We're at a pivotal moment — transitioning from boutique firm to <strong>AI-native platform</strong> built to scale our mission nationally. The founding team has built companies before, knows what it doesn't know, and is genuinely invested in the growth of people around them.</p>
+          </div>
+        </div>
       </div>
-      <div class="job-body">
-        <div class="job-sec">
-          <div class="job-sec-title">About GRANTED</div>
-          <div class="job-text"><p>GRANTED is a tech-enabled grant advisory firm based in Bentonville, Arkansas. We help nonprofits, local governments, higher education, and small businesses find, win, and manage grant funding — with over $100 million in non-dilutive funding secured for our clients.</p><p>We're a small, founder-led team at a pivotal stage of growth, transitioning to an AI-native platform to scale our mission nationally. The founding team has built companies before, knows what it doesn't know, and is genuinely invested in the growth of people around them. <strong>You won't be managed into a box here.</strong></p></div>
+
+      <!-- JOB SHELL -->
+      <div class="job-shell reveal d1">
+        <div class="job-head">
+          <div class="job-head-eye">Open Position · Bentonville, AR</div>
+          <div class="job-head-title">Founder's Associate</div>
+          <div class="job-head-meta">Full-Time · In-Office · The Ledger, Downtown Bentonville</div>
         </div>
-        <div class="job-sec">
-          <div class="job-sec-title">The Role</div>
-          <div class="job-text"><p>You'll work alongside the founder across platform development, grant research and writing, business development, government relations, marketing, project management, client relationships, legal coordination, and more. Some of it you'll know. Most of it you'll figure out. All of it will matter from day one.</p></div>
-        </div>
-        <div class="job-sec">
-          <div class="job-sec-title">What We're Looking For</div>
-          <div class="job-text">
-            <p>Education and experience aren't always reliable hiring metrics — especially in a startup. What we need is someone who can adapt quickly, contribute across shifting areas of the business, and bring real capability from day one.</p>
-            <p><strong>Three things are required:</strong></p>
+        <div class="job-body">
+
+          <div class="job-sec">
+            <div class="job-sec-title">A Seat at the Table</div>
+            <div class="job-text">
+              <p>This isn't an entry-level role with a fancy title. You'll work directly alongside Shannon across platform development, grant research and writing, business development, government relations, marketing, project management, client relationships, legal coordination, and more.</p>
+              <p>Some of it you'll know. Most of it you'll figure out. <strong>All of it will matter from day one.</strong> You won't be managed into a box. You won't be handed busywork. You'll be in the room where it happens.</p>
+            </div>
+          </div>
+
+          <div class="job-sec">
+            <div class="job-sec-title">What We're Looking For</div>
+            <div class="job-text">
+              <p>Education and experience aren't always reliable hiring metrics — especially in a startup. What we need is someone who can adapt quickly, contribute across shifting areas of the business, and bring real capability from day one. Here's what that looks like.</p>
+            </div>
+            <div class="trait-grid" style="margin-top:16px">
+              <div class="trait-card">
+                <div class="trait-num">01</div>
+                <div class="trait-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4l3 3"/></svg>
+                </div>
+                <div class="trait-title">Mission Mentality</div>
+                <p class="trait-body">You care about the work and what it produces for the organizations we serve. You understand that behind every grant is a community, a school, a health system, a small business trying to do something meaningful. This isn't just a job.</p>
+              </div>
+              <div class="trait-card">
+                <div class="trait-num">02</div>
+                <div class="trait-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div class="trait-title">Eager</div>
+                <p class="trait-body">You want to be better at things you don't yet know. You see unfamiliar territory as opportunity, not obstacle. You don't wait to be shown the way — you figure it out, then ask good questions afterward.</p>
+              </div>
+              <div class="trait-card">
+                <div class="trait-num">03</div>
+                <div class="trait-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <div class="trait-title">All-In / Selfless</div>
+                <p class="trait-body">You show up for the team. The work matters more than the credit. You're not here to build your resume — you're here to build something. You bring your best and expect the same from others.</p>
+              </div>
+              <div class="trait-card">
+                <div class="trait-num">04</div>
+                <div class="trait-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="trait-title">The Constant</div>
+                <p class="trait-body">You're the person who follows through, every time. No reminders needed. No dropped balls. You deliver what you said you would, when you said you would. You are the standard.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-sec">
+            <div class="job-sec-title">Driven, Curious, Capable</div>
+            <div class="job-text">
+              <p>We'd love to see experience in grant writing or research, go-to-market strategy, startup environments, vibe coding or low-code automation, and operations. But none of it is a dealbreaker.</p>
+              <p>If you've held a role that required you to context-switch constantly, operate across multiple disciplines, and figure things out on the fly — tell us about it.</p>
+              <p style="margin-top:16px"><strong>Three things are required. Everything else is negotiable.</strong></p>
+            </div>
             <ul class="req-list">
               <li><strong>Bachelor's degree</strong></li>
               <li><strong>Demonstrated fluency with AI tools</strong> (Claude, ChatGPT, or equivalent)</li>
               <li><strong>Located in Northwest Arkansas</strong></li>
             </ul>
-            <p style="margin-top:12px">We'd love to see experience in grant writing or research, go-to-market strategy, startup environments, vibe coding or low-code automation, and operations. But none of it is a dealbreaker. If you've held a role that required you to context-switch constantly, operate across multiple disciplines, and figure things out on the fly — tell us about it.</p>
           </div>
-        </div>
-        <div class="job-sec">
-          <div class="job-sec-title">How to Apply</div>
-          <div class="job-text"><p>Use the Apply button in the sidebar. <strong>We take cover letters seriously.</strong> Skip the template — tell us your story, why this role, and why you're the right person for it. A great note will do more than any resume.</p></div>
+
+          <div class="job-sec">
+            <div class="job-sec-title">How to Apply</div>
+            <div class="job-text">
+              <p>Use the Apply button in the sidebar. <strong>We take cover letters seriously.</strong> Skip the template — tell us your story, why this role, and why you're the right person for it. A great note will do more than any resume.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
+
+    <!-- SIDEBAR -->
     <div class="sidebar">
-      <div class="apply-block">
+      <div class="apply-block reveal">
         <div class="ab-title">Ready to Apply?</div>
-        <p class="ab-body">Upload your resume. Strong applicants receive a short video interview to answer on your own time. No scheduling required for round one.</p>
+        <p class="ab-body">Upload your resume and write a real cover letter. Strong applicants receive a short async video interview — answer on your own time. No scheduling required for round one.</p>
         <a href="https://rightmatch.app/job/ZCU3W69KKUIS" target="_blank" rel="noopener" class="btn btn-orange" style="display:block;position:relative;z-index:2">Apply Now →</a>
       </div>
-      <div class="sb-block">
+      <div class="sb-block reveal d1">
         <div class="sb-title">Compensation</div>
         <div class="comp-row"><span class="comp-lbl">Salary</span><span class="comp-val">$75,000</span></div>
         <div class="comp-row"><span class="comp-lbl">PTO</span><span class="comp-val">120 hrs / year</span></div>
@@ -94,14 +163,15 @@
         <div class="comp-row"><span class="comp-lbl">Type</span><span class="comp-val">Full-Time, Exempt</span></div>
         <div class="comp-row"><span class="comp-lbl">Location</span><span class="comp-val">Bentonville, AR</span></div>
       </div>
-      <div class="sb-block">
+      <div class="sb-block reveal d2">
         <div class="sb-title">About the Process</div>
         <p class="sb-body">Qualified applicants receive a short async video interview — a few questions you record on your own time. Strong candidates move to a conversation with Shannon directly.</p>
       </div>
     </div>
+
   </div>
 </div>
 
-<footer class="site-footer"><div class="stripe"></div><div class="footer-inner"><div class="footer-brand"><div class="footer-logo-row"><img class="g-mark-sm" src="g-mark.png" alt="GRANTED"><div class="footer-wordmark">GRANTED<sup>LLC</sup></div></div><div class="footer-tagline">More Grants. Less Grind.</div><div class="footer-sub">Find Funding &nbsp;·&nbsp; Win Awards &nbsp;·&nbsp; Manage Impact</div></div><div><div class="footer-col-title">Navigation</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><a href="https://grantedco.com">grantedco.com</a><br><a href="mailto:shannon@grantedco.com">shannon@grantedco.com</a><br><a href="tel:4174343186">417-434-3186</a><br>The Ledger · Bentonville, AR</div></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2025 GRANTED LLC. All rights reserved.</div><ul class="footer-sub-links"><li><a href="contact.html">Contact</a></li><li><a href="careers.html">Careers</a></li></ul></div></footer>
+<footer class="site-footer"><div class="stripe"></div><div class="footer-inner"><div class="footer-brand"><div class="footer-logo-row"><img class="g-mark-sm" src="g-mark.png" alt="GRANTED"><div class="footer-wordmark">GRANTED<sup>LLC</sup></div></div><div class="footer-tagline">More Grants. Less Grind.</div><div class="footer-sub">Find Funding &nbsp;·&nbsp; Win Awards &nbsp;·&nbsp; Manage Impact</div></div><div><div class="footer-col-title">Navigation</div><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><a href="https://grantedco.com">grantedco.com</a><br><a href="mailto:shannon@grantedco.com">shannon@grantedco.com</a><br><a href="tel:4174343186">417-434-3186</a><br>The Ledger · Bentonville, AR</div></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2025 GRANTED LLC. All rights reserved.</div><ul class="footer-sub-links"><li><a href="contact.html">Contact</a></li><li><a href="careers.html">Careers</a></li></ul></div></footer>
 <script src="nav.js"></script>
 </body></html>
