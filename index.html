@@ -6,52 +6,6 @@
 <title>GRANTED LLC — More Grants. Less Grind.</title>
 <meta name="description" content="GRANTED is a full-spectrum grant solutions firm helping nonprofits, local governments, and institutions find, win, and manage grant funding. Over $100M secured.">
 <link rel="stylesheet" href="style.css">
-<style>
-/* HOME-SPECIFIC */
-
-/* About pillars on light background */
-.about-pillars {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  margin-top: 28px;
-  border-top: 1px solid var(--border);
-  padding-top: 22px;
-}
-.about-pillar { padding-right: 18px; border-right: 1px solid var(--border); margin-right: 18px; }
-.about-pillar:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-.about-pillar-title {
-  font-size: 7.5pt;
-  font-weight: 800;
-  color: var(--orange);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 5px;
-}
-.about-pillar-desc { font-size: 8.5pt; color: var(--ink-2); line-height: 1.65; }
-
-/* Serve grid uses serve-card-light */
-.serve-card-light-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 32px;
-}
-
-@media (max-width: 900px) {
-  .serve-card-light-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-}
-@media (max-width: 560px) {
-  .about-pillars { grid-template-columns: 1fr; }
-  .about-pillar {
-    border-right: none; margin-right: 0; padding-right: 0;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 14px; margin-bottom: 14px;
-  }
-  .about-pillar:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-  .serve-card-light-grid { grid-template-columns: 1fr; }
-}
-</style>
 </head>
 <body>
 
@@ -77,49 +31,47 @@
 
 <div class="stripe"></div>
 
-<!-- HERO — split layout: headline left, stats right -->
-<section class="hero-light">
-  <div class="hero-light-inner hero-split">
-
-    <div class="hero-split-left">
-      <div class="hero-light-eyebrow anim-1">Grant Advisory &amp; Strategy · Bentonville, Arkansas</div>
-      <h1 class="hero-light-headline">
-        <span class="hero-serif anim-2">More Grants.</span>
-        <span class="hero-bold anim-3">Less Grind.</span>
-      </h1>
-      <p class="hero-light-sub anim-4">Full-spectrum grant solutions for nonprofits, local governments, and institutions. We find the funding, write the proposals, and manage the compliance.</p>
-      <div class="hero-light-actions anim-5">
-        <a href="contact.html" class="btn btn-orange">Start with Launch — $2,500</a>
-        <a href="services.html" class="btn btn-ghost-dark">Our Services</a>
+<!-- HERO -->
+<section class="hero-v4">
+  <div class="hero-v4-inner">
+    <div class="hero-v4-eyebrow anim-1">
+      <span class="hero-v4-eyebrow-dot"></span>
+      Grant Advisory &amp; Strategy · Bentonville, Arkansas
+    </div>
+    <h1 class="hero-v4-headline">
+      <span class="hero-v4-line1 anim-2">More Grants.</span>
+      <span class="hero-v4-line2 anim-3">Less Grind.</span>
+    </h1>
+    <p class="hero-v4-sub anim-4">
+      Full-spectrum grant solutions for nonprofits, local governments, and institutions.
+      We <span class="hl">find the funding, write the proposals, and manage the compliance</span> — so your team can focus on the work that matters most.
+    </p>
+    <div class="hero-v4-actions anim-5">
+      <a href="contact.html" class="btn btn-orange">Start with Launch — $2,500</a>
+      <a href="services.html" class="btn btn-ghost-dark">Our Services</a>
+    </div>
+    <div class="hero-v4-stats anim-5">
+      <div class="stat-pill">
+        <div class="stat-pill-num" data-count="100" data-prefix="$" data-suffix="M+">$100M+</div>
+        <div class="stat-pill-lbl">Awards Secured</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num" data-count="100" data-prefix="$" data-suffix="B+">$100B+</div>
+        <div class="stat-pill-lbl">Portfolios Managed</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num">100x</div>
+        <div class="stat-pill-lbl">Target ROI</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-num" data-count="10" data-suffix="+">10+</div>
+        <div class="stat-pill-lbl">Federal Agencies</div>
       </div>
     </div>
-
-    <div class="hero-split-right anim-5">
-      <div class="hero-deco-word">FUNDED</div>
-      <div class="hero-stat-stack">
-        <div class="hero-stat-row">
-          <div class="hero-stat-label-r">Awards Secured</div>
-          <div class="hero-stat-big" data-count="100" data-prefix="$" data-suffix="M+">$100M+</div>
-        </div>
-        <div class="hero-stat-row">
-          <div class="hero-stat-label-r">Portfolios Managed</div>
-          <div class="hero-stat-big" data-count="100" data-prefix="$" data-suffix="B+">$100B+</div>
-        </div>
-        <div class="hero-stat-row">
-          <div class="hero-stat-label-r">Target ROI</div>
-          <div class="hero-stat-big">100x</div>
-        </div>
-        <div class="hero-stat-row">
-          <div class="hero-stat-label-r">Federal Agencies</div>
-          <div class="hero-stat-big" data-count="10" data-suffix="+">10+</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- MARQUEE TICKER -->
+<!-- MARQUEE -->
 <div class="marquee-strip" aria-hidden="true">
   <div class="marquee-track">
     <div class="marquee-item">Find Funding <span class="marquee-dot">·</span> Win Awards <span class="marquee-dot">·</span> Manage Impact <span class="marquee-dot">·</span> $100M+ Secured <span class="marquee-dot">·</span> Bentonville, AR <span class="marquee-dot">·</span> More Grants <span class="marquee-dot">·</span> Less Grind <span class="marquee-dot">·</span> Strategic Partner <span class="marquee-dot">·</span> Federal &amp; State Funding <span class="marquee-dot">·</span> Nonprofits &amp; Governments <span class="marquee-dot">·</span></div>
@@ -127,155 +79,138 @@
   </div>
 </div>
 
-<!-- ABOUT — cream, editorial left column -->
-<section class="cream-bg">
-  <div class="about-split">
-    <div>
-      <div class="sec-label reveal">Who We Are</div>
-      <blockquote class="about-quote reveal d1">
-        "We are not a grant-writing shop — we are a strategic partner."
-      </blockquote>
-      <div class="about-accent-bar reveal d2"></div>
-      <p class="about-meta reveal d2">
-        Pairing Big-4 discipline with practical execution to turn ideas into funded outcomes.
-      </p>
-    </div>
-    <div>
-      <p class="sec-body reveal" style="margin-bottom:24px">
-        <strong>GRANTED</strong> is a full-spectrum grant solutions firm and thought partner to local governments, tribal nations, nonprofits, and institutions nationwide. From the first discovery conversation through final closeout, we <strong>build the strategy, write the proposals, and manage the compliance</strong> — so your team stays focused on the work that matters most.
-      </p>
-      <div class="about-pillars reveal d1">
-        <div class="about-pillar">
-          <div class="about-pillar-title">Find Funding</div>
-          <div class="about-pillar-desc">Continuous scanning, deep eligibility analysis, and scored opportunity identification — aligned to your mission.</div>
-        </div>
-        <div class="about-pillar">
-          <div class="about-pillar-title">Win Awards</div>
-          <div class="about-pillar-desc">Full application support from narrative to budget to submission — built around what reviewers actually score.</div>
-        </div>
-        <div class="about-pillar">
-          <div class="about-pillar-title">Manage Impact</div>
-          <div class="about-pillar-desc">Post-award compliance, reporting, and documentation — so your award stays on track through closeout.</div>
-        </div>
+<!-- ABOUT -->
+<section class="about-v4">
+  <div class="about-v4-inner">
+    <span class="about-v4-deco-q" aria-hidden="true">"</span>
+    <blockquote class="about-v4-quote reveal">
+      "We are not a grant-writing shop — we are a strategic partner."
+    </blockquote>
+    <p class="about-v4-body reveal d1">
+      <strong>GRANTED</strong> is a full-spectrum grant solutions firm serving nonprofits, local governments, tribal nations, and institutions nationwide. From first discovery through final closeout, we
+      <span class="hl">build the strategy, write the proposals, and manage the compliance</span> — so your team stays focused on the work that matters.
+    </p>
+    <div class="about-v4-pillars reveal d2">
+      <div class="about-v4-pillar">
+        <div class="about-v4-pillar-icon"><span>🔍</span></div>
+        <div class="about-v4-pillar-title">Find Funding</div>
+        <div class="about-v4-pillar-desc">Continuous scanning and scored opportunity identification aligned to your mission and eligibility.</div>
+      </div>
+      <div class="about-v4-pillar">
+        <div class="about-v4-pillar-icon"><span>✍️</span></div>
+        <div class="about-v4-pillar-title">Win Awards</div>
+        <div class="about-v4-pillar-desc">Full application support from narrative to budget — built around what reviewers actually score.</div>
+      </div>
+      <div class="about-v4-pillar">
+        <div class="about-v4-pillar-icon"><span>📋</span></div>
+        <div class="about-v4-pillar-title">Manage Impact</div>
+        <div class="about-v4-pillar-desc">Post-award compliance, reporting, and documentation through closeout.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ORANGE STATEMENT BAND -->
-<section class="orange-band">
-  <div class="orange-band-inner">
-    <div class="orange-band-text reveal">
-      We've helped organizations secure over <strong>$100M in grant funding</strong> — and we're just getting started.
-    </div>
-    <a href="contact.html" class="btn-white reveal d2">Work With Us</a>
-  </div>
-</section>
-
-<!-- PACKAGES — 3-tier: Launch / Build / Partner -->
-<section class="packages-section">
-  <div class="packages-inner">
-    <div class="packages-header">
-      <div class="sec-label reveal" style="color:var(--orange);border-color:var(--orange)">Choose Your Package</div>
+<!-- PACKAGES -->
+<section class="packages-v4">
+  <div class="packages-v4-inner">
+    <div class="packages-v4-header">
+      <div class="sec-label reveal" style="color:var(--orange);border-color:var(--orange);display:inline-flex">Choose Your Package</div>
       <h2 class="sec-title reveal d1">The Right Level of Support</h2>
-      <p class="sec-body reveal d2" style="max-width:560px;margin-top:12px">Every engagement starts with a custom Grant Report — scored, prioritized opportunities matched to your eligibility and mission. Pick the level of support that fits where you are right now.</p>
+      <p class="sec-body reveal d2" style="max-width:520px;margin:12px auto 0">Every engagement starts with a custom Grant Report — scored, prioritized opportunities matched to your eligibility and mission.</p>
     </div>
 
-    <div class="packages-grid reveal d1">
+    <div class="packages-v4-grid reveal d1">
 
-      <!-- LAUNCH -->
-      <div class="pkg-card">
-        <div class="pkg-tier-label">Tier 1 · Entry</div>
-        <div class="pkg-name-big">Launch</div>
-        <div class="pkg-price-big">$2,500</div>
-        <div class="pkg-price-term">One-Time · Flat Fee</div>
-        <div class="pkg-divider"></div>
-        <ul class="pkg-features">
-          <li>Discovery call — we learn your organization, programs, and goals</li>
+      <div class="pkg-v4">
+        <div class="pkg-v4-tier">Tier 1 · Entry</div>
+        <div class="pkg-v4-name">Launch</div>
+        <div class="pkg-v4-price">$2,500</div>
+        <div class="pkg-v4-term">One-Time · Flat Fee</div>
+        <div class="pkg-v4-divider"></div>
+        <ul class="pkg-v4-features">
+          <li>Discovery call — we learn your org, programs, and goals</li>
           <li><strong>Scored Grant Report</strong> — top opportunities matched to your eligibility</li>
           <li>Live debrief &amp; strategy session</li>
           <li>Ongoing monitoring</li>
           <li>Proposal support</li>
         </ul>
-        <div class="pkg-ideal-note">Best for organizations that want to know where to start before committing to a longer engagement.</div>
+        <div class="pkg-v4-note">Best for orgs that want to know where to start before committing longer.</div>
         <a href="contact.html" class="btn btn-ghost-dark" style="align-self:flex-start">Get Started</a>
       </div>
 
-      <!-- BUILD — FEATURED -->
-      <div class="pkg-card pkg-featured">
-        <div class="pkg-badge">Most Popular</div>
-        <div class="pkg-tier-label">Tier 2 · Flagship</div>
-        <div class="pkg-name-big">Build</div>
-        <div class="pkg-price-big">$9,999</div>
-        <div class="pkg-price-term">Paid in Full · Best Value</div>
-        <div class="pkg-divider"></div>
-        <ul class="pkg-features">
+      <div class="pkg-v4 pkg-v4-featured">
+        <div class="pkg-v4-popular">Most Popular</div>
+        <div class="pkg-v4-tier">Tier 2 · Flagship</div>
+        <div class="pkg-v4-name">Build</div>
+        <div class="pkg-v4-price">$9,999</div>
+        <div class="pkg-v4-term">Paid in Full · Best Value</div>
+        <div class="pkg-v4-divider"></div>
+        <ul class="pkg-v4-features">
           <li><strong>Everything in Launch</strong></li>
           <li>12 months of daily grant monitoring</li>
           <li>Live alerts when relevant opportunities drop</li>
           <li>Proposal support included</li>
         </ul>
-        <div class="pkg-ideal-note">Under the federal micro-purchase threshold — cities and counties can approve without competitive procurement.</div>
+        <div class="pkg-v4-note">Under the federal micro-purchase threshold — cities and counties can approve without competitive procurement.</div>
         <a href="contact.html" class="btn btn-orange" style="align-self:flex-start">Get Started</a>
       </div>
 
-      <!-- PARTNER -->
-      <div class="pkg-card">
-        <div class="pkg-tier-label">Tier 3 · Full-Service</div>
-        <div class="pkg-name-big">Partner</div>
-        <div class="pkg-price-big">$25,000</div>
-        <div class="pkg-price-term">Annual · Less Than Half a FTE</div>
-        <div class="pkg-divider"></div>
-        <ul class="pkg-features">
+      <div class="pkg-v4">
+        <div class="pkg-v4-tier">Tier 3 · Full-Service</div>
+        <div class="pkg-v4-name">Partner</div>
+        <div class="pkg-v4-price">$25,000</div>
+        <div class="pkg-v4-term">Annual · Less Than Half a FTE</div>
+        <div class="pkg-v4-divider"></div>
+        <ul class="pkg-v4-features">
           <li><strong>Everything in Build</strong></li>
           <li>Fractional grants team, embedded all year</li>
           <li>~100 hours of proposal development</li>
           <li>Consortium &amp; partner strategy</li>
           <li>Priority access &amp; faster turnaround</li>
         </ul>
-        <div class="pkg-ideal-note">Build a real grants function without the overhead of a full-time hire.</div>
+        <div class="pkg-v4-note">Build a real grants function without the overhead of a full-time hire.</div>
         <a href="contact.html" class="btn btn-ghost-dark" style="align-self:flex-start">Get Started</a>
       </div>
 
     </div>
 
-    <div class="pkg-footnote reveal d2">
-      <strong>Note on grant writing:</strong> Proposal development fees are separate and project-based for Launch and Build clients. Additional advisory time beyond included scope is billed at $150/hr.
+    <div class="pkg-v4-footnote reveal d2">
+      <strong>Grant writing fees are separate and project-based</strong> for Launch and Build clients. Additional advisory time beyond included scope is billed at $150/hr.
     </div>
   </div>
 </section>
 
-<!-- WHO WE SERVE — cream -->
-<section class="cream-bg">
-  <div class="section">
-    <div class="sec-label reveal">Who We Serve</div>
+<!-- WHO WE SERVE -->
+<section class="serve-v4">
+  <div class="serve-v4-inner">
+    <div class="sec-label reveal" style="display:inline-flex">Who We Serve</div>
     <h2 class="sec-title reveal d1">Purpose-Driven Organizations</h2>
-    <div class="serve-card-light-grid">
-      <div class="serve-card-light reveal d1">
-        <div class="card-title">Nonprofit Organizations</div>
-        <p class="card-body" style="margin-top:8px">Mission-driven nonprofits seeking private and public grant funding to expand programs and serve more people.</p>
-        <div class="new-serve-num" aria-hidden="true">01</div>
+    <div class="serve-v4-row reveal d2">
+      <div class="serve-v4-item">
+        <div class="serve-v4-num">01</div>
+        <div class="serve-v4-title">Nonprofits</div>
+        <div class="serve-v4-desc">Mission-driven organizations expanding programs through private and public grant funding.</div>
       </div>
-      <div class="serve-card-light reveal d2">
-        <div class="card-title">Local Governments</div>
-        <p class="card-body" style="margin-top:8px">Counties, municipalities, and transit authorities pursuing federal and state funding for infrastructure and services.</p>
-        <div class="new-serve-num" aria-hidden="true">02</div>
+      <div class="serve-v4-item">
+        <div class="serve-v4-num">02</div>
+        <div class="serve-v4-title">Local Governments</div>
+        <div class="serve-v4-desc">Counties, municipalities, and transit authorities pursuing federal and state infrastructure funding.</div>
       </div>
-      <div class="serve-card-light reveal d3">
-        <div class="card-title">Higher Education</div>
-        <p class="card-body" style="margin-top:8px">Community colleges and universities pursuing workforce, research, and student success grant funding.</p>
-        <div class="new-serve-num" aria-hidden="true">03</div>
+      <div class="serve-v4-item">
+        <div class="serve-v4-num">03</div>
+        <div class="serve-v4-title">Higher Education</div>
+        <div class="serve-v4-desc">Community colleges and universities pursuing workforce, research, and student success grants.</div>
       </div>
-      <div class="serve-card-light reveal d4">
-        <div class="card-title">Small Businesses</div>
-        <p class="card-body" style="margin-top:8px">Entrepreneurs and growth-stage companies pursuing SBIR, EDA, and economic development funding.</p>
-        <div class="new-serve-num" aria-hidden="true">04</div>
+      <div class="serve-v4-item">
+        <div class="serve-v4-num">04</div>
+        <div class="serve-v4-title">Small Businesses</div>
+        <div class="serve-v4-desc">Growth-stage companies pursuing SBIR, EDA, and economic development funding.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA — the ONE dark section -->
+<!-- CTA -->
 <div class="cta-band">
   <div class="cta-band-bg" aria-hidden="true">FUNDED</div>
   <div class="cta-inner">
