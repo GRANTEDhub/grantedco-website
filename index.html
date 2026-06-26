@@ -6,6 +6,617 @@
 <title>GRANTED LLC — More Grants. Less Grind.</title>
 <meta name="description" content="GRANTED is a full-spectrum grant solutions firm helping nonprofits, local governments, and institutions find, win, and manage grant funding. Over $100M secured.">
 <link rel="stylesheet" href="style.css">
+<style>
+
+/* ═══════════════════════════════════════
+   HOMEPAGE — FRESH START
+   Fraunces (display) + Plus Jakarta Sans (body)
+   Paper · Ink Blue · Burnt Orange
+   ═══════════════════════════════════════ */
+
+/* NAV OVERRIDE — lighter on paper bg */
+.site-nav {
+  background: var(--blue-deep);
+}
+
+/* ── HERO ── */
+.h-hero {
+  background: var(--paper);
+  min-height: 94vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 36px 80px;
+}
+/* big faded watermark */
+.h-hero::before {
+  content: 'FUNDED';
+  position: absolute;
+  right: -2vw;
+  bottom: -4vw;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(100px, 22vw, 320px);
+  color: rgba(27,45,79,0.04);
+  line-height: 1;
+  letter-spacing: -4px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+/* soft circle top right */
+.h-hero::after {
+  content: '';
+  position: absolute;
+  right: -80px; top: -80px;
+  width: clamp(240px,28vw,420px);
+  height: clamp(240px,28vw,420px);
+  border-radius: 50%;
+  background: rgba(217,96,26,0.06);
+  pointer-events: none;
+  z-index: 0;
+}
+.h-hero-inner {
+  max-width: 900px;
+  position: relative;
+  z-index: 1;
+}
+.h-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.h-eyebrow-pip {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+  display: block;
+}
+.h-headline {
+  margin-bottom: 28px;
+  line-height: 1;
+}
+.h-line-serif {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(64px, 10vw, 130px);
+  color: var(--blue);
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+.h-line-bold {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(60px, 9.5vw, 124px);
+  color: var(--blue);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+.h-sub {
+  font-size: 13pt;
+  color: var(--ink-2);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: 44px;
+}
+.h-sub .h-em {
+  color: var(--blue);
+  font-weight: 700;
+  position: relative;
+  display: inline;
+  background: linear-gradient(transparent 62%, rgba(217,96,26,0.22) 38%);
+}
+.h-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 72px;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 4px;
+  transition: background 0.18s, transform 0.18s;
+  white-space: nowrap;
+}
+.btn-primary:hover { background: #c0521a; transform: translateY(-1px); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: var(--blue);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border);
+  transition: border-color 0.18s, background 0.18s;
+  white-space: nowrap;
+}
+.btn-secondary:hover { border-color: var(--blue); background: var(--blue-lt); }
+
+/* stats row */
+.h-stats {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 36px;
+  max-width: 600px;
+}
+.h-stat {
+  flex: 1;
+  padding-right: 24px;
+  border-right: 1px solid var(--border);
+  margin-right: 24px;
+}
+.h-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.h-stat-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(22px, 2.8vw, 34px);
+  color: var(--blue);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.h-stat-lbl {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 768px) {
+  .h-hero { padding: 100px 20px 64px; min-height: auto; }
+  .h-hero::before { font-size: 28vw; bottom: -2vw; }
+  .h-stats { flex-wrap: wrap; gap: 16px; }
+  .h-stat { flex: 1 1 40%; border-right: none; margin-right: 0; padding-right: 0; }
+}
+
+/* ── MARQUEE ── */
+.h-marquee {
+  background: var(--orange);
+  overflow: hidden;
+  padding: 12px 0;
+}
+.h-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.h-marquee-item {
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  white-space: nowrap;
+  gap: 10px;
+}
+.h-marquee-dot { color: rgba(255,255,255,0.4); }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) { .h-marquee-track { animation: none; } }
+
+/* ── ABOUT / PHILOSOPHY ── */
+.h-about {
+  background: var(--white);
+  padding: 120px 36px;
+  text-align: center;
+}
+.h-about-inner { max-width: 720px; margin: 0 auto; }
+.h-about-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 32px;
+  display: block;
+}
+.h-about-quote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(28px, 4vw, 52px);
+  color: var(--blue);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 40px;
+}
+.h-about-quote strong {
+  font-weight: 700;
+  font-style: normal;
+}
+.h-about-body {
+  font-size: 12pt;
+  color: var(--ink-2);
+  line-height: 1.8;
+  margin-bottom: 56px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.h-about-body .h-em {
+  color: var(--blue);
+  font-weight: 700;
+  background: linear-gradient(transparent 62%, rgba(217,96,26,0.22) 38%);
+}
+.h-pillars {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 48px;
+  text-align: left;
+}
+.h-pillar {
+  flex: 1;
+  padding-right: 32px;
+  border-right: 1px solid var(--border);
+  margin-right: 32px;
+}
+.h-pillar:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.h-pillar-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--orange);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.h-pillar-title {
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.h-pillar-desc {
+  font-size: 9.5pt;
+  color: var(--ink-2);
+  line-height: 1.7;
+}
+
+@media (max-width: 720px) {
+  .h-about { padding: 80px 20px; text-align: left; }
+  .h-pillars { flex-direction: column; gap: 28px; padding-top: 32px; }
+  .h-pillar { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
+  .h-pillar:last-child { border-bottom: none; padding-bottom: 0; }
+}
+
+/* ── PACKAGES ── */
+.h-packages {
+  background: var(--paper);
+  padding: 120px 36px;
+  border-top: 1px solid var(--border);
+}
+.h-packages-inner { max-width: 1000px; margin: 0 auto; }
+.h-packages-hdr { margin-bottom: 64px; }
+.h-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 14px;
+  display: block;
+}
+.h-section-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(30px, 4vw, 50px);
+  color: var(--blue);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.h-section-body {
+  font-size: 11pt;
+  color: var(--ink-2);
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+/* stacked package rows */
+.h-pkg-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid var(--border);
+  background: var(--border);
+  overflow: hidden;
+  border-radius: 8px;
+}
+.h-pkg-row {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 0;
+  background: var(--white);
+  transition: background 0.18s;
+  position: relative;
+}
+.h-pkg-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--border);
+  transition: background 0.2s;
+}
+.h-pkg-row:hover::before { background: var(--orange); }
+.h-pkg-row:hover { background: #fdfcfb; }
+
+.h-pkg-left {
+  padding: 36px 28px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.h-pkg-tier {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.h-pkg-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--blue);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.h-pkg-price {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 32px;
+  color: var(--orange);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.h-pkg-term {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+/* featured row */
+.h-pkg-row.h-pkg-featured { background: var(--blue); }
+.h-pkg-row.h-pkg-featured:hover { background: var(--blue-mid); }
+.h-pkg-row.h-pkg-featured::before { background: var(--orange); }
+.h-pkg-row.h-pkg-featured .h-pkg-left { border-right-color: rgba(255,255,255,0.1); }
+.h-pkg-row.h-pkg-featured .h-pkg-tier { color: rgba(255,255,255,0.4); }
+.h-pkg-row.h-pkg-featured .h-pkg-name { color: var(--white); }
+.h-pkg-row.h-pkg-featured .h-pkg-term { color: rgba(255,255,255,0.4); }
+
+.h-pkg-mid {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+}
+.h-pkg-row.h-pkg-featured .h-pkg-mid { border-right-color: rgba(255,255,255,0.1); }
+.h-pkg-feat-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.h-pkg-feat-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 9.5pt;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+.h-pkg-row.h-pkg-featured .h-pkg-feat-list li { color: rgba(255,255,255,0.72); }
+.h-pkg-feat-list li::before {
+  content: '';
+  display: block;
+  width: 5px; height: 5px; min-width: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+  margin-top: 5px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.h-pkg-feat-list li strong { color: var(--blue); font-weight: 700; }
+.h-pkg-row.h-pkg-featured .h-pkg-feat-list li strong { color: var(--white); }
+.h-pkg-note {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 9pt;
+  color: var(--muted);
+  margin-top: 14px;
+  line-height: 1.6;
+}
+.h-pkg-row.h-pkg-featured .h-pkg-note { color: rgba(255,255,255,0.38); }
+.h-pkg-popular {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: rgba(217,96,26,0.12);
+  padding: 3px 10px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 12px;
+  align-self: flex-start;
+}
+.h-pkg-right {
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  min-width: 160px;
+}
+.h-pkg-footnote {
+  margin-top: 20px;
+  padding: 18px 24px;
+  background: var(--blue-lt);
+  border-radius: 6px;
+  font-size: 9pt;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+.h-pkg-footnote strong { color: var(--blue); font-weight: 700; }
+
+@media (max-width: 860px) {
+  .h-packages { padding: 80px 20px; }
+  .h-pkg-stack { gap: 1px; border-radius: 6px; }
+  .h-pkg-row { grid-template-columns: 1fr; }
+  .h-pkg-left { padding: 28px 24px 20px; border-right: none; border-bottom: 1px solid var(--border); }
+  .h-pkg-row.h-pkg-featured .h-pkg-left { border-bottom-color: rgba(255,255,255,0.1); }
+  .h-pkg-mid { padding: 20px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+  .h-pkg-row.h-pkg-featured .h-pkg-mid { border-bottom-color: rgba(255,255,255,0.1); }
+  .h-pkg-right { padding: 20px 24px 28px; align-items: flex-start; }
+}
+
+/* ── WHO WE SERVE ── */
+.h-serve {
+  background: var(--blue-lt);
+  padding: 100px 36px;
+  border-top: 1px solid var(--border);
+}
+.h-serve-inner { max-width: 1000px; margin: 0 auto; }
+.h-serve-hdr { margin-bottom: 52px; }
+.h-serve-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(27,45,79,0.1);
+  border: 1px solid rgba(27,45,79,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.h-serve-item {
+  background: var(--white);
+  padding: 32px 24px;
+  transition: background 0.18s;
+}
+.h-serve-item:hover { background: var(--paper); }
+.h-serve-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: rgba(217,96,26,0.5);
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+.h-serve-name {
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.h-serve-desc {
+  font-size: 9pt;
+  color: var(--ink-2);
+  line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+  .h-serve { padding: 72px 20px; }
+  .h-serve-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .h-serve-grid { grid-template-columns: 1fr; }
+}
+
+/* ── CTA BAND ── */
+.h-cta {
+  background: var(--blue-deep);
+  padding: 120px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.h-cta::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+.h-cta::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px; height: 900px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.025);
+  pointer-events: none;
+}
+.h-cta-inner { position: relative; z-index: 2; }
+.h-cta-headline {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(36px, 5.5vw, 72px);
+  color: var(--white);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.h-cta-headline strong {
+  font-style: normal;
+  font-weight: 900;
+  color: var(--orange);
+}
+.h-cta-sub {
+  font-size: 11pt;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 44px;
+}
+
+@media (max-width: 600px) {
+  .h-cta { padding: 80px 20px; }
+}
+</style>
 </head>
 <body>
 
@@ -32,193 +643,212 @@
 <div class="stripe"></div>
 
 <!-- HERO -->
-<section class="hero-v4">
-  <div class="hero-v4-inner">
-    <div class="hero-v4-eyebrow anim-1">
-      <span class="hero-v4-eyebrow-dot"></span>
+<section class="h-hero">
+  <div class="h-hero-inner">
+    <div class="h-eyebrow anim-1">
+      <span class="h-eyebrow-pip"></span>
       Grant Advisory &amp; Strategy · Bentonville, Arkansas
     </div>
-    <h1 class="hero-v4-headline">
-      <span class="hero-v4-line1 anim-2">More Grants.</span>
-      <span class="hero-v4-line2 anim-3">Less Grind.</span>
+    <h1 class="h-headline">
+      <span class="h-line-serif anim-2">More Grants.</span>
+      <span class="h-line-bold anim-3">Less Grind.</span>
     </h1>
-    <p class="hero-v4-sub anim-4">
+    <p class="h-sub anim-4">
       Full-spectrum grant solutions for nonprofits, local governments, and institutions.
-      We <span class="hl">find the funding, write the proposals, and manage the compliance</span> — so your team can focus on the work that matters most.
+      We <span class="h-em">find the funding, write the proposals, and manage the compliance</span> — so your team can focus on the work that matters most.
     </p>
-    <div class="hero-v4-actions anim-5">
-      <a href="contact.html" class="btn btn-orange">Start with Launch — $2,500</a>
-      <a href="services.html" class="btn btn-ghost-dark">Our Services</a>
+    <div class="h-actions anim-5">
+      <a href="contact.html" class="btn-primary">Start with Launch — $2,500</a>
+      <a href="services.html" class="btn-secondary">See Our Services</a>
     </div>
-    <div class="hero-v4-stats anim-5">
-      <div class="stat-pill">
-        <div class="stat-pill-num" data-count="100" data-prefix="$" data-suffix="M+">$100M+</div>
-        <div class="stat-pill-lbl">Awards Secured</div>
+    <div class="h-stats anim-5">
+      <div class="h-stat">
+        <div class="h-stat-num" data-count="100" data-prefix="$" data-suffix="M+">$100M+</div>
+        <div class="h-stat-lbl">Awards Secured</div>
       </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num" data-count="100" data-prefix="$" data-suffix="B+">$100B+</div>
-        <div class="stat-pill-lbl">Portfolios Managed</div>
+      <div class="h-stat">
+        <div class="h-stat-num" data-count="100" data-prefix="$" data-suffix="B+">$100B+</div>
+        <div class="h-stat-lbl">Portfolios Managed</div>
       </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num">100x</div>
-        <div class="stat-pill-lbl">Target ROI</div>
+      <div class="h-stat">
+        <div class="h-stat-num">100x</div>
+        <div class="h-stat-lbl">Target ROI</div>
       </div>
-      <div class="stat-pill">
-        <div class="stat-pill-num" data-count="10" data-suffix="+">10+</div>
-        <div class="stat-pill-lbl">Federal Agencies</div>
+      <div class="h-stat">
+        <div class="h-stat-num" data-count="10" data-suffix="+">10+</div>
+        <div class="h-stat-lbl">Federal Agencies</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-strip" aria-hidden="true">
-  <div class="marquee-track">
-    <div class="marquee-item">Find Funding <span class="marquee-dot">·</span> Win Awards <span class="marquee-dot">·</span> Manage Impact <span class="marquee-dot">·</span> $100M+ Secured <span class="marquee-dot">·</span> Bentonville, AR <span class="marquee-dot">·</span> More Grants <span class="marquee-dot">·</span> Less Grind <span class="marquee-dot">·</span> Strategic Partner <span class="marquee-dot">·</span> Federal &amp; State Funding <span class="marquee-dot">·</span> Nonprofits &amp; Governments <span class="marquee-dot">·</span></div>
-    <div class="marquee-item" aria-hidden="true">Find Funding <span class="marquee-dot">·</span> Win Awards <span class="marquee-dot">·</span> Manage Impact <span class="marquee-dot">·</span> $100M+ Secured <span class="marquee-dot">·</span> Bentonville, AR <span class="marquee-dot">·</span> More Grants <span class="marquee-dot">·</span> Less Grind <span class="marquee-dot">·</span> Strategic Partner <span class="marquee-dot">·</span> Federal &amp; State Funding <span class="marquee-dot">·</span> Nonprofits &amp; Governments <span class="marquee-dot">·</span></div>
+<div class="h-marquee" aria-hidden="true">
+  <div class="h-marquee-track">
+    <div class="h-marquee-item">Find Funding <span class="h-marquee-dot">·</span> Win Awards <span class="h-marquee-dot">·</span> Manage Impact <span class="h-marquee-dot">·</span> $100M+ Secured <span class="h-marquee-dot">·</span> Bentonville, AR <span class="h-marquee-dot">·</span> More Grants <span class="h-marquee-dot">·</span> Less Grind <span class="h-marquee-dot">·</span> Strategic Partner <span class="h-marquee-dot">·</span> Federal &amp; State Funding <span class="h-marquee-dot">·</span> Nonprofits &amp; Governments <span class="h-marquee-dot">·</span></div>
+    <div class="h-marquee-item" aria-hidden="true">Find Funding <span class="h-marquee-dot">·</span> Win Awards <span class="h-marquee-dot">·</span> Manage Impact <span class="h-marquee-dot">·</span> $100M+ Secured <span class="h-marquee-dot">·</span> Bentonville, AR <span class="h-marquee-dot">·</span> More Grants <span class="h-marquee-dot">·</span> Less Grind <span class="h-marquee-dot">·</span> Strategic Partner <span class="h-marquee-dot">·</span> Federal &amp; State Funding <span class="h-marquee-dot">·</span> Nonprofits &amp; Governments <span class="h-marquee-dot">·</span></div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section class="about-v4">
-  <div class="about-v4-inner">
-    <span class="about-v4-deco-q" aria-hidden="true">"</span>
-    <blockquote class="about-v4-quote reveal">
-      "We are not a grant-writing shop — we are a strategic partner."
+<section class="h-about">
+  <div class="h-about-inner">
+    <span class="h-about-label reveal">Who We Are</span>
+    <blockquote class="h-about-quote reveal d1">
+      "We are not a grant-writing shop.<br>We are a <strong>strategic partner.</strong>"
     </blockquote>
-    <p class="about-v4-body reveal d1">
-      <strong>GRANTED</strong> is a full-spectrum grant solutions firm serving nonprofits, local governments, tribal nations, and institutions nationwide. From first discovery through final closeout, we
-      <span class="hl">build the strategy, write the proposals, and manage the compliance</span> — so your team stays focused on the work that matters.
+    <p class="h-about-body reveal d2">
+      GRANTED is a full-spectrum grant solutions firm serving nonprofits, local governments, tribal nations, and institutions nationwide. From first discovery through final closeout, we <span class="h-em">build the strategy, write the proposals, and manage the compliance</span> — so your team stays focused on the work that matters.
     </p>
-    <div class="about-v4-pillars reveal d2">
-      <div class="about-v4-pillar">
-        <div class="about-v4-pillar-icon"><span>🔍</span></div>
-        <div class="about-v4-pillar-title">Find Funding</div>
-        <div class="about-v4-pillar-desc">Continuous scanning and scored opportunity identification aligned to your mission and eligibility.</div>
+    <div class="h-pillars reveal d3">
+      <div class="h-pillar">
+        <div class="h-pillar-num">01</div>
+        <div class="h-pillar-title">Find Funding</div>
+        <div class="h-pillar-desc">Continuous scanning and scored opportunity identification aligned to your mission and eligibility.</div>
       </div>
-      <div class="about-v4-pillar">
-        <div class="about-v4-pillar-icon"><span>✍️</span></div>
-        <div class="about-v4-pillar-title">Win Awards</div>
-        <div class="about-v4-pillar-desc">Full application support from narrative to budget — built around what reviewers actually score.</div>
+      <div class="h-pillar">
+        <div class="h-pillar-num">02</div>
+        <div class="h-pillar-title">Win Awards</div>
+        <div class="h-pillar-desc">Full application support from narrative to budget — built around what reviewers actually score.</div>
       </div>
-      <div class="about-v4-pillar">
-        <div class="about-v4-pillar-icon"><span>📋</span></div>
-        <div class="about-v4-pillar-title">Manage Impact</div>
-        <div class="about-v4-pillar-desc">Post-award compliance, reporting, and documentation through closeout.</div>
+      <div class="h-pillar">
+        <div class="h-pillar-num">03</div>
+        <div class="h-pillar-title">Manage Impact</div>
+        <div class="h-pillar-desc">Post-award compliance, reporting, and documentation all the way through closeout.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PACKAGES -->
-<section class="packages-v4">
-  <div class="packages-v4-inner">
-    <div class="packages-v4-header">
-      <div class="sec-label reveal" style="color:var(--orange);border-color:var(--orange);display:inline-flex">Choose Your Package</div>
-      <h2 class="sec-title reveal d1">The Right Level of Support</h2>
-      <p class="sec-body reveal d2" style="max-width:520px;margin:12px auto 0">Every engagement starts with a custom Grant Report — scored, prioritized opportunities matched to your eligibility and mission.</p>
+<section class="h-packages">
+  <div class="h-packages-inner">
+    <div class="h-packages-hdr">
+      <span class="h-section-label reveal">Choose Your Package</span>
+      <h2 class="h-section-title reveal d1">The Right Level of Support</h2>
+      <p class="h-section-body reveal d2">Every engagement starts with a custom Grant Report — scored, prioritized opportunities matched to your eligibility and mission. Pick the level of support that fits.</p>
     </div>
 
-    <div class="packages-v4-grid reveal d1">
+    <div class="h-pkg-stack reveal d1">
 
-      <div class="pkg-v4">
-        <div class="pkg-v4-tier">Tier 1 · Entry</div>
-        <div class="pkg-v4-name">Launch</div>
-        <div class="pkg-v4-price">$2,500</div>
-        <div class="pkg-v4-term">One-Time · Flat Fee</div>
-        <div class="pkg-v4-divider"></div>
-        <ul class="pkg-v4-features">
-          <li>Discovery call — we learn your org, programs, and goals</li>
-          <li><strong>Scored Grant Report</strong> — top opportunities matched to your eligibility</li>
-          <li>Live debrief &amp; strategy session</li>
-          <li>Ongoing monitoring</li>
-          <li>Proposal support</li>
-        </ul>
-        <div class="pkg-v4-note">Best for orgs that want to know where to start before committing longer.</div>
-        <a href="contact.html" class="btn btn-ghost-dark" style="align-self:flex-start">Get Started</a>
+      <!-- LAUNCH -->
+      <div class="h-pkg-row">
+        <div class="h-pkg-left">
+          <div class="h-pkg-tier">Tier 1 · Entry</div>
+          <div class="h-pkg-name">Launch</div>
+          <div class="h-pkg-price">$2,500</div>
+          <div class="h-pkg-term">One-Time · Flat Fee</div>
+        </div>
+        <div class="h-pkg-mid">
+          <ul class="h-pkg-feat-list">
+            <li>Discovery call — we learn your org, programs, and goals</li>
+            <li><strong>Scored Grant Report</strong> matched to your eligibility</li>
+            <li>Live debrief &amp; strategy session</li>
+            <li>Ongoing monitoring &amp; proposal support</li>
+          </ul>
+          <p class="h-pkg-note">Best for organizations that want to know where to start before committing longer.</p>
+        </div>
+        <div class="h-pkg-right">
+          <a href="contact.html" class="btn-secondary">Get Started</a>
+        </div>
       </div>
 
-      <div class="pkg-v4 pkg-v4-featured">
-        <div class="pkg-v4-popular">Most Popular</div>
-        <div class="pkg-v4-tier">Tier 2 · Flagship</div>
-        <div class="pkg-v4-name">Build</div>
-        <div class="pkg-v4-price">$9,999</div>
-        <div class="pkg-v4-term">Paid in Full · Best Value</div>
-        <div class="pkg-v4-divider"></div>
-        <ul class="pkg-v4-features">
-          <li><strong>Everything in Launch</strong></li>
-          <li>12 months of daily grant monitoring</li>
-          <li>Live alerts when relevant opportunities drop</li>
-          <li>Proposal support included</li>
-        </ul>
-        <div class="pkg-v4-note">Under the federal micro-purchase threshold — cities and counties can approve without competitive procurement.</div>
-        <a href="contact.html" class="btn btn-orange" style="align-self:flex-start">Get Started</a>
+      <!-- BUILD -->
+      <div class="h-pkg-row h-pkg-featured">
+        <div class="h-pkg-left">
+          <div class="h-pkg-tier">Tier 2 · Flagship</div>
+          <div class="h-pkg-name">Build</div>
+          <div class="h-pkg-price">$9,999</div>
+          <div class="h-pkg-term">Paid in Full · Best Value</div>
+        </div>
+        <div class="h-pkg-mid">
+          <div class="h-pkg-popular">Most Popular</div>
+          <ul class="h-pkg-feat-list">
+            <li><strong>Everything in Launch</strong></li>
+            <li>12 months of daily grant monitoring</li>
+            <li>Live alerts when relevant opportunities drop</li>
+            <li>Proposal support included</li>
+          </ul>
+          <p class="h-pkg-note">Under the federal micro-purchase threshold — cities and counties can approve without competitive procurement.</p>
+        </div>
+        <div class="h-pkg-right">
+          <a href="contact.html" class="btn-primary">Get Started</a>
+        </div>
       </div>
 
-      <div class="pkg-v4">
-        <div class="pkg-v4-tier">Tier 3 · Full-Service</div>
-        <div class="pkg-v4-name">Partner</div>
-        <div class="pkg-v4-price">$25,000</div>
-        <div class="pkg-v4-term">Annual · Less Than Half a FTE</div>
-        <div class="pkg-v4-divider"></div>
-        <ul class="pkg-v4-features">
-          <li><strong>Everything in Build</strong></li>
-          <li>Fractional grants team, embedded all year</li>
-          <li>~100 hours of proposal development</li>
-          <li>Consortium &amp; partner strategy</li>
-          <li>Priority access &amp; faster turnaround</li>
-        </ul>
-        <div class="pkg-v4-note">Build a real grants function without the overhead of a full-time hire.</div>
-        <a href="contact.html" class="btn btn-ghost-dark" style="align-self:flex-start">Get Started</a>
+      <!-- PARTNER -->
+      <div class="h-pkg-row">
+        <div class="h-pkg-left">
+          <div class="h-pkg-tier">Tier 3 · Full-Service</div>
+          <div class="h-pkg-name">Partner</div>
+          <div class="h-pkg-price">$25,000</div>
+          <div class="h-pkg-term">Annual · &lt; Half a FTE</div>
+        </div>
+        <div class="h-pkg-mid">
+          <ul class="h-pkg-feat-list">
+            <li><strong>Everything in Build</strong></li>
+            <li>Fractional grants team, embedded all year</li>
+            <li>~100 hours of proposal development</li>
+            <li>Consortium &amp; partner strategy</li>
+            <li>Priority access &amp; faster turnaround</li>
+          </ul>
+          <p class="h-pkg-note">Build a real grants function without the overhead of a full-time hire.</p>
+        </div>
+        <div class="h-pkg-right">
+          <a href="contact.html" class="btn-secondary">Get Started</a>
+        </div>
       </div>
 
     </div>
 
-    <div class="pkg-v4-footnote reveal d2">
+    <div class="h-pkg-footnote reveal d2">
       <strong>Grant writing fees are separate and project-based</strong> for Launch and Build clients. Additional advisory time beyond included scope is billed at $150/hr.
     </div>
   </div>
 </section>
 
 <!-- WHO WE SERVE -->
-<section class="serve-v4">
-  <div class="serve-v4-inner">
-    <div class="sec-label reveal" style="display:inline-flex">Who We Serve</div>
-    <h2 class="sec-title reveal d1">Purpose-Driven Organizations</h2>
-    <div class="serve-v4-row reveal d2">
-      <div class="serve-v4-item">
-        <div class="serve-v4-num">01</div>
-        <div class="serve-v4-title">Nonprofits</div>
-        <div class="serve-v4-desc">Mission-driven organizations expanding programs through private and public grant funding.</div>
+<section class="h-serve">
+  <div class="h-serve-inner">
+    <div class="h-serve-hdr">
+      <span class="h-section-label reveal">Who We Serve</span>
+      <h2 class="h-section-title reveal d1">Purpose-Driven Organizations</h2>
+    </div>
+    <div class="h-serve-grid reveal d2">
+      <div class="h-serve-item">
+        <div class="h-serve-num">01</div>
+        <div class="h-serve-name">Nonprofits</div>
+        <div class="h-serve-desc">Mission-driven organizations expanding programs through private and public grant funding.</div>
       </div>
-      <div class="serve-v4-item">
-        <div class="serve-v4-num">02</div>
-        <div class="serve-v4-title">Local Governments</div>
-        <div class="serve-v4-desc">Counties, municipalities, and transit authorities pursuing federal and state infrastructure funding.</div>
+      <div class="h-serve-item">
+        <div class="h-serve-num">02</div>
+        <div class="h-serve-name">Local Governments</div>
+        <div class="h-serve-desc">Counties, municipalities, and transit authorities pursuing federal and state infrastructure funding.</div>
       </div>
-      <div class="serve-v4-item">
-        <div class="serve-v4-num">03</div>
-        <div class="serve-v4-title">Higher Education</div>
-        <div class="serve-v4-desc">Community colleges and universities pursuing workforce, research, and student success grants.</div>
+      <div class="h-serve-item">
+        <div class="h-serve-num">03</div>
+        <div class="h-serve-name">Higher Education</div>
+        <div class="h-serve-desc">Community colleges and universities pursuing workforce, research, and student success grants.</div>
       </div>
-      <div class="serve-v4-item">
-        <div class="serve-v4-num">04</div>
-        <div class="serve-v4-title">Small Businesses</div>
-        <div class="serve-v4-desc">Growth-stage companies pursuing SBIR, EDA, and economic development funding.</div>
+      <div class="h-serve-item">
+        <div class="h-serve-num">04</div>
+        <div class="h-serve-name">Small Businesses</div>
+        <div class="h-serve-desc">Growth-stage companies pursuing SBIR, EDA, and economic development funding.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<div class="cta-band">
-  <div class="cta-band-bg" aria-hidden="true">FUNDED</div>
-  <div class="cta-inner">
-    <div class="cta-headline">Ready to Find<br>Your Funding?</div>
-    <div class="cta-sub">You bring the vision. We chart the path to fund it.</div>
-    <a href="contact.html" class="btn btn-orange">Start with Launch — $2,500</a>
+<section class="h-cta">
+  <div class="h-cta-inner">
+    <div class="h-cta-headline">
+      Ready to find your<br><strong>funding?</strong>
+    </div>
+    <div class="h-cta-sub">You bring the vision. We chart the path.</div>
+    <a href="contact.html" class="btn-primary">Start with Launch — $2,500</a>
   </div>
-</div>
+</section>
 
 <!-- FOOTER -->
 <footer class="site-footer">

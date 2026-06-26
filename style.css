@@ -1,31 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@300;400;500;700;800;900&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bebas+Neue&family=Cabinet+Grotesk:wght@400;700;800;900&family=Instrument+Serif:ital@0;1&display=swap');
 
 /* ── TOKENS ── */
 :root {
-  --navy:        #0B1C35;
-  --navy-mid:    #0E2240;
-  --navy-deep:   #071528;
-  --navy-banner: #011D3F;
-  --orange:      #F47B20;
-  --orange-dark: #E86E10;
-  --orange-light:#FFB060;
-  --cream:       #F9F6F1;
-  --gray-card:   #EFEDE8;
-  --border:      #E0DDD6;
+  --paper:       #F8F5F0;
+  --blue:        #1B2D4F;
+  --blue-mid:    #243D6A;
+  --blue-deep:   #111E33;
+  --blue-lt:     #E8EEF7;
+  --orange:      #D9601A;
+  --orange-lt:   #FDF0E8;
   --white:       #FFFFFF;
-  --ink:         #1E2535;
-  --ink-2:       #3C4150;
-  --muted:       #7A7A8C;
+  --ink:         #1B2D4F;
+  --ink-2:       #4A5568;
+  --muted:       #8A857E;
+  --border:      #E2DED8;
+  /* legacy aliases so inner pages don't break */
+  --navy:        #1B2D4F;
+  --navy-mid:    #243D6A;
+  --navy-deep:   #111E33;
+  --navy-banner: #111E33;
+  --orange-dark: #C0521200;
+  --orange-light:#F4A06A;
+  --cream:       #F8F5F0;
+  --gray-card:   #EEE9E2;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Cabinet Grotesk', 'Helvetica Neue', sans-serif;
-  background: var(--cream);
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', sans-serif;
+  background: var(--paper);
   color: var(--ink-2);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
