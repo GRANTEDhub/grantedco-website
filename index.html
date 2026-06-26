@@ -77,35 +77,37 @@
 
 <div class="stripe"></div>
 
-<!-- HERO — light, editorial, typography-first -->
-<section class="hero-light">
-  <div class="hero-light-inner">
-    <div class="hero-light-eyebrow anim-1">Grant Advisory &amp; Strategy · Bentonville, Arkansas</div>
-    <h1 class="hero-light-headline">
-      <span class="hero-serif anim-2">More Grants.</span>
-      <span class="hero-bold anim-3">Less Grind.</span>
+<!-- HERO — Bold + Motion -->
+<section class="hero-bm">
+  <canvas class="hero-bm-canvas" id="hero-canvas"></canvas>
+  <div class="hero-bm-ghost" aria-hidden="true">GRANTED</div>
+  <div class="hero-bm-inner">
+    <div class="hero-bm-eyebrow">Grant Advisory &amp; Strategy · Bentonville, Arkansas</div>
+    <h1 class="hero-bm-headline">
+      <span class="hero-bm-l1"><span class="bm-w bm-w1">More</span>&nbsp;<span class="bm-w bm-w2">Grants.</span></span>
+      <span class="hero-bm-l2"><span class="bm-w bm-w3">Less</span>&nbsp;<span class="bm-w bm-w4">Grind.</span></span>
     </h1>
-    <p class="hero-light-sub anim-4">Full-spectrum grant solutions for nonprofits, local governments, and institutions. We find the funding, write the proposals, and manage the compliance.</p>
-    <div class="hero-light-actions anim-5">
+    <p class="hero-bm-sub bm-fade bm-f1">Full-spectrum grant solutions for nonprofits, local governments, and institutions. We find the funding, write the proposals, and manage the compliance.</p>
+    <div class="hero-bm-actions bm-fade bm-f2">
       <a href="contact.html" class="btn btn-orange">Start with Navigate — $2,500</a>
-      <a href="services.html" class="btn btn-ghost-dark">Our Services</a>
+      <a href="services.html" class="btn btn-outline">Our Services</a>
     </div>
-    <div class="hero-light-stats anim-5">
-      <div class="hero-light-stat">
-        <div class="hero-light-stat-num" data-count="100" data-prefix="$" data-suffix="M+">$100M+</div>
-        <div class="hero-light-stat-lbl">Awards Secured</div>
+    <div class="hero-bm-stats bm-fade bm-f3">
+      <div class="hero-bm-stat">
+        <div class="hero-bm-stat-num" data-count="100" data-prefix="$" data-suffix="M+">$100M+</div>
+        <div class="hero-bm-stat-lbl">Awards Secured</div>
       </div>
-      <div class="hero-light-stat">
-        <div class="hero-light-stat-num" data-count="100" data-prefix="$" data-suffix="B+">$100B+</div>
-        <div class="hero-light-stat-lbl">Portfolios Managed</div>
+      <div class="hero-bm-stat">
+        <div class="hero-bm-stat-num" data-count="100" data-prefix="$" data-suffix="B+">$100B+</div>
+        <div class="hero-bm-stat-lbl">Portfolios Managed</div>
       </div>
-      <div class="hero-light-stat">
-        <div class="hero-light-stat-num">100x</div>
-        <div class="hero-light-stat-lbl">Target ROI</div>
+      <div class="hero-bm-stat">
+        <div class="hero-bm-stat-num">100x</div>
+        <div class="hero-bm-stat-lbl">Target ROI</div>
       </div>
-      <div class="hero-light-stat">
-        <div class="hero-light-stat-num" data-count="10" data-suffix="+">10+</div>
-        <div class="hero-light-stat-lbl">Federal Agencies</div>
+      <div class="hero-bm-stat">
+        <div class="hero-bm-stat-num" data-count="10" data-suffix="+">10+</div>
+        <div class="hero-bm-stat-lbl">Federal Agencies</div>
       </div>
     </div>
   </div>
@@ -280,5 +282,74 @@
 </footer>
 
 <script src="nav.js"></script>
+<script>
+/* Hero canvas — particle network */
+(function () {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, pts;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function init() {
+    resize();
+    pts = [];
+    for (var i = 0; i < 65; i++) {
+      pts.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.28,
+        vy: (Math.random() - 0.5) * 0.28,
+        r:  Math.random() * 1.4 + 0.4,
+        a:  Math.random() * 0.28 + 0.08
+      });
+    }
+  }
+
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < pts.length; i++) {
+      for (var j = i + 1; j < pts.length; j++) {
+        var dx = pts[i].x - pts[j].x;
+        var dy = pts[i].y - pts[j].y;
+        var d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < 160) {
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(244,123,32,' + (0.065 * (1 - d / 160)) + ')';
+          ctx.lineWidth = 0.6;
+          ctx.moveTo(pts[i].x, pts[i].y);
+          ctx.lineTo(pts[j].x, pts[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    for (var k = 0; k < pts.length; k++) {
+      var p = pts[k];
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(244,123,32,' + p.a + ')';
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx = -p.vx;
+      if (p.y < 0 || p.y > H) p.vy = -p.vy;
+    }
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('resize', function () {
+    resize();
+    if (pts) pts.forEach(function (p) {
+      p.x = Math.min(p.x, W);
+      p.y = Math.min(p.y, H);
+    });
+  });
+
+  window.addEventListener('load', function () { init(); frame(); });
+})();
+</script>
 </body>
 </html>

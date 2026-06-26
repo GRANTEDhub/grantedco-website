@@ -936,6 +936,168 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ══════════════════════════════════════════
+   BOLD + MOTION HERO
+   ══════════════════════════════════════════ */
+
+.hero-bm {
+  background: #06090F;
+  min-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bm-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hero-bm-ghost {
+  position: absolute;
+  right: -2vw;
+  top: 50%;
+  transform: translateY(-52%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(200px, 30vw, 440px);
+  color: rgba(255,255,255,0.02);
+  letter-spacing: 8px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  white-space: nowrap;
+}
+.hero-bm-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 100px 36px 80px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+.hero-bm-eyebrow {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 28px;
+  animation: bm-fade-up 0.6s ease 0.05s both;
+}
+.hero-bm-headline {
+  line-height: 0.9;
+  margin-bottom: 36px;
+}
+.hero-bm-l1 {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 14vw, 196px);
+  line-height: 0.9;
+  color: var(--white);
+  letter-spacing: 3px;
+}
+.hero-bm-l2 {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 14vw, 196px);
+  line-height: 0.9;
+  color: var(--orange);
+  letter-spacing: 3px;
+}
+.bm-w {
+  display: inline-block;
+  animation: bm-word-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.bm-w1 { animation-delay: 0.18s; }
+.bm-w2 { animation-delay: 0.34s; }
+.bm-w3 { animation-delay: 0.50s; }
+.bm-w4 { animation-delay: 0.66s; }
+@keyframes bm-word-up {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.bm-fade { animation: bm-fade-up 0.6s ease both; }
+.bm-f1 { animation-delay: 0.82s; }
+.bm-f2 { animation-delay: 0.96s; }
+.bm-f3 { animation-delay: 1.10s; }
+@keyframes bm-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-bm-sub {
+  font-size: 11pt;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.72;
+  max-width: 500px;
+  margin-bottom: 36px;
+}
+.hero-bm-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+}
+.hero-bm-stats {
+  display: flex;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 28px;
+}
+.hero-bm-stat {
+  flex: 1;
+  max-width: 160px;
+  padding-right: 28px;
+  margin-right: 28px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.hero-bm-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.hero-bm-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26pt;
+  color: var(--orange);
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-bm-stat-lbl {
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.32);
+}
+@media (max-width: 900px) {
+  .hero-bm-inner { padding: 72px 20px 64px; }
+  .hero-bm-stats { flex-wrap: wrap; gap: 0; }
+  .hero-bm-stat {
+    flex: 1 1 45%;
+    max-width: none;
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+  .hero-bm-stat:nth-child(odd) {
+    border-right: 1px solid rgba(255,255,255,0.06);
+    padding-right: 20px;
+    margin-right: 20px;
+  }
+  .hero-bm-stat:nth-last-child(-n+2) { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+}
+@media (max-width: 560px) {
+  .hero-bm-inner { padding: 56px 20px 52px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bm-w, .hero-bm-eyebrow, .bm-fade { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+/* ══════════════════════════════════════════
    LIGHT-FIRST REDESIGN — HOMEPAGE v2
    ══════════════════════════════════════════ */
 
