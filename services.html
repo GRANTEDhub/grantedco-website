@@ -80,43 +80,41 @@
   .svc { opacity: 1 !important; transform: none !important; }
 }
 
-/* Engagement carousel */
-.eng-carousel-wrap {
-  overflow: hidden;
-  position: relative;
-  padding: 12px 0 0;
-}
-.eng-carousel {
-  display: flex;
-  gap: 20px;
-  transition: transform .45s cubic-bezier(.16,1,.3,1);
-  will-change: transform;
+/* Engagement interactive grid */
+.eng-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 0;
   align-items: stretch;
 }
 .eng-card {
-  flex: 0 0 calc(60% - 10px);
-  min-width: 0;
-  transition: opacity .45s ease, transform .45s cubic-bezier(.16,1,.3,1);
-  cursor: pointer;
-}
-.eng-card-inner {
-  padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  box-sizing: border-box;
+  border-top: 3px solid var(--orange);
+  padding: 32px 24px;
+  cursor: pointer;
+  transition: opacity .35s ease, box-shadow .35s ease;
+  position: relative;
 }
-.eng-card.side {
+.eng-card.inactive {
   opacity: .38;
-  transform: scale(.96);
+}
+.eng-card.inactive:hover {
+  opacity: .6;
 }
 .eng-card.active {
   opacity: 1;
-  transform: scale(1);
   cursor: default;
+  box-shadow: 0 8px 32px rgba(0,0,0,.10);
 }
-.eng-card.side .eng-cta { display: none; }
-.eng-card.active .eng-cta { display: inline-flex; }
+.eng-card.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 3px;
+  background: var(--orange);
+}
 .eng-tier {
   font-size: 7pt; font-weight: 700;
   letter-spacing: .18em; text-transform: uppercase;
@@ -132,33 +130,18 @@
 .eng-list {
   list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;
 }
-.eng-list li {
-  font-size: 8.5pt; display: flex; gap: 8px;
-}
+.eng-list li { font-size: 8.5pt; display: flex; gap: 8px; }
 .eng-list li span { color: var(--orange); font-weight: 800; }
 .eng-spacer { flex: 1; }
-.eng-cta { margin-top: 24px; align-self: flex-start; }
-.eng-controls {
-  display: flex; align-items: center; justify-content: center;
-  gap: 16px; margin-top: 24px;
+.eng-cta {
+  margin-top: 24px; align-self: flex-start;
+  transition: opacity .35s ease;
 }
-.eng-btn {
-  background: none; border: 1px solid var(--border);
-  color: var(--navy); width: 36px; height: 36px;
-  font-size: 16px; cursor: pointer; display: flex;
-  align-items: center; justify-content: center;
-  transition: background .2s, color .2s;
-}
-.eng-btn:hover { background: var(--navy); color: var(--white); }
-.eng-dots { display: flex; gap: 8px; }
-.eng-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  border: none; background: var(--border); cursor: pointer;
-  padding: 0; transition: background .2s, transform .2s;
-}
-.eng-dot.active { background: var(--orange); transform: scale(1.3); }
+.eng-card.inactive .eng-cta { opacity: 0; pointer-events: none; }
+.eng-card.active .eng-cta { opacity: 1; pointer-events: auto; }
 @media(max-width: 768px) {
-  .eng-card { flex: 0 0 85%; }
+  .eng-grid { grid-template-columns: 1fr; }
+  .eng-card.inactive { opacity: .55; }
 }
 </style>
 </head>
@@ -184,63 +167,46 @@
   <div class="sec-title">Pick the Level of Support That Fits</div>
   <p class="sec-body" style="margin-bottom:32px">Every engagement starts with a custom Grant Report built around your organization's eligibility, capacity, and priorities — then gives you a team to act on it.</p>
 
-  <div class="eng-carousel-wrap">
-    <div class="eng-carousel" id="engCarousel">
-      <!-- Card 0: Launch -->
-      <div class="eng-card" data-index="0">
-        <div class="eng-card-inner" style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--orange)">
-          <div class="eng-tier">Tier 1 · Entry</div>
-          <div class="eng-name" style="color:var(--navy)">Launch</div>
-          <p class="eng-body" style="color:var(--ink-2)">A custom Grant Report and live strategy session — everything you need to know where you stand and where you can win. No ongoing commitment required.</p>
-          <ul class="eng-list">
-            <li style="color:var(--ink-2)"><span>→</span>Discovery call</li>
-            <li style="color:var(--ink-2)"><span>→</span>Scored Grant Report</li>
-            <li style="color:var(--ink-2)"><span>→</span>Live debrief &amp; strategy session</li>
-          </ul>
-          <div class="eng-spacer"></div>
-          <a href="contact.html" class="btn btn-orange eng-cta">Get Started</a>
-        </div>
-      </div>
-      <!-- Card 1: Build -->
-      <div class="eng-card" data-index="1">
-        <div class="eng-card-inner" style="background:var(--navy);border:1px solid var(--navy);border-top:3px solid var(--orange)">
-          <div class="eng-tier">Tier 2 · Flagship</div>
-          <div class="eng-name" style="color:var(--white)">Build</div>
-          <p class="eng-body" style="color:rgba(255,255,255,.65)">Everything in Launch, plus 12 months of daily grant monitoring and live alerts when relevant opportunities drop — so you never miss a deadline.</p>
-          <ul class="eng-list">
-            <li style="color:rgba(255,255,255,.8)"><span>→</span>Everything in Launch</li>
-            <li style="color:rgba(255,255,255,.8)"><span>→</span>12 months daily grant monitoring</li>
-            <li style="color:rgba(255,255,255,.8)"><span>→</span>Live alerts on new opportunities</li>
-          </ul>
-          <div class="eng-spacer"></div>
-          <a href="contact.html" class="btn btn-orange eng-cta">Get Started</a>
-        </div>
-      </div>
-      <!-- Card 2: Partner -->
-      <div class="eng-card" data-index="2">
-        <div class="eng-card-inner" style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--orange)">
-          <div class="eng-tier">Tier 3 · Full-Service</div>
-          <div class="eng-name" style="color:var(--navy)">Partner</div>
-          <p class="eng-body" style="color:var(--ink-2)">A fractional grants team embedded in your organization all year — proposal development, consortium strategy, and priority access. A real grants function without the overhead.</p>
-          <ul class="eng-list">
-            <li style="color:var(--ink-2)"><span>→</span>Everything in Build</li>
-            <li style="color:var(--ink-2)"><span>→</span>Fractional grants team, all year</li>
-            <li style="color:var(--ink-2)"><span>→</span>~100 hrs proposal development</li>
-            <li style="color:var(--ink-2)"><span>→</span>Consortium &amp; partner strategy</li>
-          </ul>
-          <div class="eng-spacer"></div>
-          <a href="contact.html" class="btn btn-orange eng-cta">Get Started</a>
-        </div>
-      </div>
+  <div class="eng-grid" id="engGrid">
+    <!-- Card 0: Launch -->
+    <div class="eng-card inactive" style="background:var(--white);border:1px solid var(--border)" data-index="0">
+      <div class="eng-tier">Tier 1 · Entry</div>
+      <div class="eng-name" style="color:var(--navy)">Launch</div>
+      <p class="eng-body" style="color:var(--ink-2)">A custom Grant Report and live strategy session — everything you need to know where you stand and where you can win. No ongoing commitment required.</p>
+      <ul class="eng-list">
+        <li style="color:var(--ink-2)"><span>→</span>Discovery call</li>
+        <li style="color:var(--ink-2)"><span>→</span>Scored Grant Report</li>
+        <li style="color:var(--ink-2)"><span>→</span>Live debrief &amp; strategy session</li>
+      </ul>
+      <div class="eng-spacer"></div>
+      <a href="contact.html" class="btn btn-orange eng-cta">Get Started</a>
     </div>
-    <div class="eng-controls">
-      <button class="eng-btn" id="engPrev" aria-label="Previous">&#8592;</button>
-      <div class="eng-dots">
-        <button class="eng-dot active" data-to="0" aria-label="Launch"></button>
-        <button class="eng-dot" data-to="1" aria-label="Build"></button>
-        <button class="eng-dot" data-to="2" aria-label="Partner"></button>
-      </div>
-      <button class="eng-btn" id="engNext" aria-label="Next">&#8594;</button>
+    <!-- Card 1: Build -->
+    <div class="eng-card active" style="background:var(--navy);border:1px solid var(--navy)" data-index="1">
+      <div class="eng-tier">Tier 2 · Flagship</div>
+      <div class="eng-name" style="color:var(--white)">Build</div>
+      <p class="eng-body" style="color:rgba(255,255,255,.65)">Everything in Launch, plus 12 months of daily grant monitoring and live alerts when relevant opportunities drop — so you never miss a deadline.</p>
+      <ul class="eng-list">
+        <li style="color:rgba(255,255,255,.8)"><span>→</span>Everything in Launch</li>
+        <li style="color:rgba(255,255,255,.8)"><span>→</span>12 months daily grant monitoring</li>
+        <li style="color:rgba(255,255,255,.8)"><span>→</span>Live alerts on new opportunities</li>
+      </ul>
+      <div class="eng-spacer"></div>
+      <a href="contact.html" class="btn btn-orange eng-cta">Get Started</a>
+    </div>
+    <!-- Card 2: Partner -->
+    <div class="eng-card inactive" style="background:var(--white);border:1px solid var(--border)" data-index="2">
+      <div class="eng-tier">Tier 3 · Full-Service</div>
+      <div class="eng-name" style="color:var(--navy)">Partner</div>
+      <p class="eng-body" style="color:var(--ink-2)">A fractional grants team embedded in your organization all year — proposal development, consortium strategy, and priority access. A real grants function without the overhead.</p>
+      <ul class="eng-list">
+        <li style="color:var(--ink-2)"><span>→</span>Everything in Build</li>
+        <li style="color:var(--ink-2)"><span>→</span>Fractional grants team, all year</li>
+        <li style="color:var(--ink-2)"><span>→</span>~100 hrs proposal development</li>
+        <li style="color:var(--ink-2)"><span>→</span>Consortium &amp; partner strategy</li>
+      </ul>
+      <div class="eng-spacer"></div>
+      <a href="contact.html" class="btn btn-orange eng-cta">Get Started</a>
     </div>
   </div>
 </div>
@@ -250,40 +216,20 @@
 <script src="nav.js"></script>
 <script>
 (function () {
-  var carousel = document.getElementById('engCarousel');
-  if (!carousel) return;
-  var cards = carousel.querySelectorAll('.eng-card');
-  var dots  = document.querySelectorAll('.eng-dot');
-  var total = cards.length;
-  var active = 1; /* start on Build (middle) */
-
-  function goTo(idx) {
-    active = (idx + total) % total;
-    /* figure out card width + gap to compute translate */
-    var cardW = cards[0].offsetWidth;
-    var gap   = 20;
-    /* center the active card inside the wrap */
-    var wrapW = carousel.parentElement.offsetWidth;
-    var offset = (wrapW / 2) - (cardW / 2) - active * (cardW + gap);
-    carousel.style.transform = 'translateX(' + offset + 'px)';
-    cards.forEach(function (c, i) {
-      c.classList.toggle('active', i === active);
-      c.classList.toggle('side',   i !== active);
+  var grid = document.getElementById('engGrid');
+  if (!grid) return;
+  var cards = grid.querySelectorAll('.eng-card');
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      if (card.classList.contains('active')) return;
+      cards.forEach(function (c) {
+        c.classList.remove('active');
+        c.classList.add('inactive');
+      });
+      card.classList.remove('inactive');
+      card.classList.add('active');
     });
-    dots.forEach(function (d, i) { d.classList.toggle('active', i === active); });
-  }
-
-  document.getElementById('engPrev').addEventListener('click', function () { goTo(active - 1); });
-  document.getElementById('engNext').addEventListener('click', function () { goTo(active + 1); });
-  dots.forEach(function (d) {
-    d.addEventListener('click', function () { goTo(parseInt(d.dataset.to, 10)); });
   });
-  cards.forEach(function (c, i) {
-    c.addEventListener('click', function () { if (i !== active) goTo(i); });
-  });
-
-  goTo(active);
-  window.addEventListener('resize', function () { goTo(active); });
 })();
 </script>
 <script>
