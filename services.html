@@ -6,178 +6,79 @@
 <meta name="description" content="Grant research, writing, strategic advisory, and administration. Every engagement starts with Navigate.">
 <link rel="stylesheet" href="style.css">
 <style>
-/* ── STICKY SCROLL SERVICES ── */
-.svc-scroll-section { margin-top: 48px; }
-
-/* Outer scroll container — sets the total scroll height */
-.svc-scroll-track {
-  position: relative;
-  height: 400vh;
-}
-
-/* Sticky frame that stays in view while track scrolls */
-.svc-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+.services-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-  background: var(--navy);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 32px;
 }
-
-/* LEFT — large number + label + nav dots */
-.svc-sticky-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 56px;
+.svc {
+  background: var(--cream);
+  padding: 36px 32px;
   position: relative;
-  border-right: 1px solid rgba(255,255,255,.07);
   overflow: hidden;
-}
-.svc-ghost-num {
-  position: absolute;
-  bottom: -0.15em;
-  left: -0.05em;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(200px, 28vw, 340px);
-  line-height: 1;
-  color: rgba(255,255,255,.04);
-  pointer-events: none;
-  user-select: none;
-  letter-spacing: 4px;
-  transition: opacity .4s;
-}
-.svc-active-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(72px, 10vw, 120px);
-  color: var(--orange);
-  line-height: 1;
-  letter-spacing: 2px;
-  transition: transform .45s cubic-bezier(.16,1,.3,1), opacity .35s;
-}
-.svc-active-label {
-  font-size: 7.5pt;
-  font-weight: 700;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.38);
-  margin-top: 10px;
-  transition: opacity .35s;
-}
-.svc-active-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(32px, 4vw, 52px);
-  color: var(--white);
-  letter-spacing: 2px;
-  margin-top: 14px;
-  line-height: 1;
-  transition: transform .45s cubic-bezier(.16,1,.3,1), opacity .35s;
-}
-.svc-dots {
-  display: flex;
-  gap: 10px;
-  margin-top: 40px;
-}
-.svc-dot {
-  width: 28px;
-  height: 3px;
-  background: rgba(255,255,255,.18);
-  transition: background .3s, width .3s;
-}
-.svc-dot.active {
-  background: var(--orange);
-  width: 48px;
-}
-
-/* RIGHT — scrolling content panels */
-.svc-sticky-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 56px;
-  position: relative;
-}
-.svc-panel {
-  position: absolute;
-  inset: 0;
-  padding: 60px 56px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  transition: background .3s, color .3s;
+  /* entrance state */
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1);
-  pointer-events: none;
+  transform: translateX(0);
 }
-.svc-panel.active {
+.svc.svc-from-left  { transform: translateX(-48px); }
+.svc.svc-from-right { transform: translateX(48px); }
+.svc.svc-visible {
   opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  transform: translateX(0);
+  transition: opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1), background .3s;
 }
-.svc-panel-eyebrow {
-  font-size: 7pt;
-  font-weight: 700;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 16px;
-}
-.svc-panel-body {
-  font-size: 11pt;
-  color: rgba(255,255,255,.65);
-  line-height: 1.82;
-  margin-bottom: 28px;
-  max-width: 440px;
-}
-.svc-panel-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.svc-panel-list li {
-  font-size: 9.5pt;
-  color: rgba(255,255,255,.5);
-  padding-left: 18px;
-  position: relative;
-  line-height: 1.5;
-}
-.svc-panel-list li::before {
-  content: '';
+/* Hover: flip to navy */
+.svc:hover { background: var(--navy); }
+.svc:hover .svc-title { color: var(--white); }
+.svc:hover .svc-body  { color: rgba(255,255,255,.6); }
+.svc:hover .svc-list li { color: rgba(255,255,255,.6); }
+.svc:hover .svc-num   { color: rgba(255,255,255,.06); }
+
+.svc-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  color: rgba(11,28,53,.06);
+  line-height: 1;
   position: absolute;
-  left: 0;
-  top: 7px;
-  width: 6px;
-  height: 6px;
+  top: 16px; right: 20px;
+  letter-spacing: 1px;
+  transition: color .3s;
+}
+.svc-label {
+  font-size: 7.5pt; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 8px;
+}
+.svc-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px; color: var(--navy);
+  letter-spacing: 2px; margin-bottom: 12px; line-height: 1;
+  transition: color .3s;
+}
+.svc-body {
+  font-size: 10pt; color: var(--ink-2);
+  line-height: 1.75; margin-bottom: 16px;
+  transition: color .3s;
+}
+.svc-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.svc-list li {
+  font-size: 9pt; color: var(--ink-2);
+  padding-left: 16px; position: relative; line-height: 1.5;
+  transition: color .3s;
+}
+.svc-list li::before {
+  content: ''; position: absolute;
+  left: 0; top: 7px; width: 6px; height: 6px;
   background: var(--orange);
 }
-
-/* Mobile fallback — plain stacked cards */
-.svc-mobile { display: none; }
-@media(max-width: 768px) {
-  .svc-scroll-track { display: none; }
-  .svc-mobile { display: flex; flex-direction: column; gap: 0; margin-top: 32px; border-top: 1px solid var(--border); }
-  .svc-mob-card { padding: 32px 0; border-bottom: 1px solid var(--border); }
-  .svc-mob-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--orange); line-height: 1; }
-  .svc-mob-label { font-size: 7pt; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-  .svc-mob-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--navy); letter-spacing: 2px; margin-bottom: 10px; }
-  .svc-mob-body { font-size: 9.5pt; color: var(--ink-2); line-height: 1.75; margin-bottom: 14px; }
-  .svc-mob-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .svc-mob-list li { font-size: 9pt; color: var(--ink-2); padding-left: 14px; position: relative; line-height: 1.5; }
-  .svc-mob-list li::before { content: ''; position: absolute; left: 0; top: 6px; width: 5px; height: 5px; background: var(--orange); }
-}
+@media(max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
 @media(prefers-reduced-motion: reduce) {
-  .svc-scroll-track { display: none; }
-  .svc-mobile { display: flex; }
+  .svc { opacity: 1 !important; transform: none !important; }
 }
-
-.process-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
-.proc{background:var(--white);padding:28px 24px}
-.proc-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orange);letter-spacing:1px;line-height:1;margin-bottom:8px}
-.proc-title{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--navy);letter-spacing:1.5px;margin-bottom:8px}
-.proc-body{font-size:9.5pt;color:var(--ink-2);line-height:1.7}
 </style>
 </head>
 <body>
@@ -185,60 +86,14 @@
 <div class="stripe"></div>
 <div class="page-hero"><div class="page-hero-inner"><div class="page-eyebrow anim-1">What We Do</div><h1 class="page-title anim-2">Our Services</h1><p class="page-subtitle anim-3">From opportunity identification through post-award closeout — we build the strategy, write the proposals, and manage the compliance.</p></div></div>
 
-<div class="section" style="padding-bottom:0">
+<div class="section">
   <div class="sec-label reveal">Service Areas</div>
   <div class="sec-title reveal d1">Full-Spectrum Grant Solutions</div>
-</div>
-
-<div class="svc-scroll-section">
-  <!-- Desktop: sticky scroll -->
-  <div class="svc-scroll-track" id="svcTrack">
-    <div class="svc-sticky" id="svcSticky">
-      <!-- LEFT -->
-      <div class="svc-sticky-left">
-        <div class="svc-ghost-num" id="svcGhost">01</div>
-        <div class="svc-active-num" id="svcNum">01</div>
-        <div class="svc-active-label" id="svcLabel">Find Funding</div>
-        <div class="svc-active-title" id="svcTitle">Grant Research</div>
-        <div class="svc-dots" id="svcDots">
-          <div class="svc-dot active"></div>
-          <div class="svc-dot"></div>
-          <div class="svc-dot"></div>
-          <div class="svc-dot"></div>
-        </div>
-      </div>
-      <!-- RIGHT: panels -->
-      <div class="svc-sticky-right" id="svcPanels">
-        <div class="svc-panel active" data-index="0">
-          <div class="svc-panel-eyebrow">Find Funding · 01</div>
-          <p class="svc-panel-body">We build your GRANTED Roadmap: a scored, prioritized list of high-impact opportunities mapped to your eligible projects. We forecast the pipeline, set the calendar, and monitor continuously so nothing worth pursuing slips by.</p>
-          <ul class="svc-panel-list"><li>Eligibility analysis and fit scoring</li><li>Active and forecasted opportunity identification</li><li>Deadline calendar and real-time monitoring alerts</li><li>Federal, state, and private sector coverage</li></ul>
-        </div>
-        <div class="svc-panel" data-index="1">
-          <div class="svc-panel-eyebrow">Win Awards · 02</div>
-          <p class="svc-panel-body">Every application is scoped to the opportunity. We write funder-aligned narratives, build compliant budgets, and coordinate everything reviewers need to score you at the top.</p>
-          <ul class="svc-panel-list"><li>Narrative development and funder alignment</li><li>Budget and workplan preparation</li><li>Partner coordination and letters of support</li><li>Compliance review before submission</li></ul>
-        </div>
-        <div class="svc-panel" data-index="2">
-          <div class="svc-panel-eyebrow">Build Capacity · 03</div>
-          <p class="svc-panel-body">We shape your funding strategy from the top: portfolio design, pipeline governance, partner mapping, match planning, and decision frameworks that give leadership clarity and predictable execution.</p>
-          <ul class="svc-panel-list"><li>Funding portfolio design</li><li>Match and in-kind strategy</li><li>Partner identification and mapping</li><li>Pipeline governance and reporting</li></ul>
-        </div>
-        <div class="svc-panel" data-index="3">
-          <div class="svc-panel-eyebrow">Manage Impact · 04</div>
-          <p class="svc-panel-body">Winning is the beginning. We manage post-award compliance end-to-end so your award performs, your audits are clean, and your closeout is airtight.</p>
-          <ul class="svc-panel-list"><li>Kickoff and subrecipient oversight</li><li>Reporting and drawdown management</li><li>Audit readiness and documentation</li><li>Closeout and final reporting</li></ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile fallback -->
-  <div class="svc-mobile">
-    <div class="svc-mob-card"><div class="svc-mob-num">01</div><div class="svc-mob-label">Find Funding</div><div class="svc-mob-title">Grant Research</div><p class="svc-mob-body">We build your GRANTED Roadmap: a scored, prioritized list of high-impact opportunities mapped to your eligible projects. We forecast the pipeline, set the calendar, and monitor continuously so nothing worth pursuing slips by.</p><ul class="svc-mob-list"><li>Eligibility analysis and fit scoring</li><li>Active and forecasted opportunity identification</li><li>Deadline calendar and real-time monitoring alerts</li><li>Federal, state, and private sector coverage</li></ul></div>
-    <div class="svc-mob-card"><div class="svc-mob-num">02</div><div class="svc-mob-label">Win Awards</div><div class="svc-mob-title">Grant Writing</div><p class="svc-mob-body">Every application is scoped to the opportunity. We write funder-aligned narratives, build compliant budgets, and coordinate everything reviewers need to score you at the top.</p><ul class="svc-mob-list"><li>Narrative development and funder alignment</li><li>Budget and workplan preparation</li><li>Partner coordination and letters of support</li><li>Compliance review before submission</li></ul></div>
-    <div class="svc-mob-card"><div class="svc-mob-num">03</div><div class="svc-mob-label">Build Capacity</div><div class="svc-mob-title">Strategic Advisory</div><p class="svc-mob-body">We shape your funding strategy from the top: portfolio design, pipeline governance, partner mapping, match planning, and decision frameworks that give leadership clarity and predictable execution.</p><ul class="svc-mob-list"><li>Funding portfolio design</li><li>Match and in-kind strategy</li><li>Partner identification and mapping</li><li>Pipeline governance and reporting</li></ul></div>
-    <div class="svc-mob-card"><div class="svc-mob-num">04</div><div class="svc-mob-label">Manage Impact</div><div class="svc-mob-title">Grant Administration</div><p class="svc-mob-body">Winning is the beginning. We manage post-award compliance end-to-end so your award performs, your audits are clean, and your closeout is airtight.</p><ul class="svc-mob-list"><li>Kickoff and subrecipient oversight</li><li>Reporting and drawdown management</li><li>Audit readiness and documentation</li><li>Closeout and final reporting</li></ul></div>
+  <div class="services-grid">
+    <div class="svc svc-from-left"><div class="svc-num">01</div><div class="svc-label">Find Funding</div><div class="svc-title">Grant Research</div><p class="svc-body">We build your GRANTED Roadmap: a scored, prioritized list of high-impact opportunities mapped to your eligible projects. We forecast the pipeline, set the calendar, and monitor continuously so nothing worth pursuing slips by.</p><ul class="svc-list"><li>Eligibility analysis and fit scoring</li><li>Active and forecasted opportunity identification</li><li>Deadline calendar and real-time monitoring alerts</li><li>Federal, state, and private sector coverage</li></ul></div>
+    <div class="svc svc-from-right" style="transition-delay:.12s"><div class="svc-num">02</div><div class="svc-label">Win Awards</div><div class="svc-title">Grant Writing</div><p class="svc-body">Every application is scoped to the opportunity. We write funder-aligned narratives, build compliant budgets, and coordinate everything reviewers need to score you at the top.</p><ul class="svc-list"><li>Narrative development and funder alignment</li><li>Budget and workplan preparation</li><li>Partner coordination and letters of support</li><li>Compliance review before submission</li></ul></div>
+    <div class="svc svc-from-left" style="transition-delay:.24s"><div class="svc-num">03</div><div class="svc-label">Build Capacity</div><div class="svc-title">Strategic Advisory</div><p class="svc-body">We shape your funding strategy from the top: portfolio design, pipeline governance, partner mapping, match planning, and decision frameworks that give leadership clarity and predictable execution.</p><ul class="svc-list"><li>Funding portfolio design</li><li>Match and in-kind strategy</li><li>Partner identification and mapping</li><li>Pipeline governance and reporting</li></ul></div>
+    <div class="svc svc-from-right" style="transition-delay:.36s"><div class="svc-num">04</div><div class="svc-label">Manage Impact</div><div class="svc-title">Grant Administration</div><p class="svc-body">Winning is the beginning. We manage post-award compliance end-to-end so your award performs, your audits are clean, and your closeout is airtight.</p><ul class="svc-list"><li>Kickoff and subrecipient oversight</li><li>Reporting and drawdown management</li><li>Audit readiness and documentation</li><li>Closeout and final reporting</li></ul></div>
   </div>
 </div>
 
@@ -293,65 +148,20 @@
 <script src="nav.js"></script>
 <script>
 (function () {
-  var track = document.getElementById('svcTrack');
-  if (!track) return;
-
-  var services = [
-    { num: '01', label: 'Find Funding',   title: 'Grant Research' },
-    { num: '02', label: 'Win Awards',     title: 'Grant Writing' },
-    { num: '03', label: 'Build Capacity', title: 'Strategic Advisory' },
-    { num: '04', label: 'Manage Impact',  title: 'Grant Administration' }
-  ];
-
-  var numEl    = document.getElementById('svcNum');
-  var labelEl  = document.getElementById('svcLabel');
-  var titleEl  = document.getElementById('svcTitle');
-  var ghostEl  = document.getElementById('svcGhost');
-  var dots     = document.querySelectorAll('.svc-dot');
-  var panels   = document.querySelectorAll('.svc-panel');
-  var current  = -1;
-
-  function activate(idx) {
-    if (idx === current) return;
-    current = idx;
-    var s = services[idx];
-
-    /* Left side — slam num + slide title */
-    numEl.style.opacity   = '0';
-    numEl.style.transform = 'translateY(-20px)';
-    titleEl.style.opacity = '0';
-    titleEl.style.transform = 'translateY(12px)';
-
-    setTimeout(function () {
-      numEl.textContent   = s.num;
-      labelEl.textContent = s.label;
-      titleEl.textContent = s.title;
-      ghostEl.textContent = s.num;
-      numEl.style.opacity   = '1';
-      numEl.style.transform = 'translateY(0)';
-      titleEl.style.opacity = '1';
-      titleEl.style.transform = 'translateY(0)';
-    }, 120);
-
-    /* Dots */
-    dots.forEach(function (d, i) { d.classList.toggle('active', i === idx); });
-
-    /* Panels */
-    panels.forEach(function (p, i) { p.classList.toggle('active', i === idx); });
+  var cards = document.querySelectorAll('.svc');
+  if (!cards.length || !('IntersectionObserver' in window)) {
+    cards.forEach(function (c) { c.classList.add('svc-visible'); });
+    return;
   }
-
-  function onScroll() {
-    var rect     = track.getBoundingClientRect();
-    var traveled = -rect.top;                       /* px scrolled into track */
-    var total    = track.offsetHeight - window.innerHeight;
-    if (traveled < 0) { activate(0); return; }
-    if (traveled > total) { activate(3); return; }
-    var idx = Math.min(3, Math.floor((traveled / total) * 4));
-    activate(idx);
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('svc-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  cards.forEach(function (c) { io.observe(c); });
 })();
 </script>
 </body></html>
