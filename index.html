@@ -350,6 +350,37 @@
 
   window.addEventListener('load', function () { init(); frame(); });
 })();
+
+/* Hero stat loop */
+(function () {
+  function runCountUp(el) {
+    var raw    = el.dataset.count;
+    var suffix = el.dataset.suffix || '';
+    var prefix = el.dataset.prefix || '';
+    var target = parseFloat(raw);
+    var isInt  = raw.indexOf('.') === -1;
+    var dur    = 1600;
+    var start  = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / dur, 1);
+      var ease     = 1 - Math.pow(1 - progress, 3);
+      var value    = target * ease;
+      el.textContent = prefix + (isInt ? Math.floor(value) : value.toFixed(1)) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + raw + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  function loopStats() {
+    document.querySelectorAll('.hero-bm-stat [data-count]').forEach(runCountUp);
+  }
+
+  window.addEventListener('load', function () {
+    setInterval(loopStats, 4000);
+  });
+})();
 </script>
 </body>
 </html>
