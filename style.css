@@ -1012,11 +1012,9 @@ a { text-decoration: none; color: inherit; }
   color: var(--white);
   letter-spacing: 3px;
 }
-.hero-bm-l1 .bm-w2,
 .hero-bm-l2 .bm-w4 {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-  letter-spacing: 1px;
+  -webkit-text-stroke: 2px #F47B20;
+  color: transparent;
 }
 .hero-bm-l2 {
   display: block;
