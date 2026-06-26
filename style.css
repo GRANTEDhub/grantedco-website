@@ -1012,6 +1012,9 @@ a { text-decoration: none; color: inherit; }
   color: var(--white);
   letter-spacing: 3px;
 }
+.hero-bm-l2 .bm-w4 {
+  font-style: italic;
+}
 .hero-bm-l2 {
   display: block;
   font-family: 'Bebas Neue', sans-serif;
