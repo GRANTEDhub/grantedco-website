@@ -92,7 +92,7 @@ a { text-decoration: none; color: inherit; }
   display: inline-block;
   transform: rotate(-90deg);
   transform-origin: center center;
-  margin-left: 4px;
+  margin-left: 1px;
 }
 .nav-links {
   display: flex;
@@ -473,7 +473,7 @@ a { text-decoration: none; color: inherit; }
   display: inline-block;
   transform: rotate(-90deg);
   transform-origin: center center;
-  margin-left: 4px;
+  margin-left: 1px;
 }
 .footer-tagline {
   font-family: 'Instrument Serif', serif;
