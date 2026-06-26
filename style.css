@@ -1018,6 +1018,7 @@ a { text-decoration: none; color: inherit; }
   font-size: clamp(80px, 14vw, 196px);
   line-height: 0.9;
   color: var(--orange);
+  opacity: 0.6;
   letter-spacing: 3px;
 }
 .bm-w {
