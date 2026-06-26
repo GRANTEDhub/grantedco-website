@@ -703,7 +703,7 @@ a { text-decoration: none; color: inherit; }
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-run 34s linear infinite;
+  animation: marquee-run 90s linear infinite;
   will-change: transform;
 }
 .marquee-item {
