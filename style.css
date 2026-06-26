@@ -85,10 +85,14 @@ a { text-decoration: none; color: inherit; }
 .nav-wordmark sup {
   font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 7px;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--orange);
   letter-spacing: 2px;
-  vertical-align: super;
+  vertical-align: middle;
+  display: inline-block;
+  transform: rotate(90deg);
+  transform-origin: center center;
+  margin-left: 4px;
 }
 .nav-links {
   display: flex;
@@ -462,9 +466,14 @@ a { text-decoration: none; color: inherit; }
 .footer-wordmark sup {
   font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 7px;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--orange);
   letter-spacing: 2px;
+  vertical-align: middle;
+  display: inline-block;
+  transform: rotate(90deg);
+  transform-origin: center center;
+  margin-left: 4px;
 }
 .footer-tagline {
   font-family: 'Instrument Serif', serif;
