@@ -90,7 +90,7 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: 2px;
   vertical-align: middle;
   display: inline-block;
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   transform-origin: center center;
   margin-left: 4px;
 }
@@ -471,7 +471,7 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: 2px;
   vertical-align: middle;
   display: inline-block;
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   transform-origin: center center;
   margin-left: 4px;
 }
