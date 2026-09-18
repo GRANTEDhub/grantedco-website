@@ -229,7 +229,7 @@ a { text-decoration: none; color: inherit; }
 /* ── PAGE HERO (inner pages) ── */
 .page-hero {
   background-color: var(--navy);
-  background-image: linear-gradient(100deg, var(--navy) 34%, rgba(12,18,31,0) 92%), url('contour-dark.svg');
+  background-image: linear-gradient(100deg, var(--navy) 34%, rgba(12,18,31,0) 92%), url('contour-dark.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -444,7 +444,7 @@ a { text-decoration: none; color: inherit; }
 /* ── FOOTER ── */
 .site-footer {
   background-color: var(--navy-deep);
-  background-image: linear-gradient(80deg, var(--navy-deep) 42%, rgba(12,18,31,0) 100%), url('contour-dark.svg');
+  background-image: linear-gradient(80deg, var(--navy-deep) 42%, rgba(12,18,31,0) 100%), url('contour-dark.png');
   background-repeat: no-repeat;
   background-position: center right;
   background-size: cover;
@@ -897,7 +897,7 @@ a { text-decoration: none; color: inherit; }
 /* ── CTA BAND ── */
 .cta-band {
   background-color: var(--navy-deep);
-  background-image: linear-gradient(180deg, var(--navy-deep) 28%, rgba(12,18,31,0.12) 100%), url('contour-dark.svg');
+  background-image: linear-gradient(180deg, var(--navy-deep) 28%, rgba(12,18,31,0.12) 100%), url('contour-dark.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
