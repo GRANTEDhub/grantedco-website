@@ -13,6 +13,7 @@
   --orange-dark: #C4651F;   /* hover / active */
   --orange-light:#F08B3A;   /* lighter highlight (gradients) */
   --orange-ink:  #A8501A;   /* accent as small text/links on LIGHT backgrounds (available; not yet globally applied) */
+  --orange-wash: #FBEDE3;   /* soft highlight fill on light (row/column states) */
 
   /* Neutrals */
   --cream:       #FAF7F2;   /* page ground */
@@ -227,7 +228,11 @@ a { text-decoration: none; color: inherit; }
 
 /* ── PAGE HERO (inner pages) ── */
 .page-hero {
-  background: var(--navy);
+  background-color: var(--navy);
+  background-image: linear-gradient(100deg, var(--navy) 34%, rgba(12,18,31,0) 92%), url('contour-dark.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   padding: 52px 36px 48px;
   position: relative;
   overflow: hidden;
@@ -437,7 +442,13 @@ a { text-decoration: none; color: inherit; }
 .card-body { font-size: 9.5pt; color: var(--ink-2); line-height: 1.72; }
 
 /* ── FOOTER ── */
-.site-footer { background: var(--navy-deep); }
+.site-footer {
+  background-color: var(--navy-deep);
+  background-image: linear-gradient(80deg, var(--navy-deep) 42%, rgba(12,18,31,0) 100%), url('contour-dark.svg');
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
+}
 .footer-inner {
   max-width: 1140px;
   margin: 0 auto;
@@ -885,7 +896,11 @@ a { text-decoration: none; color: inherit; }
 
 /* ── CTA BAND ── */
 .cta-band {
-  background: var(--navy-deep);
+  background-color: var(--navy-deep);
+  background-image: linear-gradient(180deg, var(--navy-deep) 28%, rgba(12,18,31,0.12) 100%), url('contour-dark.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   position: relative;
   overflow: hidden;
   padding: 100px 36px;
