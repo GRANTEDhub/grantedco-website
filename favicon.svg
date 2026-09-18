@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 740" role="img" aria-label="GRANTED">
+  <style>
+    .shape { fill: #0C121F; }
+    .tri   { fill: #B6B5B4; }
+    @media (prefers-color-scheme: dark) {
+      .shape { fill: #FAF7F2; }
+      .tri   { fill: #8F9CB0; }
+    }
+  </style>
+  <g transform="translate(0,33)">
+    <path class="tri"   d="M331 488 L465 488 L431 651 Z"></path>
+    <path class="shape" d="M720 20 L308 20 L20 294 L240 654 L429 654 L141 184 L551 182 Z"></path>
+    <path fill="#E4761F" d="M364 323 L565 654 L704 654 L704 322 Z"></path>
+  </g>
+</svg>
