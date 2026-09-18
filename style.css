@@ -41,18 +41,16 @@ a { text-decoration: none; color: inherit; }
 
 /* ── G MARK LOGO ── */
 .g-mark {
-  width: 36px;
   height: 36px;
+  width: auto;
   flex-shrink: 0;
   display: block;
-  filter: brightness(0) invert(1);
 }
 .g-mark-sm {
-  width: 28px;
   height: 28px;
+  width: auto;
   flex-shrink: 0;
   display: block;
-  filter: brightness(0) invert(1);
 }
 
 /* ── NAV ── */
