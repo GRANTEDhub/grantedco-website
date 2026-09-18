@@ -54,6 +54,26 @@
   .about-pillar:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
   .serve-card-light-grid { grid-template-columns: 1fr; }
 }
+
+/* HERO DEVICE — dashboard on a screen, lower-right of the hero */
+.hero-device {
+  position: absolute;
+  right: 2.5%;
+  bottom: 7%;
+  width: 40%;
+  max-width: 620px;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 6px solid #10192a;
+  background: #10192a;
+  box-shadow: 0 34px 90px rgba(0,0,0,.55);
+  transform: perspective(1600px) rotateY(-9deg);
+  transform-origin: right center;
+}
+.hero-device img { width: 100%; display: block; }
+@media (max-width: 1080px) { .hero-device { display: none; } }
 </style>
 </head>
 <body>
@@ -115,6 +135,7 @@
       </div>
     </div>
   </div>
+  <div class="hero-device" aria-hidden="true"><img src="dashboard.png" alt=""></div>
 </section>
 
 <!-- MARQUEE TICKER -->
