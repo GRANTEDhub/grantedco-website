@@ -54,6 +54,29 @@
   .about-pillar:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
   .serve-card-light-grid { grid-template-columns: 1fr; }
 }
+
+/* HERO DEVICE — dashboard on a screen, lower-right of the hero */
+.hero-device {
+  position: absolute;
+  right: 2.5%;
+  bottom: 7%;
+  width: 40%;
+  max-width: 620px;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 6px solid #10192a;
+  background: #10192a;
+  box-shadow: 0 34px 90px rgba(0,0,0,.55);
+  transform: perspective(1600px) rotateY(-9deg);
+  transform-origin: right center;
+}
+.hero-device img { width: 100%; display: block; }
+@media (max-width: 1080px) { .hero-device { display: none; } }
+
+/* Home: no contour anywhere (CTA band + footer stay clean navy) */
+.cta-band, .site-footer { background-image: none; }
 </style>
 </head>
 <body>
@@ -70,6 +93,7 @@
     </button>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
+      <li><a href="platform.html">Platform</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="careers.html">Careers</a></li>
@@ -109,11 +133,12 @@
         <div class="hero-bm-stat-lbl">Target ROI</div>
       </div>
       <div class="hero-bm-stat">
-        <div class="hero-bm-stat-num" data-count="50" data-suffix="+">50+</div>
+        <div class="hero-bm-stat-num" data-count="50">50</div>
         <div class="hero-bm-stat-lbl">States Served</div>
       </div>
     </div>
   </div>
+  <div class="hero-device" aria-hidden="true"><img src="dashboard.png" alt=""></div>
 </section>
 
 <!-- MARQUEE TICKER -->
@@ -133,13 +158,11 @@
         "Not just a grant writing shop — a grant thought partner."
       </blockquote>
       <div class="about-accent-bar reveal d2"></div>
-      <p class="about-meta reveal d2">
-        Pairing Big-4 discipline with practical execution to turn ideas into funded outcomes.
-      </p>
+      <a href="platform.html" class="btn btn-orange reveal d2" style="margin-top:18px">Explore the Platform</a>
     </div>
     <div>
       <p class="sec-body reveal" style="margin-bottom:24px">
-        <strong>GRANTED</strong> is a full-spectrum grant solutions firm and thought partner to mission-driven organizations across the US. From the first discovery conversation through final closeout, we <strong>find the grants, build the strategy, write the proposals, and manage the compliance</strong>. Your team stays focused on the work that matters most.
+        <strong>GRANTED</strong> is a turnkey grant solutions company and thought partner to mission-driven organizations navigating the grant landscape. Backed by <strong>IntellEngine</strong>, our proprietary grant intelligence platform, our experts build your strategy, identify high-impact grants, craft winning proposals, and manage compliance. Operating as an embedded grants team, your organization is able to stay focused on the work and people that matter most.
       </p>
       <div class="about-pillars reveal d1">
         <div class="about-pillar">
@@ -155,20 +178,6 @@
           <div class="about-pillar-desc">Winning is the beginning. We keep your award on track through every reporting deadline, compliance requirement, and closeout milestone.</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW WE START — dark centered band -->
-<section style="background:#161F2E;padding:52px 36px;text-align:center;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:24px 24px;pointer-events:none"></div>
-  <div style="position:relative;z-index:1;max-width:720px;margin:0 auto">
-    <div class="sec-label" style="color:var(--orange);border-color:rgba(228,118,31,0.4);display:inline-block;margin-bottom:20px">How We Start</div>
-    <blockquote style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(26px,3.5vw,46px);color:var(--white);line-height:1.25;margin:0 0 24px">"Every engagement starts with a conversation."</blockquote>
-    <p style="font-size:10.5pt;color:rgba(255,255,255,0.6);line-height:1.8;max-width:560px;margin:0 auto 36px">We don't believe in one-size-fits-all. Before we recommend anything, we do a discovery call: a working conversation to understand your organization, your goals, and which level of support actually makes sense for you.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="contact.html" class="btn btn-orange">Schedule a Discovery Call</a>
-      <a href="services.html" class="btn btn-outline">See Engagement Options</a>
     </div>
   </div>
 </section>
@@ -239,6 +248,7 @@
       <div class="footer-col-title">Navigation</div>
       <ul class="footer-links">
         <li><a href="about.html">About</a></li>
+        <li><a href="platform.html">Platform</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="careers.html">Careers</a></li>

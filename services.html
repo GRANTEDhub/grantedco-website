@@ -83,73 +83,62 @@
   .svc { opacity: 1 !important; transform: none !important; }
 }
 
-/* Engagement interactive grid */
-.eng-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 0;
-  align-items: stretch;
+/* Packages comparison table */
+.pkg-wrap { margin-top: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.pkg-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--border);
 }
-.eng-card {
-  display: flex;
-  flex-direction: column;
-  border-top: 3px solid var(--orange);
-  padding: 32px 24px;
-  cursor: pointer;
-  transition: opacity .35s ease, box-shadow .35s ease;
-  position: relative;
+.pkg-table th, .pkg-table td {
+  padding: 15px 22px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
 }
-.eng-card.inactive {
-  opacity: .38;
+.pkg-table tbody tr:last-child td { border-bottom: none; }
+.pkg-svc-head {
+  font-size: 7.5pt; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--muted);
 }
-.eng-card.inactive:hover {
-  opacity: .6;
-}
-.eng-card.active {
-  opacity: 1;
-  cursor: default;
-  box-shadow: 0 8px 32px rgba(0,0,0,.10);
-}
-.eng-card.active::after {
-  content: '';
-  position: absolute;
-  bottom: -1px; left: 50%; transform: translateX(-50%);
-  width: 40px; height: 3px;
-  background: var(--orange);
-}
-.eng-tier {
-  font-size: 7pt; font-weight: 700;
-  letter-spacing: .18em; text-transform: uppercase;
-  color: var(--orange); margin-bottom: 8px;
-}
-.eng-name {
+.pkg-table th.pkg-col { text-align: center; width: 25%; }
+.pkg-col-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px; letter-spacing: 2px; margin-bottom: 14px;
+  font-size: 24px; letter-spacing: 2px; color: var(--navy); line-height: 1;
 }
-.eng-body {
-  font-size: 9.5pt; line-height: 1.75; margin-bottom: 20px;
+.pkg-col-desc {
+  font-size: 7.5pt; color: var(--muted); margin-top: 6px;
+  font-weight: 600; letter-spacing: .04em; text-transform: none;
 }
-.eng-list {
-  list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;
+.pkg-partner { background: var(--orange-wash, #FBEDE3); }
+.pkg-table thead .pkg-partner { border-top: 3px solid var(--orange); }
+.pkg-row-svc { font-size: 10pt; color: var(--ink); font-weight: 600; }
+.pkg-table td.pkg-cell { text-align: center; }
+.ck {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%;
 }
-.eng-list li { font-size: 8.5pt; display: flex; gap: 8px; }
-.eng-list li span { color: var(--orange); font-weight: 800; }
-.eng-spacer { flex: 1; }
-.eng-cta {
-  margin-top: 24px; align-self: flex-start;
-  transition: opacity .35s ease;
+.ck svg { width: 11px; height: 11px; display: block; }
+.ck-build { background: var(--orange); color: #fff; }
+.ck-partner { background: var(--navy); color: #fff; }
+.pkg-na { font-size: 8.5pt; color: var(--muted); }
+.pkg-asneeded { font-size: 8.5pt; color: var(--ink-2); font-weight: 600; }
+.pkg-star { color: var(--orange); font-weight: 700; margin-left: 3px; }
+.pkg-foot {
+  font-size: 8pt; color: var(--muted); line-height: 1.65; margin-top: 16px;
+  padding-left: 12px; border-left: 2px solid var(--orange); max-width: 760px;
 }
-.eng-card.inactive .eng-cta { opacity: 0; pointer-events: none; }
-.eng-card.active .eng-cta { opacity: 1; pointer-events: auto; }
-@media(max-width: 768px) {
-  .eng-grid { grid-template-columns: 1fr; }
-  .eng-card.inactive { opacity: .55; }
+.pkg-foot strong { color: var(--ink-2); }
+@media(max-width: 640px) {
+  .pkg-table th, .pkg-table td { padding: 12px 14px; }
+  .pkg-col-name { font-size: 20px; }
 }
 </style>
 </head>
 <body>
-<nav class="site-nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="g-mark" src="granted-mark-dark.svg" alt="GRANTED"><span class="nav-wordmark">GRANTED</span></a><button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button><ul class="nav-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html" class="nav-cta">Get Started</a></li></ul></div></nav>
+<nav class="site-nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="g-mark" src="granted-mark-dark.svg" alt="GRANTED"><span class="nav-wordmark">GRANTED</span></a><button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button><ul class="nav-links"><li><a href="about.html">About</a></li><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html" class="nav-cta">Get Started</a></li></ul></div></nav>
 <div class="stripe"></div>
 <div class="page-hero"><div class="page-hero-inner"><div class="page-eyebrow anim-1">What We Do</div><h1 class="page-title anim-2">Our Services</h1><p class="page-subtitle anim-3">From opportunity identification through post-award closeout: we build the strategy, write the proposals, and manage the compliance.</p></div></div>
 
@@ -170,71 +159,57 @@
   <div class="sec-title">Pick the Level of Support That Fits</div>
   <p class="sec-body" style="margin-bottom:32px">Every engagement starts with a custom Grant Report built around your organization's eligibility, capacity, and priorities, then gives you a team to act on it.</p>
 
-  <div class="eng-grid" id="engGrid">
-    <!-- Card 0: Launch -->
-    <div class="eng-card inactive" style="background:var(--white);border:1px solid var(--border)" data-index="0">
-      <div class="eng-tier">Tier 1 · Entry</div>
-      <div class="eng-name" style="color:var(--navy)">Launch</div>
-      <p class="eng-body" style="color:var(--ink-2)">A custom Grant Report and live strategy session. Everything you need to know where you stand and where you can win. No ongoing commitment required.</p>
-      <ul class="eng-list">
-        <li style="color:var(--ink-2)"><span>→</span>Discovery call</li>
-        <li style="color:var(--ink-2)"><span>→</span>Scored Grant Report</li>
-        <li style="color:var(--ink-2)"><span>→</span>Live debrief &amp; strategy session</li>
-      </ul>
-      <div class="eng-spacer"></div>
-      <a href="contact.html" class="btn btn-orange eng-cta">Get Started</a>
-    </div>
-    <!-- Card 1: Build -->
-    <div class="eng-card active" style="background:var(--navy);border:1px solid var(--navy)" data-index="1">
-      <div class="eng-tier">Tier 2 · Flagship</div>
-      <div class="eng-name" style="color:var(--white)">Build</div>
-      <p class="eng-body" style="color:rgba(255,255,255,.65)">Everything in Launch, plus 12 months of daily grant monitoring and live alerts when relevant opportunities drop, so you never miss a deadline.</p>
-      <ul class="eng-list">
-        <li style="color:rgba(255,255,255,.8)"><span>→</span>Everything in Launch</li>
-        <li style="color:rgba(255,255,255,.8)"><span>→</span>12 months daily grant monitoring</li>
-        <li style="color:rgba(255,255,255,.8)"><span>→</span>Live alerts on new opportunities</li>
-      </ul>
-      <div class="eng-spacer"></div>
-      <a href="contact.html" class="btn btn-orange eng-cta">Get Started</a>
-    </div>
-    <!-- Card 2: Partner -->
-    <div class="eng-card inactive" style="background:var(--white);border:1px solid var(--border)" data-index="2">
-      <div class="eng-tier">Tier 3 · Full-Service</div>
-      <div class="eng-name" style="color:var(--navy)">Partner</div>
-      <p class="eng-body" style="color:var(--ink-2)">A fractional grants team embedded in your organization all year: proposal development, consortium strategy, and priority access. A real grants function without the overhead.</p>
-      <ul class="eng-list">
-        <li style="color:var(--ink-2)"><span>→</span>Everything in Build</li>
-        <li style="color:var(--ink-2)"><span>→</span>Fractional grants team, all year</li>
-        <li style="color:var(--ink-2)"><span>→</span>~100 hrs proposal development</li>
-        <li style="color:var(--ink-2)"><span>→</span>Consortium &amp; partner strategy</li>
-      </ul>
-      <div class="eng-spacer"></div>
-      <a href="contact.html" class="btn btn-orange eng-cta">Get Started</a>
-    </div>
+  <div class="pkg-wrap">
+    <table class="pkg-table">
+      <thead>
+        <tr>
+          <th class="pkg-svc-head">Service</th>
+          <th class="pkg-col"><div class="pkg-col-name">Build</div><div class="pkg-col-desc">Pull us in as needed</div></th>
+          <th class="pkg-col pkg-partner"><div class="pkg-col-name">Partner</div><div class="pkg-col-desc">Everything, always on</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pkg-row-svc">IntellEngine platform &amp; scored alerts</td>
+          <td class="pkg-cell"><span class="ck ck-build"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
+          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
+        </tr>
+        <tr>
+          <td class="pkg-row-svc">Concept proposals &amp; SME review</td>
+          <td class="pkg-cell"><span class="ck ck-build"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
+          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
+        </tr>
+        <tr>
+          <td class="pkg-row-svc">GrantBot &amp; AI Proposal Developer</td>
+          <td class="pkg-cell"><span class="pkg-na">Not included</span></td>
+          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
+        </tr>
+        <tr>
+          <td class="pkg-row-svc">Strategic advisory &amp; positioning</td>
+          <td class="pkg-cell"><span class="pkg-asneeded">As needed</span></td>
+          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
+        </tr>
+        <tr>
+          <td class="pkg-row-svc">Grant writing</td>
+          <td class="pkg-cell"><span class="pkg-asneeded">As needed</span></td>
+          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
+        </tr>
+        <tr>
+          <td class="pkg-row-svc">Grant management</td>
+          <td class="pkg-cell"><span class="pkg-asneeded">As needed</span></td>
+          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span><sup class="pkg-star">*</sup></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  <p class="pkg-foot"><strong>* Grant management is included on Partner.</strong> Where the grant allows, we build administration and compliance into the proposal budget, so it is typically covered by the award itself. On Build, advisory, writing, and management come in as needed rather than bundled.</p>
+
+  <div style="margin-top:28px"><a href="contact.html" class="btn btn-orange">Get Started</a></div>
 </div>
 
 
-<footer class="site-footer"><div class="stripe"></div><div class="footer-inner"><div class="footer-brand"><div class="footer-logo-row"><img class="g-mark-sm" src="granted-mark-dark.svg" alt="GRANTED"><div class="footer-wordmark">GRANTED</div></div><div class="footer-tagline">More Grants. Less Grind.</div><div class="footer-sub">Find Funding &nbsp;·&nbsp; Win Awards &nbsp;·&nbsp; Manage Impact</div></div><div><div class="footer-col-title">Navigation</div><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><a href="https://grantedco.com">grantedco.com</a><br>The Ledger · Bentonville, AR<br><a href="https://www.linkedin.com/company/grantedllc" target="_blank" rel="noopener">LinkedIn →</a></div></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 GRANTED. All rights reserved.</div><ul class="footer-sub-links"><li><a href="contact.html">Contact</a></li><li><a href="careers.html">Careers</a></li></ul></div></footer>
+<footer class="site-footer"><div class="stripe"></div><div class="footer-inner"><div class="footer-brand"><div class="footer-logo-row"><img class="g-mark-sm" src="granted-mark-dark.svg" alt="GRANTED"><div class="footer-wordmark">GRANTED</div></div><div class="footer-tagline">More Grants. Less Grind.</div><div class="footer-sub">Find Funding &nbsp;·&nbsp; Win Awards &nbsp;·&nbsp; Manage Impact</div></div><div><div class="footer-col-title">Navigation</div><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><a href="https://grantedco.com">grantedco.com</a><br>The Ledger · Bentonville, AR<br><a href="https://www.linkedin.com/company/grantedllc" target="_blank" rel="noopener">LinkedIn →</a></div></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 GRANTED. All rights reserved.</div><ul class="footer-sub-links"><li><a href="contact.html">Contact</a></li><li><a href="careers.html">Careers</a></li></ul></div></footer>
 <script src="nav.js"></script>
-<script>
-(function () {
-  var grid = document.getElementById('engGrid');
-  if (!grid) return;
-  var cards = grid.querySelectorAll('.eng-card');
-  cards.forEach(function (card) {
-    card.addEventListener('click', function () {
-      if (card.classList.contains('active')) return;
-      cards.forEach(function (c) {
-        c.classList.remove('active');
-        c.classList.add('inactive');
-      });
-      card.classList.remove('inactive');
-      card.classList.add('active');
-    });
-  });
-})();
-</script>
 <script>
 (function () {
   var cards = document.querySelectorAll('.svc');
