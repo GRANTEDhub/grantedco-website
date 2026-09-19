@@ -74,6 +74,23 @@
 }
 .hero-device img { width: 100%; display: block; }
 @media (max-width: 1080px) { .hero-device { display: none; } }
+
+/* Home: no contour on the dark CTA band or footer */
+.cta-band, .site-footer { background-image: none; }
+
+/* Contour texture that fades ITSELF out to 0% (alpha mask), anchored low on white sections */
+.contour-fade { position: relative; }
+.contour-fade::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url('contour-light.png') bottom center / 100% auto no-repeat;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, rgba(0,0,0,0) 62%);
+          mask-image: linear-gradient(to top, #000 0%, rgba(0,0,0,0) 62%);
+}
+.contour-fade > * { position: relative; z-index: 1; }
 </style>
 </head>
 <body>
@@ -147,7 +164,7 @@
 </div>
 
 <!-- ABOUT — cream, editorial left column -->
-<section class="cream-bg">
+<section class="cream-bg contour-fade">
   <div class="about-split">
     <div>
       <div class="sec-label reveal">Who We Are</div>
@@ -180,7 +197,7 @@
 </section>
 
 <!-- WHO WE SERVE — cream -->
-<section class="cream-bg">
+<section class="cream-bg contour-fade">
   <div class="section">
     <div class="sec-label reveal">Who We Serve</div>
     <h2 class="sec-title reveal d1">Mission-Driven Organizations</h2>
