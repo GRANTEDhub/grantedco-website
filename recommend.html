@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Fit — GRANTED</title>
+<meta name="description" content="Answer eight quick questions and we'll recommend the level of GRANTED support that fits your organization: Platform, Partner, or Enterprise.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+.quiz-shell{background:var(--white);border:1px solid var(--border);max-width:860px;margin:0 auto;overflow:hidden}
+.quiz-head{background:var(--navy);padding:22px 28px;border-bottom:3px solid var(--orange);position:relative;overflow:hidden}
+.quiz-head::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.quiz-head-eye{font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:4px;position:relative;z-index:2}
+.quiz-head-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:2px;position:relative;z-index:2}
+.quiz-body{padding:32px 28px}
+.progress{height:4px;background:var(--gray-card);margin-bottom:28px}
+.progress-fill{height:100%;background:var(--orange);transition:width .3s ease}
+.q-count{font-size:7.5pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+fieldset{border:none;min-width:0}
+.q-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,3vw,28px);color:var(--navy);letter-spacing:1.5px;line-height:1.1;margin-bottom:6px;display:block}
+.q-text:focus{outline:none}
+.q-hint{font-size:9.5pt;color:var(--muted);line-height:1.6;margin-bottom:18px}
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.opt,.tier-card{position:relative;display:flex;gap:14px;align-items:flex-start;background:var(--white);border:1.5px solid var(--gray-card);padding:16px 18px;cursor:pointer;transition:border-color .2s,background .2s}
+.opt:hover,.tier-card:hover{border-color:var(--orange)}
+.opt input,.tier-card input{position:absolute;opacity:0;width:1px;height:1px}
+.opt::before,.tier-card::before{content:'';flex-shrink:0;width:16px;height:16px;margin-top:3px;border-radius:50%;border:1.5px solid var(--muted);background:var(--white);transition:border-color .2s,box-shadow .2s,background .2s}
+.opt:has(input:checked),.tier-card:has(input:checked){border-color:var(--orange);background:var(--orange-wash)}
+.opt:has(input:checked)::before,.tier-card:has(input:checked)::before{border-color:var(--orange);background:var(--orange);box-shadow:inset 0 0 0 3px var(--white)}
+.opt:has(input:focus-visible),.tier-card:has(input:focus-visible){outline:2px solid var(--navy);outline-offset:2px}
+.opt-text{font-size:10.5pt;font-weight:700;color:var(--navy);line-height:1.45}
+.opt-sub{display:block;font-size:9pt;font-weight:500;color:var(--ink-2);margin-top:2px}
+.q-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:28px}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.4;cursor:not-allowed}
+.btn-text{background:none;border:none;font:inherit;font-size:8.5pt;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:12px 4px}
+.btn-text:hover{color:var(--orange)}
+.btn-text[hidden]{display:block;visibility:hidden}
+.res-lead{font-size:10.5pt;color:var(--ink-2);line-height:1.75;max-width:620px;margin:8px 0 22px}
+.res-lead strong{color:var(--navy);font-weight:800}
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tier-card{flex-direction:column;gap:0;padding:24px 20px 20px}
+.tier-card::before{position:absolute;top:18px;right:18px;margin:0}
+.tier-badge{display:inline-block;align-self:flex-start;font-size:7pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--white);background:var(--orange);padding:3px 8px;margin-bottom:10px}
+.tier-name{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--navy);line-height:1;margin-bottom:6px}
+.tier-price{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:1px;color:var(--orange);line-height:1;margin-bottom:12px}
+.tier-price span{font-family:'Cabinet Grotesk',sans-serif;font-size:10pt;font-weight:500;color:var(--muted);letter-spacing:0}
+.tier-price.is-custom{font-size:22px}
+.tier-blurb{font-size:9.5pt;color:var(--ink-2);line-height:1.7}
+.res-note{font-size:9pt;color:var(--ink-2);line-height:1.65;margin-top:16px;padding-left:12px;border-left:2px solid var(--orange);max-width:680px}
+.res-note[hidden]{display:none}
+.cta-panel{margin-top:24px;padding-top:24px;border-top:1px solid var(--gray-card);display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.cta-secondary{font-size:9pt;font-weight:700;color:var(--orange-ink);text-decoration:underline;text-underline-offset:3px}
+.cta-secondary:hover{color:var(--orange)}
+.noscript-msg{max-width:860px;margin:0 auto;padding:24px 28px;background:var(--orange-wash);color:var(--ink-2);font-size:10.5pt;line-height:1.7}
+.noscript-msg a{color:var(--orange-ink);font-weight:700;text-decoration:underline}
+@media(max-width:860px){.tier-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.quiz-body{padding:24px 18px}.q-nav .btn{padding:12px 20px}}
+@media(prefers-reduced-motion:reduce){.progress-fill{transition:none}}
+</style>
+</head>
+<body>
+<nav class="site-nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="g-mark" src="granted-mark-dark.svg" alt="GRANTED"><span class="nav-wordmark">GRANTED</span></a><button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button><ul class="nav-links"><li><a href="about.html">About</a></li><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="recommend.html" class="nav-cta">Get Started</a></li></ul></div></nav>
+<div class="stripe"></div>
+<div class="page-hero"><div class="page-hero-inner"><div class="page-eyebrow anim-1">Get Started</div><h1 class="page-title anim-2">Find Your Fit</h1><p class="page-subtitle anim-3">Eight quick questions. We'll recommend a level of support, and you can choose a different one.</p></div></div>
+
+<div class="section">
+  <div class="quiz-shell">
+    <div class="quiz-head"><div class="quiz-head-eye" id="quiz-eye">Quick Quiz</div><div class="quiz-head-title" id="quiz-title">Which Option Fits Your Organization?</div></div>
+    <div class="quiz-body" id="quiz-root">
+      <noscript><div class="noscript-msg">The quiz needs JavaScript. You can <a href="https://calendar.app.google/HEknd3kJtuJavsZW7" target="_blank" rel="noopener">schedule a call</a> instead and we'll help you choose.</div></noscript>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="stripe"></div><div class="footer-inner"><div class="footer-brand"><div class="footer-logo-row"><img class="g-mark-sm" src="granted-mark-dark.svg" alt="GRANTED"><div class="footer-wordmark">GRANTED</div></div><div class="footer-tagline">More Grants. Less Grind.</div><div class="footer-sub">Find Funding &nbsp;·&nbsp; Win Awards &nbsp;·&nbsp; Manage Impact</div></div><div><div class="footer-col-title">Navigation</div><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="resources.html">Resources</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Contact</div><div class="footer-contact-line"><a href="https://grantedco.com">grantedco.com</a><br>The Ledger · Bentonville, AR<br><a href="https://www.linkedin.com/company/grantedllc" target="_blank" rel="noopener">LinkedIn →</a></div></div></div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 GRANTED. All rights reserved.</div><ul class="footer-sub-links"><li><a href="contact.html">Contact</a></li><li><a href="careers.html">Careers</a></li></ul></div></footer>
+<script src="nav.js"></script>
+<script>
+/* ════════════════════════════════════════════════════════════════════
+   QUIZ CONFIG — edit tiers, prices, links, and scoring weights here.
+   Nothing below the "ENGINE" line needs to change for content edits.
+
+   Scoring: each answer adds its `w` points to the listed tiers. Highest
+   total wins. Ties go to the LOWER tier (order set by tierOrder, low → high).
+   An option with `force: '<tier>'` overrides scoring and locks that tier
+   as the recommendation (used for multi-entity → Enterprise).
+   Users can still pick any tier on the results screen.
+   ════════════════════════════════════════════════════════════════════ */
+var CALENDAR_URL = 'https://calendar.app.google/HEknd3kJtuJavsZW7';
+var SIGNUP_URL   = 'https://app.grantedco.com/signup';
+
+var CONFIG = {
+  tierOrder: ['platform', 'partner', 'enterprise'],   // lowest → highest; ties resolve to the earlier one
+
+  tiers: {
+    platform: {
+      name: 'Platform',
+      price: '$250', priceUnit: '/mo',
+      blurb: 'Sign up and use IntellEngine, GRANTED\'s grant intelligence platform, on your own.',
+      cta: { label: 'Sign Up for Platform', href: SIGNUP_URL },
+      secondary: { label: 'Or schedule a call first', href: CALENDAR_URL, external: true }
+    },
+    partner: {
+      name: 'Partner',
+      price: 'Custom pricing', priceUnit: '',
+      blurb: 'A fractional grants team embedded in your organization: proposal development, consortium strategy, and priority access.',
+      cta: { label: 'Schedule a Call', href: CALENDAR_URL, external: true }
+    },
+    enterprise: {
+      name: 'Enterprise',
+      price: 'Custom pricing', priceUnit: '',
+      blurb: 'A custom engagement for organizations managing grants across multiple entities.',
+      cta: { label: 'Schedule a Call', href: CALENDAR_URL, external: true }
+    }
+  },
+
+  // Shown on the results screen when a quiz answer locks the tier.
+  forcedNote: 'Because you apply on behalf of multiple entities, we recommend Enterprise.',
+  // Shown when Platform is selected and the monthly budget answer is below Platform's price.
+  budgetNote: 'Platform starts at $250/mo, which is above the budget you selected. Scheduling a call is a good way to talk through options.',
+
+  questions: [
+    { id: 'volume', text: 'How many grant applications do you expect to submit in a year?',
+      options: [
+        { label: '1 to 3',        w: { platform: 2 } },
+        { label: '4 to 10',       w: { platform: 1, partner: 2 } },
+        { label: 'More than 10',  w: { partner: 1, enterprise: 2 } }
+      ] },
+    { id: 'today', text: 'Who handles grants for your organization today?',
+      options: [
+        { label: 'No one. It happens ad hoc.',                      w: { platform: 1, partner: 2 } },
+        { label: 'One staff member, alongside other duties',        w: { platform: 2, partner: 1 } },
+        { label: 'A dedicated in-house grants team',                w: { platform: 2, enterprise: 1 } },
+        { label: 'An outside consultant or firm',                   w: { partner: 2, enterprise: 1 } }
+      ] },
+    { id: 'help', text: 'What kind of help do you want?',
+      options: [
+        { label: 'Finding and tracking the right opportunities',    w: { platform: 3 } },
+        { label: 'Writing and submitting proposals',                w: { partner: 3 } },
+        { label: 'Funding strategy and positioning',                w: { partner: 2, enterprise: 1 } },
+        { label: 'End to end: find, write, and manage',             w: { partner: 2, enterprise: 2 } }
+      ] },
+    { id: 'award', text: 'What is your typical target award size?',
+      options: [
+        { label: 'Under $100K',        w: { platform: 2 } },
+        { label: '$100K to $500K',     w: { platform: 1, partner: 2 } },
+        { label: '$500K to $2M',       w: { partner: 2, enterprise: 1 } },
+        { label: 'Over $2M',           w: { partner: 1, enterprise: 3 } }
+      ] },
+    { id: 'funders', text: 'Where does most of your funding come from, or where do you want it to?',
+      options: [
+        { label: 'Mostly foundations and private funders',          w: { platform: 2 } },
+        { label: 'Mostly state and local government',               w: { platform: 1, partner: 1 } },
+        { label: 'Mostly federal agencies',                         w: { partner: 2, enterprise: 1 } },
+        { label: 'A mix of federal, state, and private',            w: { partner: 1, enterprise: 2 } }
+      ] },
+    { id: 'postaward', text: 'How do you want to handle post-award management?',
+      hint: 'Reporting, compliance, drawdowns, and closeout after you win.',
+      options: [
+        { label: 'We handle it ourselves',                          w: { platform: 2 } },
+        { label: 'We need help with reporting',                     w: { partner: 2 } },
+        { label: 'We need full compliance management',              w: { partner: 1, enterprise: 2 } }
+      ] },
+    { id: 'multi', text: 'Do you apply for grants on behalf of multiple entities?',
+      hint: 'For example, several organizations, subsidiaries, member groups, or clients. Answering yes recommends Enterprise.',
+      options: [
+        { label: 'Yes', force: 'enterprise', w: { enterprise: 3 } },
+        { label: 'No',  w: { platform: 1 } }
+      ] },
+    { id: 'budget', text: 'What is your monthly budget for grant support?',
+      options: [
+        { label: 'Under $250',          w: { platform: 1 }, belowPlatform: true },
+        { label: '$250 to $1,000',      w: { platform: 2, partner: 1 } },
+        { label: '$1,000 to $5,000',    w: { partner: 3, enterprise: 1 } },
+        { label: 'More than $5,000',    w: { partner: 1, enterprise: 3 } }
+      ] }
+  ]
+};
+
+/* ═══════════════════════════ ENGINE ═══════════════════════════ */
+(function () {
+  var root = document.getElementById('quiz-root');
+  var eye = document.getElementById('quiz-eye');
+  var title = document.getElementById('quiz-title');
+  var Q = CONFIG.questions;
+  var answers = new Array(Q.length);   // chosen option index per question
+  var step = 0;
+
+  function el(tag, attrs, kids) {
+    var n = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) {
+      if (k === 'text') n.textContent = attrs[k];
+      else if (k === 'class') n.className = attrs[k];
+      else if (attrs[k] === true) n.setAttribute(k, '');
+      else if (attrs[k] !== false && attrs[k] != null) n.setAttribute(k, attrs[k]);
+    });
+    (kids || []).forEach(function (c) { if (c) n.appendChild(c); });
+    return n;
+  }
+
+  /* Highest total wins; strict ">" while walking low → high keeps ties on the lower tier.
+     A forced option short-circuits scoring. */
+  function recommend() {
+    var scores = {}, forced = null;
+    CONFIG.tierOrder.forEach(function (t) { scores[t] = 0; });
+    Q.forEach(function (q, i) {
+      var o = q.options[answers[i]];
+      if (!o) return;
+      if (o.force) forced = o.force;
+      Object.keys(o.w || {}).forEach(function (t) { scores[t] += o.w[t]; });
+    });
+    if (forced) return { tier: forced, scores: scores, forced: true };
+    var best = CONFIG.tierOrder[0];
+    CONFIG.tierOrder.forEach(function (t) { if (scores[t] > scores[best]) best = t; });
+    return { tier: best, scores: scores, forced: false };
+  }
+
+  function belowPlatformBudget() {
+    return Q.some(function (q, i) { var o = q.options[answers[i]]; return o && o.belowPlatform; });
+  }
+
+  function linkAttrs(l) { return l.external ? { target: '_blank', rel: 'noopener' } : {}; }
+
+  function focusTo(node) { node.setAttribute('tabindex', '-1'); node.focus({ preventScroll: false }); }
+
+  /* ── Question screen ── */
+  function renderQuestion() {
+    var q = Q[step];
+    eye.textContent = 'Quick Quiz';
+    title.textContent = 'Which Option Fits Your Organization?';
+    root.textContent = '';
+
+    root.appendChild(el('div', { class: 'progress', role: 'progressbar', 'aria-valuemin': 1, 'aria-valuemax': Q.length, 'aria-valuenow': step + 1, 'aria-label': 'Quiz progress' },
+      [el('div', { class: 'progress-fill', style: 'width:' + (((step + 1) / Q.length) * 100) + '%' })]));
+    root.appendChild(el('div', { class: 'q-count', text: 'Question ' + (step + 1) + ' of ' + Q.length, 'aria-live': 'polite' }));
+
+    var legend = el('legend', { class: 'q-text', text: q.text });
+    var fs = el('fieldset', {}, [legend]);
+    if (q.hint) fs.appendChild(el('p', { class: 'q-hint', text: q.hint }));
+    var opts = el('div', { class: 'opts' });
+    q.options.forEach(function (o, i) {
+      var input = el('input', { type: 'radio', name: q.id, value: i, checked: answers[step] === i });
+      input.addEventListener('change', function () { answers[step] = i; next.disabled = false; });
+      opts.appendChild(el('label', { class: 'opt' }, [input, el('span', { class: 'opt-text', text: o.label })]));
+    });
+    fs.appendChild(opts);
+    root.appendChild(fs);
+
+    var back = el('button', { type: 'button', class: 'btn-text', text: '← Back', hidden: step === 0 });
+    back.addEventListener('click', function () { step--; renderQuestion(); focusTo(legend2()); });
+    var next = el('button', { type: 'button', class: 'btn btn-orange', text: step === Q.length - 1 ? 'See My Recommendation' : 'Next', disabled: answers[step] == null });
+    next.addEventListener('click', function () {
+      if (answers[step] == null) return;
+      if (step < Q.length - 1) { step++; renderQuestion(); focusTo(legend2()); }
+      else { renderResults(); }
+    });
+    root.appendChild(el('div', { class: 'q-nav' }, [back, next]));
+
+    function legend2() { return root.querySelector('legend'); }
+  }
+
+  /* ── Results screen ── */
+  function renderResults() {
+    var rec = recommend();
+    var selected = rec.tier;       // user may override below
+    eye.textContent = 'Your Result';
+    title.textContent = 'Our Recommendation';
+    root.textContent = '';
+
+    var heading = el('h2', { class: 'q-text', text: CONFIG.tiers[rec.tier].name });
+    root.appendChild(heading);
+    root.appendChild(el('p', { class: 'res-lead' }, [
+      document.createTextNode('Based on your answers, we recommend '),
+      el('strong', { text: CONFIG.tiers[rec.tier].name }),
+      document.createTextNode('. Choose a different option below if another fits better.')
+    ]));
+
+    var grid = el('div', { class: 'tier-grid', role: 'radiogroup', 'aria-label': 'Choose your option' });
+    CONFIG.tierOrder.forEach(function (t) {
+      var d = CONFIG.tiers[t];
+      var input = el('input', { type: 'radio', name: 'tier', value: t, checked: t === selected });
+      input.addEventListener('change', function () { selected = t; update(); });
+      var price = el('div', { class: 'tier-price' + (d.priceUnit ? '' : ' is-custom') }, [document.createTextNode(d.price)]);
+      if (d.priceUnit) price.appendChild(el('span', { text: d.priceUnit }));
+      grid.appendChild(el('label', { class: 'tier-card' }, [
+        input,
+        t === rec.tier ? el('span', { class: 'tier-badge', text: 'Recommended' }) : null,
+        el('div', { class: 'tier-name', text: d.name }),
+        price,
+        el('p', { class: 'tier-blurb', text: d.blurb })
+      ]));
+    });
+    root.appendChild(grid);
+
+    var note = el('p', { class: 'res-note', 'aria-live': 'polite', hidden: true });
+    root.appendChild(note);
+    var panel = el('div', { class: 'cta-panel' });
+    root.appendChild(panel);
+
+    var restart = el('button', { type: 'button', class: 'btn-text', text: 'Start Over' });
+    restart.addEventListener('click', function () { answers = new Array(Q.length); step = 0; renderQuestion(); focusTo(root.querySelector('legend')); });
+    var edit = el('button', { type: 'button', class: 'btn-text', text: '← Change My Answers' });
+    edit.addEventListener('click', function () { step = Q.length - 1; renderQuestion(); focusTo(root.querySelector('legend')); });
+    root.appendChild(el('div', { class: 'q-nav' }, [edit, restart]));
+
+    function update() {
+      var d = CONFIG.tiers[selected];
+      panel.textContent = '';
+      panel.appendChild(el('a', Object.assign({ class: 'btn btn-orange', href: d.cta.href, text: d.cta.label }, linkAttrs(d.cta))));
+      if (d.secondary) panel.appendChild(el('a', Object.assign({ class: 'cta-secondary', href: d.secondary.href, text: d.secondary.label }, linkAttrs(d.secondary))));
+
+      var msg = '';
+      if (selected !== rec.tier) {
+        msg = 'Our quiz recommended ' + CONFIG.tiers[rec.tier].name + ', and you\'ve selected ' + d.name + '.';
+      } else if (rec.forced) {
+        msg = CONFIG.forcedNote;
+      }
+      if (selected === 'platform' && belowPlatformBudget()) msg += (msg ? ' ' : '') + CONFIG.budgetNote;
+      note.textContent = msg;
+      note.hidden = !msg;
+    }
+    update();
+    focusTo(heading);
+  }
+
+  renderQuestion();
+})();
+</script>
+</body></html>
