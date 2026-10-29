@@ -452,7 +452,7 @@ a { text-decoration: none; color: inherit; }
 .footer-inner {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 48px 36px 36px;
+  padding: 36px 36px 24px;
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr;
   gap: 48px;
@@ -492,9 +492,10 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.35);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-links { list-style: none; column-count: 2; column-gap: 40px; }
+.footer-links li { break-inside: avoid; margin-bottom: 9px; }
 .footer-links a { font-size: 9pt; color: rgba(255,255,255,0.5); transition: color 0.2s; }
 .footer-links a:hover { color: var(--orange); }
 .footer-contact-line { font-size: 9pt; color: rgba(255,255,255,0.5); line-height: 1.9; }
@@ -903,7 +904,7 @@ a { text-decoration: none; color: inherit; }
   background-size: cover;
   position: relative;
   overflow: hidden;
-  padding: 100px 36px;
+  padding: 56px 36px;
   text-align: center;
 }
 .cta-band::before {
@@ -935,7 +936,7 @@ a { text-decoration: none; color: inherit; }
   color: var(--white);
   letter-spacing: 4px;
   line-height: 1.05;
-  margin-bottom: 14px;
+  margin-bottom: 24px;
   text-wrap: balance;
 }
 .cta-sub {
@@ -1061,9 +1062,9 @@ a { text-decoration: none; color: inherit; }
 }
 .hero-bm-stat {
   flex: 1;
-  max-width: 160px;
-  padding-right: 28px;
-  margin-right: 28px;
+  max-width: 135px;
+  padding-right: 18px;
+  margin-right: 18px;
   border-right: 1px solid rgba(255,255,255,0.07);
 }
 .hero-bm-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
@@ -1362,4 +1363,23 @@ a { text-decoration: none; color: inherit; }
   .hero-light-stats { gap: 0; border-top: 1px solid var(--border); }
   .hero-light-stat { flex: 1 1 50%; border-bottom: none; padding: 14px 0; }
   .hero-light-stat:nth-child(odd) { border-right: 1px solid var(--border); padding-right: 14px; margin-right: 14px; }
+}
+
+/* Home: full-width "Every Sector. One Team." graphic */
+.sectors-graphic { line-height: 0; }
+.sectors-graphic img { width: 100%; height: auto; display: block; }
+
+/* Phones: swap the infographic for readable text */
+.sectors-text { display: none; }
+@media (max-width: 700px) {
+  .sectors-graphic { line-height: 1.5; }
+  .sectors-graphic img { display: none; }
+  .sectors-text { display: block; padding: 56px 20px; }
+  .sectors-text-h { font-family: 'Bebas Neue', sans-serif; font-size: 56px; line-height: 0.95; color: var(--ink); font-weight: 400; margin-bottom: 18px; }
+  .sectors-text-h span { display: block; }
+  .sectors-text-lede { color: var(--ink-2); font-size: 11pt; margin-bottom: 28px; }
+  .sectors-text-list { list-style: none; padding: 0; margin: 0 0 24px; }
+  .sectors-text-list li { padding: 14px 0; border-top: 1px solid var(--border); color: var(--ink-2); font-size: 10.5pt; }
+  .sectors-text-list strong { display: block; color: var(--ink); font-size: 12pt; margin-bottom: 4px; }
+  .sectors-text-orgs { color: var(--muted); font-size: 9.5pt; }
 }

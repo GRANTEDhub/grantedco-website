@@ -58,10 +58,10 @@
 /* HERO DEVICE — dashboard on a screen, lower-right of the hero */
 .hero-device {
   position: absolute;
-  right: 1.5%;
-  top: 47%;
-  width: 46%;
-  max-width: 880px;
+  right: 1.4%;
+  top: 40%;
+  width: min(47%, calc(1.1 * (100vh - 90px) - 24px));
+  max-width: 900px;
   z-index: 1;
   pointer-events: none;
   border-radius: 10px;
@@ -69,7 +69,7 @@
   border: 6px solid #10192a;
   background: #10192a;
   box-shadow: 0 34px 90px rgba(0,0,0,.55);
-  transform: translateY(-50%) perspective(1600px) rotateY(-9deg);
+  transform: perspective(1600px) rotateY(-9deg);
   transform-origin: right center;
 }
 .hero-device img { width: 100%; display: block; }
@@ -148,76 +148,21 @@
   </div>
 </div>
 
-<!-- ABOUT — cream, editorial left column -->
-<section class="cream-bg">
-  <div class="about-split">
-    <div>
-      <div class="sec-label reveal">Who We Are</div>
-      <blockquote class="about-quote reveal d1">
-        "Not just a grant writing shop — a grant thought partner."
-      </blockquote>
-      <div class="about-accent-bar reveal d2"></div>
-      <a href="platform.html" class="btn btn-orange reveal d2" style="margin-top:18px">Explore the Platform</a>
-    </div>
-    <div>
-      <p class="sec-body reveal" style="margin-bottom:24px">
-        <strong>GRANTED</strong> is a turnkey grant solutions company and thought partner to mission-driven organizations navigating the grant landscape. Powered by <strong>IntellEngine</strong>, our proprietary grant intelligence platform, GRANTED identifies high-impact grants and scores them against your mission. Platform is fully automated and self-serve. On Partner and Enterprise, our experts build your strategy, craft winning proposals, and manage compliance as an embedded grants team, so your organization can stay focused on the work and people that matter most.
-      </p>
-      <div class="about-pillars reveal d1">
-        <div class="about-pillar">
-          <div class="about-pillar-title">Find Funding</div>
-          <div class="about-pillar-desc">Stop chasing grants that don't fit. We identify the right opportunities, score them against your mission, and tell you exactly which ones are worth pursuing.</div>
-        </div>
-        <div class="about-pillar">
-          <div class="about-pillar-title">Win Awards</div>
-          <div class="about-pillar-desc">Reviewers score what they see. On Platform, IntellEngine and the AI Proposal Developer draft against the criteria that matter. On Partner and Enterprise, our experts build the narrative, budget, and strategy around what wins.</div>
-        </div>
-        <div class="about-pillar">
-          <div class="about-pillar-title">Manage Impact</div>
-          <div class="about-pillar-desc">Winning is the beginning. On Partner and Enterprise, we keep your award on track through every reporting deadline, compliance requirement, and closeout milestone.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHO WE SERVE — cream -->
-<section class="cream-bg">
-  <div class="section">
-    <div class="sec-label reveal">Who We Serve</div>
-    <h2 class="sec-title reveal d1">Mission-Driven Organizations</h2>
-    <div class="serve-card-light-grid">
-      <div class="serve-card-light reveal d1">
-        <div class="card-title">Nonprofits</div>
-        <p class="card-body" style="margin-top:8px">From community organizations to statewide health systems. Use Platform to find funding that moves your mission forward yourself, or choose Partner or Enterprise and GRANTED does the work for you.</p>
-        <div class="new-serve-num" aria-hidden="true">01</div>
-      </div>
-      <div class="serve-card-light reveal d2">
-        <div class="card-title">Local Governments</div>
-        <p class="card-body" style="margin-top:8px">Counties, cities, and transit authorities. Platform gives you the tools to identify grants yourself; on Partner and Enterprise, GRANTED identifies grants, manages compliance, and delivers results.</p>
-        <div class="new-serve-num" aria-hidden="true">02</div>
-      </div>
-      <div class="serve-card-light reveal d3">
-        <div class="card-title">Higher Education</div>
-        <p class="card-body" style="margin-top:8px">Workforce programs, research partnerships, and capital projects connected to the funding that expands your reach.</p>
-        <div class="new-serve-num" aria-hidden="true">03</div>
-      </div>
-      <div class="serve-card-light reveal d4">
-        <div class="card-title">Healthcare</div>
-        <p class="card-body" style="margin-top:8px">FQHCs, behavioral health providers, and academic medical centers navigating complex federal funding landscapes.</p>
-        <div class="new-serve-num" aria-hidden="true">04</div>
-      </div>
-      <div class="serve-card-light reveal d5">
-        <div class="card-title">Small Businesses</div>
-        <p class="card-body" style="margin-top:8px">Non-dilutive funding exists for businesses ready to grow. Find it yourself with Platform, or have GRANTED find it, scope it, and help you compete on Partner and Enterprise.</p>
-        <div class="new-serve-num" aria-hidden="true">05</div>
-      </div>
-      <div class="serve-card-light reveal d6">
-        <div class="card-title">Regional Economies</div>
-        <p class="card-body" style="margin-top:8px">EDDs, councils of government, and regional conveners building the case for place-based investment.</p>
-        <div class="new-serve-num" aria-hidden="true">06</div>
-      </div>
-    </div>
+<!-- WHO WE SERVE — full-width graphic -->
+<section class="cream-bg sectors-graphic">
+  <img src="sectors.webp" width="2000" height="1125" alt="Every sector, one team. GRANTED serves community and economic development, health and human services, workforce and education, infrastructure and facilities, public safety and resilience, and culture and innovation, for higher education, small business, state and local government, healthcare, and nonprofit organizations." loading="lazy">
+  <div class="sectors-text">
+    <h2 class="sectors-text-h"><span>Every Sector.</span> One Team.</h2>
+    <p class="sectors-text-lede">We work with public agencies and mission-driven organizations across every major federal, state, and foundation funding sector.</p>
+    <ul class="sectors-text-list">
+      <li><strong>Community &amp; Economic Dev.</strong>Economic Development &middot; Rural Development &middot; Small Business &middot; Affordable/Transitional Housing &middot; Homelessness</li>
+      <li><strong>Health &amp; Human Services</strong>Healthcare &middot; Food Security &middot; Veteran Services &middot; Reentry &amp; Justice</li>
+      <li><strong>Workforce &amp; Education</strong>Workforce Development &middot; Education &middot; Youth Services</li>
+      <li><strong>Infrastructure &amp; Facilities</strong>Roads/Transportation &middot; Public Transportation &middot; Water &amp; Wastewater &middot; Broadband &middot; Facilities &amp; Capital Projects &middot; Historic Preservation</li>
+      <li><strong>Public Safety &amp; Resilience</strong>Public Safety &middot; Disaster Recovery &middot; Hazard Mitigation</li>
+      <li><strong>Culture &amp; Innovation</strong>Arts &amp; Culture &middot; Tech R&amp;D</li>
+    </ul>
+    <p class="sectors-text-orgs">Organizations we serve: Higher Ed &middot; Small Biz &middot; State &amp; Local Government &middot; Healthcare &middot; Nonprofits &middot; Development Organizations</p>
   </div>
 </section>
 
@@ -225,8 +170,7 @@
 <div class="cta-band">
   <div class="cta-band-bg" aria-hidden="true">FUNDED</div>
   <div class="cta-inner">
-    <div class="cta-headline">Ready to Find<br>Your Funding?</div>
-    <div class="cta-sub">You bring the vision. We chart the path to fund it.</div>
+    <div class="cta-headline">Ready to Find Your Funding?</div>
     <a href="recommend.html" class="btn btn-orange">Get Started</a>
   </div>
 </div>
