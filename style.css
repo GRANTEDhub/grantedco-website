@@ -1403,8 +1403,5 @@ a { text-decoration: none; color: inherit; }
   .about-text-h { font-family: 'Bebas Neue', sans-serif; font-size: 56px; line-height: 0.95; color: var(--ink); font-weight: 400; margin-bottom: 12px; }
   .about-text-h span { display: block; }
   .about-text-pillars { color: var(--orange-ink); font-size: 9pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 20px; }
-  .about-text-body { color: var(--ink-2); font-size: 11pt; margin-bottom: 28px; }
-  .about-text-stats { list-style: none; padding: 20px 0 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-top: 1px solid var(--border); }
-  .about-text-stats li { color: var(--muted); font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
-  .about-text-stats strong { display: block; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 32px; letter-spacing: 1px; color: var(--orange); margin-bottom: 2px; }
+  .about-text-body { color: var(--ink-2); font-size: 11pt; }
 }
