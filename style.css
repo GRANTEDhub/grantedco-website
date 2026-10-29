@@ -1363,3 +1363,7 @@ a { text-decoration: none; color: inherit; }
   .hero-light-stat { flex: 1 1 50%; border-bottom: none; padding: 14px 0; }
   .hero-light-stat:nth-child(odd) { border-right: 1px solid var(--border); padding-right: 14px; margin-right: 14px; }
 }
+
+/* Home: full-width "Every Sector. One Team." graphic */
+.sectors-graphic { line-height: 0; }
+.sectors-graphic img { width: 100%; height: auto; display: block; }
