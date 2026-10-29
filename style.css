@@ -1367,7 +1367,13 @@ a { text-decoration: none; color: inherit; }
 
 /* Home: full-width "Every Sector. One Team." graphic */
 .sectors-graphic { line-height: 0; }
-.sectors-graphic img { width: 100%; height: auto; display: block; }
+.sectors-graphic img {
+  width: 85%; height: auto; display: block; margin: 0 auto;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent), linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent), linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent);
+  mask-composite: intersect;
+}
 
 /* Phones: swap the infographic for readable text */
 .sectors-text { display: none; }
