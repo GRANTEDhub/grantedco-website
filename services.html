@@ -142,6 +142,22 @@
 .eng-list li { position: relative; padding: 8px 0 8px 18px; border-top: 1px solid var(--border); font-size: 9.5pt; color: var(--ink); line-height: 1.5; }
 .eng-list li::before { content: ''; position: absolute; left: 0; top: 15px; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
 .eng-close { margin-top: auto; padding-top: 16px; font-size: 9.5pt; font-weight: 700; color: var(--navy); }
+.engage-graphics { background: var(--cream); line-height: 0; }
+.engage-img { width: 100%; height: auto; display: block; }
+.engage-text { display: none; }
+@media(max-width: 700px) {
+  .engage-img { display: none; }
+  .engage-graphics { line-height: 1.5; padding: 8px 20px 24px; }
+  .engage-text { display: block; background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--orange); padding: 24px 22px; margin-bottom: 20px; }
+  .engage-text-h { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 44px; color: var(--orange); line-height: 1; margin-bottom: 12px; }
+  .engage-text-lede { font-size: 10.5pt; color: var(--ink-2); margin-bottom: 18px; }
+  .engage-text-label { font-size: 7.5pt; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--orange-ink, #A8501A); margin: 16px 0 6px; }
+  .engage-text-list { list-style: none; padding: 0; margin: 0; }
+  .engage-text-list li { position: relative; padding: 8px 0 8px 18px; border-top: 1px solid var(--border); font-size: 10pt; color: var(--ink); }
+  .engage-text-list li::before { content: ''; position: absolute; left: 0; top: 15px; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
+  .engage-text-note { margin-top: 14px; padding-left: 12px; border-left: 2px solid var(--orange); font-size: 9.5pt; color: var(--ink-2); }
+  .engage-text-note strong { color: var(--ink); }
+}
 .pkg-desc-mobile { display: none; }
 @media(max-width: 700px) { .eng-cards { grid-template-columns: 1fr; } }
 @media(max-width: 640px) {
@@ -179,77 +195,35 @@
   <div class="sec-label">Engagement Options</div>
   <div class="sec-title">How to Work with GRANTED</div>
   <p class="sec-body" style="margin-bottom:22px">We meet organizations where they are, with several ways to engage.</p>
-  <div class="pkg-desc-mobile">
-    <p><strong>Platform &mdash; Self-serve, experts on call.</strong> Subscribe to IntellEngine, GRANTED's platform that continuously matches, scores, and surfaces grants against your profile, with GRANTED available on call whenever you need writing or strategy help.</p>
-    <p><strong>Partner &mdash; Your turnkey grants office.</strong> Engage GRANTED as your turnkey grants office and thought partner, guiding your full grant strategy from search through award.</p>
-  </div>
-  <div class="pkg-wrap">
-    <table class="pkg-table">
-      <thead>
-        <tr>
-          <th class="pkg-svc-head">Service</th>
-          <th class="pkg-col"><div class="pkg-col-name">Platform</div><div class="pkg-col-desc">Self-serve, experts on call</div><p class="pkg-col-text">Subscribe to IntellEngine, GRANTED's platform that continuously matches, scores, and surfaces grants against your profile, with GRANTED available on call whenever you need writing or strategy help.</p></th>
-          <th class="pkg-col pkg-partner"><div class="pkg-col-name">Partner</div><div class="pkg-col-desc">Your turnkey grants office</div><p class="pkg-col-text">Engage GRANTED as your turnkey grants office and thought partner, guiding your full grant strategy from search through award.</p></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="pkg-group"><td colspan="3">IntellEngine Platform</td></tr>
-        <tr>
-          <td class="pkg-row-svc">Live grant alerts</td>
-          <td class="pkg-cell"><span class="ck ck-build"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-        </tr>
-        <tr>
-          <td class="pkg-row-svc">Automated concept proposals</td>
-          <td class="pkg-cell"><span class="ck ck-build"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-        </tr>
-        <tr>
-          <td class="pkg-row-svc">Grant pipeline CRM</td>
-          <td class="pkg-cell"><span class="ck ck-build"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-        </tr>
-        <tr>
-          <td class="pkg-row-svc">AI Proposal Developer</td>
-          <td class="pkg-cell"><span class="ck ck-build"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-        </tr>
-        <tr>
-          <td class="pkg-row-svc">GrantBot support</td>
-          <td class="pkg-cell"><span class="ck ck-build"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-        </tr>
-        <tr class="pkg-group"><td colspan="3">GRANTED Experts</td></tr>
-        <tr>
-          <td class="pkg-row-svc">Initial grant report (top 5–10 scored grants)</td>
-          <td class="pkg-cell"><span class="pkg-na">Add-on</span></td>
-          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-        </tr>
-        <tr>
-          <td class="pkg-row-svc">SME proposal review</td>
-          <td class="pkg-cell"><span class="pkg-na">Available ad&#8209;hoc</span></td>
-          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-        </tr>
-        <tr>
-          <td class="pkg-row-svc">Strategic grant advisory</td>
-          <td class="pkg-cell"><span class="pkg-na">Available ad&#8209;hoc</span></td>
-          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-        </tr>
-        <tr>
-          <td class="pkg-row-svc">Grant writing</td>
-          <td class="pkg-cell"><span class="pkg-na">Available ad&#8209;hoc</span></td>
-          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span></td>
-        </tr>
-        <tr>
-          <td class="pkg-row-svc">Grant management</td>
-          <td class="pkg-cell"><span class="pkg-na">Available ad&#8209;hoc</span></td>
-          <td class="pkg-cell pkg-partner"><span class="ck ck-partner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span><sup class="pkg-star">*</sup></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="pkg-foot"><strong>* Grant management is included on Partner.</strong> Where the grant allows, we build administration and compliance into the proposal budget, so it is typically covered by the award itself. Platform clients can engage GRANTED experts ad-hoc for review, advisory, writing, and management on a per-pursuit basis.</p>
+</div>
 
+<section class="engage-graphics">
+  <img class="engage-img" src="engage-platform.webp" width="2000" height="1125" loading="lazy" alt="How we work: Platform. Subscribe to IntellEngine, GRANTED's platform that continuously matches, scores, and surfaces grants against your profile, with GRANTED available on call whenever you need writing or strategy help. Included: live grant alerts, automated concept proposals, grant pipeline CRM, AI Proposal Developer, GrantBot support. Available ad-hoc from GRANTED experts: SME proposal review, strategic grant advisory, grant writing, grant management. Flexible billing: pay monthly or annually, save 16% with a 12-month commitment up front. Ad-hoc GRANTED help: grant writing, advisory, and management are available to Platform clients at flat, not-to-exceed fees scoped per pursuit. Bundle the grant report: add a one-time grant report to an annual Platform subscription at a discounted rate.">
+  <div class="engage-text">
+    <h3 class="engage-text-h">Platform.</h3>
+    <p class="engage-text-lede">Subscribe to IntellEngine, GRANTED's platform that continuously matches, scores, and surfaces grants against your profile, with GRANTED available on call whenever you need writing or strategy help.</p>
+    <div class="engage-text-label">Included</div>
+    <ul class="engage-text-list"><li>Live grant alerts</li><li>Automated concept proposals</li><li>Grant pipeline CRM</li><li>AI Proposal Developer</li><li>GrantBot support</li></ul>
+    <div class="engage-text-label">Available ad-hoc from GRANTED experts</div>
+    <ul class="engage-text-list"><li>SME proposal review</li><li>Strategic grant advisory</li><li>Grant writing</li><li>Grant management</li></ul>
+    <div class="engage-text-note"><strong>Flexible billing.</strong> Pay monthly or annually. Save 16% with a 12-month commitment up front.</div>
+    <div class="engage-text-note"><strong>Ad-hoc GRANTED help.</strong> Grant writing, advisory, and management are available to Platform clients at flat, not-to-exceed fees scoped per pursuit.</div>
+    <div class="engage-text-note"><strong>Bundle the grant report.</strong> Add a one-time grant report to an annual Platform subscription at a discounted rate.</div>
+  </div>
+  <img class="engage-img" src="engage-partner.webp" width="2000" height="1125" loading="lazy" alt="How we work: Partner. Engage GRANTED as your turnkey grants office and thought partner, guiding your full grant strategy from search through award. Included, IntellEngine platform: live grant alerts, automated concept proposals, grant pipeline CRM, AI Proposal Developer, GrantBot support. Included, GRANTED experts: initial grant report (top 5-10 grants scored and ready to act on within your first 12 months), SME proposal review, strategic grant advisory, grant writing, grant management. Flexible billing: pay monthly or annually, save 16% with a 12-month commitment up front. Initial grant report included at no additional cost as part of Partner.">
+  <div class="engage-text">
+    <h3 class="engage-text-h">Partner.</h3>
+    <p class="engage-text-lede">Engage GRANTED as your turnkey grants office and thought partner, guiding your full grant strategy from search through award.</p>
+    <div class="engage-text-label">Included: IntellEngine platform</div>
+    <ul class="engage-text-list"><li>Live grant alerts</li><li>Automated concept proposals</li><li>Grant pipeline CRM</li><li>AI Proposal Developer</li><li>GrantBot support</li></ul>
+    <div class="engage-text-label">Included: GRANTED experts</div>
+    <ul class="engage-text-list"><li>Initial grant report &mdash; top 5&ndash;10 grants scored and ready to act on within your first 12 months</li><li>SME proposal review</li><li>Strategic grant advisory</li><li>Grant writing</li><li>Grant management</li></ul>
+    <div class="engage-text-note"><strong>Flexible billing.</strong> Pay monthly or annually. Save 16% with a 12-month commitment up front.</div>
+    <div class="engage-text-note"><strong>Initial grant report: included.</strong> Your top 5&ndash;10 scored grants for the next 12 months, included at no additional cost as part of Partner.</div>
+  </div>
+</section>
+
+<div class="section" style="padding-top:0">
   <div class="eng-cards">
     <div class="eng-card">
       <div class="pkg-col-name">Counsel</div>
