@@ -116,7 +116,7 @@ var CONFIG = {
   },
 
   // Shown on the results screen when a quiz answer locks the tier.
-  forcedNote: 'Because you apply on behalf of multiple entities, we recommend Enterprise.',
+  forcedNote: 'Because you apply on behalf of multiple entities or departments, we recommend Enterprise.',
   // Shown when Platform is selected and the monthly budget answer is below Platform's price.
   budgetNote: 'Platform starts at $250/mo, which is above the budget you selected. Scheduling a call is a good way to talk through options.',
 
@@ -146,24 +146,27 @@ var CONFIG = {
         { label: 'Under $100K',        w: { platform: 2 } },
         { label: '$100K to $500K',     w: { platform: 1, partner: 2 } },
         { label: '$500K to $2M',       w: { partner: 2, enterprise: 1 } },
-        { label: 'Over $2M',           w: { partner: 1, enterprise: 3 } }
+        { label: 'Over $2M',           w: { partner: 1, enterprise: 3 } },
+        { label: 'Not sure yet',       w: {} }
       ] },
     { id: 'funders', text: 'Where does most of your funding come from, or where do you want it to?',
       options: [
         { label: 'Mostly foundations and private funders',          w: { platform: 2 } },
         { label: 'Mostly state and local government',               w: { platform: 1, partner: 1 } },
         { label: 'Mostly federal agencies',                         w: { partner: 2, enterprise: 1 } },
-        { label: 'A mix of federal, state, and private',            w: { partner: 1, enterprise: 2 } }
+        { label: 'A mix of federal, state, and private',            w: { partner: 1, enterprise: 2 } },
+        { label: 'Not applicable / currently unfunded',             w: { platform: 1 } }
       ] },
     { id: 'postaward', text: 'How do you want to handle post-award management?',
       hint: 'Reporting, compliance, drawdowns, and closeout after you win.',
       options: [
         { label: 'We handle it ourselves',                          w: { platform: 2 } },
         { label: 'We need help with reporting',                     w: { partner: 2 } },
-        { label: 'We need full compliance management',              w: { partner: 1, enterprise: 2 } }
+        { label: 'We need full compliance management',              w: { partner: 1, enterprise: 2 } },
+        { label: 'Not sure yet',                                    w: {} }
       ] },
     { id: 'multi', text: 'Do you apply for grants on behalf of multiple entities?',
-      hint: 'For example, several organizations, subsidiaries, member groups, or clients. Answering yes recommends Enterprise.',
+      hint: 'For example, several organizations, subsidiaries, member groups, clients, or separate departments or campuses that apply on their own. Answering yes recommends Enterprise.',
       options: [
         { label: 'Yes', force: 'enterprise', w: { enterprise: 3 } },
         { label: 'No',  w: { platform: 1 } }
