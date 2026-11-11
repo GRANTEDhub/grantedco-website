@@ -54,7 +54,10 @@ fieldset{border:none;min-width:0}
 .cta-panel{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-card);display:flex;flex-wrap:wrap;align-items:center;gap:0.875rem 1.375rem}
 .cta-secondary{font-size:9pt;font-weight:700;color:var(--orange-ink);text-decoration:underline;text-underline-offset:0.1875rem}
 .cta-secondary:hover{color:var(--orange)}
-.tier-toggle{display:inline-flex;align-items:center;gap:0.375rem;align-self:flex-start;margin-top:0.875rem;padding:0.25rem 0;background:none;border:none;font:inherit;font-size:7.5pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-ink);cursor:pointer}
+.tier-wrap{position:relative;display:flex}
+.tier-wrap .tier-card{flex:1;padding-bottom:3.25rem}
+.tier-wrap .tier-toggle{position:absolute;left:1.25rem;bottom:1rem}
+.tier-toggle{display:inline-flex;align-items:center;gap:0.375rem;padding:0.25rem 0;background:none;border:none;font:inherit;font-size:7.5pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-ink);cursor:pointer}
 .tier-toggle:hover{color:var(--orange)}
 .tier-toggle:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
 .plan-panel{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);margin-top:1.25rem;border:1px solid var(--orange);border-top-width:0.1875rem;box-shadow:0 0.75rem 2rem rgba(12,18,31,.1);background:var(--white);scroll-margin-top:5rem}
@@ -377,22 +380,28 @@ var CONFIG = {
     CONFIG.tierOrder.forEach(function (t) {
       var d = CONFIG.tiers[t];
       var input = el('input', { type: 'radio', name: 'tier', value: t, checked: t === selected });
-      input.addEventListener('change', function () { selected = t; open = true; update(); });
+      input.addEventListener('change', function () { selected = t; open = true; update(true); });
       var price = el('div', { class: 'tier-price' + (d.priceUnit ? '' : ' is-custom') }, [document.createTextNode(d.price)]);
       if (d.priceUnit) price.appendChild(el('span', { text: d.priceUnit }));
-      var tog = el('button', { type: 'button', class: 'tier-toggle', 'aria-controls': 'plan-panel' });
-      tog.addEventListener('click', function () {
-        if (selected === t) { open = !open; }
-        else { selected = t; open = true; input.checked = true; }
-        update();
-      });
-      toggles[t] = tog;
-      grid.appendChild(el('label', { class: 'tier-card' }, [
-        input,
-        t === rec.tier ? el('span', { class: 'tier-badge', text: 'Recommended' }) : null,
-        el('div', { class: 'tier-name', text: d.name }),
-        price,
-        el('p', { class: 'tier-blurb', text: d.blurb }),
+      var hasDetails = !!CONFIG.details[t];
+      var tog = null;
+      if (hasDetails) {
+        tog = el('button', { type: 'button', class: 'tier-toggle', 'aria-controls': 'plan-panel' });
+        tog.addEventListener('click', function () {
+          if (selected === t) { open = !open; }
+          else { selected = t; open = true; input.checked = true; }
+          update(true);
+        });
+        toggles[t] = tog;
+      }
+      grid.appendChild(el('div', { class: 'tier-wrap' }, [
+        el('label', { class: 'tier-card' }, [
+          input,
+          t === rec.tier ? el('span', { class: 'tier-badge', text: 'Recommended' }) : null,
+          el('div', { class: 'tier-name', text: d.name }),
+          price,
+          el('p', { class: 'tier-blurb', text: d.blurb })
+        ]),
         tog
       ]));
     });
@@ -479,20 +488,22 @@ var CONFIG = {
     edit.addEventListener('click', function () { step = Q.length - 1; renderQuestion(); focusTo(root.querySelector('legend')); });
     root.appendChild(el('div', { class: 'q-nav' }, [edit, restart]));
 
-    function update() {
+    function update(userAction) {
       var d = CONFIG.tiers[selected];
+      var showPanel = open && !!CONFIG.details[selected];   // a tier with no details entry just shows its CTA
       CONFIG.tierOrder.forEach(function (t) {
-        var isOpen = selected === t && open;
+        if (!toggles[t]) return;
+        var isOpen = selected === t && showPanel;
         toggles[t].textContent = isOpen ? 'Hide plan details ↑' : 'View plan details ↓';
         toggles[t].setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
       panel.textContent = '';
-      panel.hidden = !open;
-      if (open) buildPanel(selected);
+      panel.hidden = !showPanel;
+      if (showPanel) buildPanel(selected);
       // The panel carries its own CTA; show the standalone one only while the panel is collapsed.
       ctaPanel.textContent = '';
-      ctaPanel.hidden = open;
-      if (!open) ctaNodes(d).forEach(function (n) { ctaPanel.appendChild(n); });
+      ctaPanel.hidden = showPanel;
+      if (!showPanel) ctaNodes(d).forEach(function (n) { ctaPanel.appendChild(n); });
 
       var msg = '';
       if (selected !== rec.tier) {
@@ -503,6 +514,11 @@ var CONFIG = {
       if (selected === 'platform' && belowPlatformBudget()) msg += (msg ? ' ' : '') + CONFIG.budgetNote;
       note.textContent = msg;
       note.hidden = !msg;
+      // Stacked (mobile) layout: the panel sits below all three tiles, so bring it into view.
+      if (userAction && showPanel && window.matchMedia('(max-width:860px)').matches) {
+        var calm = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+        panel.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'start' });
+      }
     }
     update();
     focusTo(heading);
