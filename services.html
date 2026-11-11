@@ -143,7 +143,7 @@
 .eng-list li::before { content: ''; position: absolute; left: 0; top: 0.9375rem; width: 0.4375rem; height: 0.4375rem; border-radius: 50%; background: var(--orange); }
 .eng-close { margin-top: auto; padding-top: 1rem; font-size: 9.5pt; font-weight: 700; color: var(--navy); }
 .engage-graphics { background: var(--cream); line-height: 0; }
-.engage-img { width: 100%; height: auto; display: block; }
+.engage-img { width: 100%; max-width: min(100%, 1500px, calc((100vh - 6rem) * 16 / 9)); height: auto; display: block; margin: 0 auto 2rem; box-shadow: 0 0.5rem 2rem rgba(12,18,31,0.12); }
 .engage-text { display: none; }
 @media(max-width: 700px) {
   .engage-img { display: none; }
