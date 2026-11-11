@@ -9,24 +9,24 @@
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:28px}
-.res-card{background:var(--cream);padding:28px 24px;display:flex;flex-direction:column;gap:8px;transition:background .2s}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:1.75rem}
+.res-card{background:var(--cream);padding:1.75rem 1.5rem;display:flex;flex-direction:column;gap:0.5rem;transition:background .2s}
 .res-card:hover{background:var(--gray-card)}
 .res-tag{font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
-.res-title{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--navy);letter-spacing:1.5px;line-height:1.1}
+.res-title{font-family:'Bebas Neue',sans-serif;font-size:1.125rem;color:var(--navy);letter-spacing:1.5px;line-height:1.1}
 .res-body{font-size:9.5pt;color:var(--ink-2);line-height:1.72;flex:1}
 .res-source{font-size:8pt;color:var(--muted);margin-top:2px}
-.res-link{font-size:8.5pt;font-weight:700;color:var(--orange);letter-spacing:.06em;margin-top:4px;display:inline-block;transition:opacity .2s}
+.res-link{font-size:8.5pt;font-weight:700;color:var(--orange);letter-spacing:.06em;margin-top:0.25rem;display:inline-block;transition:opacity .2s}
 .res-link:hover{opacity:.75}
-.faq-list{display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.08);margin-top:28px}
+.faq-list{display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.08);margin-top:1.75rem}
 .faq-item{border-bottom:1px solid rgba(255,255,255,.08)}
 .faq-item:last-child{border-bottom:none}
-.faq-btn{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-btn{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.375rem 1.75rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .faq-btn:hover{background:rgba(255,255,255,.03)}
 .faq-q{font-size:10.5pt;font-weight:800;color:var(--white);text-align:left;line-height:1.4}
-.faq-chev{width:16px;height:16px;flex-shrink:0;color:var(--orange);transition:transform .2s}
+.faq-chev{width:1rem;height:1rem;flex-shrink:0;color:var(--orange);transition:transform .2s}
 .faq-item.open .faq-chev{transform:rotate(180deg)}
-.faq-ans{display:none;padding:0 28px 22px;font-size:9.5pt;color:rgba(255,255,255,.6);line-height:1.8}
+.faq-ans{display:none;padding:0 1.75rem 1.375rem;font-size:9.5pt;color:rgba(255,255,255,.6);line-height:1.8}
 .faq-ans a{color:var(--orange)}
 .faq-item.open .faq-ans{display:block}
 @media(max-width:768px){.res-grid{grid-template-columns:1fr}}
@@ -53,7 +53,7 @@
 <div class="dark-band">
   <div class="dark-band-inner">
     <div class="sec-label" style="color:var(--orange);border-color:var(--orange)">Common Questions</div>
-    <div class="sec-title" style="color:var(--white);margin-bottom:28px">Frequently Asked</div>
+    <div class="sec-title" style="color:var(--white);margin-bottom:1.75rem">Frequently Asked</div>
     <div class="faq-list">
       <div class="faq-item"><button class="faq-btn"><span class="faq-q">What types of organizations does GRANTED work with?</span><svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-ans">We work with nonprofits, local governments, community colleges, regional health systems, and small businesses. If your organization is pursuing grant funding and needs a strategic partner, we're built for that.</div></div>
       <div class="faq-item"><button class="faq-btn"><span class="faq-q">Do you offer pro bono or discounted services?</span><svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-ans">Depending on availability and alignment, we occasionally offer scaled-down engagements for qualifying early-stage organizations. Reach out directly to discuss what makes sense for your situation.</div></div>
@@ -64,11 +64,11 @@
   </div>
 </div>
 
-<div class="section" style="text-align:center;padding-top:72px;padding-bottom:72px">
-  <div class="sec-label" style="display:block;text-align:center;border-bottom:none;padding-bottom:0;margin-bottom:14px">Still Have Questions?</div>
-  <div class="sec-title" style="text-align:center;margin-bottom:14px">We're Here to Help</div>
-  <p class="sec-body" style="margin:0 auto 28px;text-align:center">Answer a few quick questions and we'll point you to the right level of support.</p>
-  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<div class="section" style="text-align:center;padding-top:4.5rem;padding-bottom:4.5rem">
+  <div class="sec-label" style="display:block;text-align:center;border-bottom:none;padding-bottom:0;margin-bottom:0.875rem">Still Have Questions?</div>
+  <div class="sec-title" style="text-align:center;margin-bottom:0.875rem">We're Here to Help</div>
+  <p class="sec-body" style="margin:0 auto 1.75rem;text-align:center">Answer a few quick questions and we'll point you to the right level of support.</p>
+  <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
     <a href="recommend.html" class="btn btn-orange">Get Started</a>
   </div>
 </div>
