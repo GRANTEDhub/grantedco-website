@@ -9,41 +9,41 @@
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-.careers-layout{display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start}
+.careers-layout{display:grid;grid-template-columns:1fr 20rem;gap:2.5rem;align-items:start}
 .job-shell{background:var(--white);border:1px solid var(--border);overflow:hidden}
-.job-head{background:var(--navy);padding:28px 32px;border-bottom:3px solid var(--orange);position:relative;overflow:hidden}
-.job-head::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
-.job-head::after{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;border:32px solid rgba(228,118,31,.06);pointer-events:none}
-.job-head-eye{font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:6px;position:relative;z-index:2}
-.job-head-title{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);letter-spacing:2px;margin-bottom:4px;position:relative;z-index:2}
+.job-head{background:var(--navy);padding:1.75rem 2rem;border-bottom:0.1875rem solid var(--orange);position:relative;overflow:hidden}
+.job-head::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:1.375rem 1.375rem;pointer-events:none}
+.job-head::after{content:'';position:absolute;right:-2.5rem;top:-2.5rem;width:11.25rem;height:11.25rem;border-radius:50%;border:2rem solid rgba(228,118,31,.06);pointer-events:none}
+.job-head-eye{font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:0.375rem;position:relative;z-index:2}
+.job-head-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--white);letter-spacing:2px;margin-bottom:0.25rem;position:relative;z-index:2}
 .job-head-meta{font-size:8.5pt;color:rgba(255,255,255,.38);letter-spacing:.06em;position:relative;z-index:2}
-.job-body{padding:36px 32px;display:flex;flex-direction:column;gap:32px}
+.job-body{padding:2.25rem 2rem;display:flex;flex-direction:column;gap:2rem}
 .job-sec{}
-.job-sec-title{font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--navy);letter-spacing:1.5px;margin-bottom:12px;padding-bottom:7px;border-bottom:1px solid var(--border)}
+.job-sec-title{font-family:'Bebas Neue',sans-serif;font-size:1.0625rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:0.75rem;padding-bottom:0.4375rem;border-bottom:1px solid var(--border)}
 .job-text{font-size:10pt;color:var(--ink-2);line-height:1.82}
-.job-text p+p{margin-top:12px}
+.job-text p+p{margin-top:0.75rem}
 .job-text strong{color:var(--navy);font-weight:800}
-.req-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:12px}
-.req-list li{font-size:10pt;color:var(--ink-2);padding-left:18px;position:relative;line-height:1.6}
-.req-list li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--orange)}
+.req-list{list-style:none;display:flex;flex-direction:column;gap:0.625rem;margin-top:0.75rem}
+.req-list li{font-size:10pt;color:var(--ink-2);padding-left:1.125rem;position:relative;line-height:1.6}
+.req-list li::before{content:'';position:absolute;left:0;top:0.5rem;width:0.375rem;height:0.375rem;background:var(--orange)}
 .req-list li strong{color:var(--navy);font-weight:800}
-.sidebar{display:flex;flex-direction:column;gap:16px}
-.apply-block{background:var(--navy);padding:28px 22px;text-align:center;position:relative;overflow:hidden}
-.apply-block::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
-.ab-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--white);letter-spacing:2px;margin-bottom:8px;position:relative;z-index:2}
-.ab-body{font-size:8.5pt;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:18px;position:relative;z-index:2}
-.sb-block{background:var(--gray-card);border:1px solid var(--border);padding:22px 20px}
-.sb-title{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--navy);letter-spacing:1.5px;margin-bottom:12px}
+.sidebar{display:flex;flex-direction:column;gap:1rem}
+.apply-block{background:var(--navy);padding:1.75rem 1.375rem;text-align:center;position:relative;overflow:hidden}
+.apply-block::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:1.375rem 1.375rem;pointer-events:none}
+.ab-title{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:var(--white);letter-spacing:2px;margin-bottom:0.5rem;position:relative;z-index:2}
+.ab-body{font-size:8.5pt;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:1.125rem;position:relative;z-index:2}
+.sb-block{background:var(--gray-card);border:1px solid var(--border);padding:1.375rem 1.25rem}
+.sb-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--navy);letter-spacing:1.5px;margin-bottom:0.75rem}
 .sb-body{font-size:9.5pt;color:var(--ink-2);line-height:1.75}
-.comp-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);align-items:baseline}
+.comp-row{display:flex;justify-content:space-between;padding:0.625rem 0;border-bottom:1px solid var(--border);align-items:baseline}
 .comp-row:last-child{border-bottom:none}
 .comp-lbl{font-size:8.5pt;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
 .comp-val{font-size:9.5pt;font-weight:700;color:var(--navy)}
-.aspiration-band{background:var(--navy);border-radius:0;position:relative;overflow:hidden;margin-bottom:32px}
-.aspiration-band::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:20px 20px;pointer-events:none}
-.aspiration-inner{padding:32px;position:relative;z-index:2}
+.aspiration-band{background:var(--navy);border-radius:0;position:relative;overflow:hidden;margin-bottom:2rem}
+.aspiration-band::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:1.25rem 1.25rem;pointer-events:none}
+.aspiration-inner{padding:2rem;position:relative;z-index:2}
 .aspiration-body{font-size:10.5pt;color:rgba(255,255,255,.68);line-height:1.82}
-.aspiration-body p+p{margin-top:12px}
+.aspiration-body p+p{margin-top:0.75rem}
 .aspiration-body strong{color:var(--white);font-weight:800}
 @media(max-width:900px){.careers-layout{grid-template-columns:1fr}.sidebar{order:-1}}
 </style>
@@ -60,7 +60,7 @@
       <!-- ASPIRATION BAND -->
       <div class="aspiration-band reveal">
         <div class="aspiration-inner">
-          <div style="font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:8px">A Small Team with Big Aspirations</div>
+          <div style="font-size:7pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:0.5rem">A Small Team with Big Aspirations</div>
           <div class="aspiration-body">
             <p>GRANTED is a tech-enabled grant advisory firm based in Bentonville, Arkansas. We help nonprofits, local governments, higher education, and small businesses find, win, and manage grant funding, with <strong>over $100 million in non-dilutive funding secured</strong> for our clients.</p>
             <p>We're at a pivotal moment, transitioning from boutique firm to <strong>AI-native platform</strong> built to scale our mission nationally. The founding team has built companies before, knows what it doesn't know, and is genuinely invested in the growth of people around them.</p>
@@ -90,7 +90,7 @@
             <div class="job-text">
               <p>Education and experience aren't always reliable hiring metrics, especially in a startup. What we need is someone who can adapt quickly, contribute across shifting areas of the business, and bring real capability from day one. Here's what that looks like.</p>
             </div>
-            <div class="trait-grid" style="margin-top:16px">
+            <div class="trait-grid" style="margin-top:1rem">
               <div class="trait-card">
                 <div class="trait-num">01</div>
                 <div class="trait-icon">
@@ -131,7 +131,7 @@
             <div class="job-text">
               <p>We'd love to see experience in grant writing or research, go-to-market strategy, startup environments, vibe coding or low-code automation, and operations. But none of it is a dealbreaker.</p>
               <p>If you've held a role that required you to context-switch constantly, operate across multiple disciplines, and figure things out on the fly: tell us about it.</p>
-              <p style="margin-top:16px"><strong>Three things are required. Everything else is negotiable.</strong></p>
+              <p style="margin-top:1rem"><strong>Three things are required. Everything else is negotiable.</strong></p>
             </div>
             <ul class="req-list">
               <li><strong>Bachelor's degree</strong></li>
